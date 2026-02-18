@@ -1,0 +1,33 @@
+title: "SolarWAVE Action"
+description: "Advancing distributed solar ownership rights through data analysis, education, and advocacy."
+
+remote_theme: "mmistakes/minimal-mistakes@4.27.3"
+
+# url: "https://yourdomain.org"
+# baseurl: ""
+
+# Logo
+logo: "/assets/images/SolarWAVEActionLogoSmall.png"
+
+# Search
+search_enabled: true
+
+# Navigation structure
+nav_sort: case_insensitive
+
+# Footer content
+footer_content: "© 2026 SolarWAVE Action | All Rights Reserved"
+
+# Enable collections for publications
+collections:
+  publications:
+    output: true
+    permalink: /:collection/:name/
+
+# Default layouts
+defaults:
+  - scope:
+      path: ""
+      type: "publications"
+    values:
+      layout: "default"
