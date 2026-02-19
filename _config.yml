@@ -20,28 +20,28 @@ collections:
     output: true
     permalink: /:collection/:name/
 
-lsi: false
-safe: true
-#source: "solarwave-website"
-incremental: false
-highlighter: rouge
-gist:
-  noscript: false
-kramdown:
-  math_engine: mathjax
-  syntax_highlighter: rouge
+#lsi: false
+#safe: true
+##source: "solarwave-website"
+#incremental: false
+#highlighter: rouge
+#gist:
+#  noscript: false
+#kramdown:
+#  math_engine: mathjax
+#  syntax_highlighter: rouge
 
-# Logo
-logo: "/assets/images/SolarWAVEActionLogoSmall.png"
-
-# Search
-search_enabled: true
-
-# Navigation structure
-nav_sort: case_insensitive
-
-# Footer content
-footer_content: "© 2026 SolarWAVE Action | All Rights Reserved"
+## Logo
+#logo: "/assets/images/SolarWAVEActionLogoSmall.png"
+#
+## Search
+#search_enabled: true
+#
+## Navigation structure
+#nav_sort: case_insensitive
+#
+## Footer content
+#footer_content: "© 2026 SolarWAVE Action | All Rights Reserved"
 
 ## Default layouts
 #defaults:
