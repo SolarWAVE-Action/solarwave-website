@@ -1,0 +1,303 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@import "minimal-mistakes";
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:opsz@8..60&family=Manrope:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --ink: #0b1b1f;
+  --ink-soft: #1f3237;
+  --mist: #f3f5f1;
+  --sand: #f7f1e7;
+  --sun: #f6c64f;
+  --sea: #2b6f7a;
+  --sea-deep: #0f3a43;
+  --accent: #de5b3d;
+  --card: #ffffff;
+  --shadow: 0 18px 45px rgba(11, 27, 31, 0.12);
+}
+
+body {
+  font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 20% 10%, rgba(246, 198, 79, 0.2), transparent 45%),
+    radial-gradient(circle at 80% 0%, rgba(43, 111, 122, 0.18), transparent 40%),
+    linear-gradient(180deg, #fbfaf7 0%, #f2f5f2 55%, #eff1ee 100%);
+}
+
+h1, h2, h3 {
+  font-family: "Instrument Serif", "Times New Roman", serif;
+  letter-spacing: -0.01em;
+}
+
+.page__content {
+  max-width: 1100px;
+}
+
+.hero {
+  position: relative;
+  padding: 6rem 2.5rem 4.5rem;
+  margin: 2.5rem auto 4rem;
+  border-radius: 32px;
+  background: linear-gradient(140deg, rgba(15, 58, 67, 0.92), rgba(11, 27, 31, 0.92));
+  color: #fff;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(246, 198, 79, 0.35), transparent 55%);
+  pointer-events: none;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.hero__logo {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 22px;
+  padding: 1.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.hero__logo img {
+  max-width: 220px;
+  height: auto;
+}
+
+.hero__title {
+  font-size: clamp(2.4rem, 3.8vw, 3.6rem);
+  margin: 0 0 1rem;
+}
+
+.hero__lead {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 2rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.hero__actions .btn {
+  border-radius: 999px;
+  padding: 0.8rem 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.btn--primary {
+  background: var(--sun);
+  color: var(--ink);
+  border: none;
+}
+
+.btn--inverse {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.section-title {
+  font-size: clamp(1.7rem, 2.6vw, 2.5rem);
+  margin: 0 0 1.2rem;
+  color: var(--sea-deep);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.6rem;
+  margin-bottom: 3.5rem;
+}
+
+.card {
+  background: var(--card);
+  padding: 1.8rem;
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(11, 27, 31, 0.08);
+}
+
+.card h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: var(--sea-deep);
+}
+
+.card p {
+  color: var(--ink-soft);
+}
+
+.highlight {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.highlight__item {
+  padding: 1.2rem 1.4rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 14px;
+}
+
+.highlight__item a {
+  color: var(--sea);
+  font-weight: 600;
+}
+
+.values {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.4rem;
+  margin-bottom: 4rem;
+}
+
+.value {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 1.4rem;
+  border: 1px solid rgba(15, 58, 67, 0.08);
+}
+
+.value strong {
+  display: block;
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+  color: var(--sea-deep);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.footer-links a {
+  color: var(--sea-deep);
+  font-weight: 600;
+}
+
+.about-hero {
+  padding: 4.5rem 2.5rem;
+  margin: 2.5rem auto 3rem;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(246, 198, 79, 0.2), rgba(43, 111, 122, 0.15));
+  border: 1px solid rgba(15, 58, 67, 0.1);
+}
+
+.about-hero h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.2rem, 3.2vw, 3rem);
+  color: var(--sea-deep);
+}
+
+.about-hero p {
+  max-width: 760px;
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.6rem;
+  margin-bottom: 3rem;
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  padding: 1.6rem;
+  border: 1px solid rgba(15, 58, 67, 0.08);
+  box-shadow: var(--shadow);
+}
+
+.about-card h3 {
+  margin-top: 0;
+  color: var(--sea-deep);
+}
+
+.pub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.6rem;
+  margin-bottom: 3rem;
+}
+
+.pub-card {
+  background: var(--card);
+  border-radius: 22px;
+  padding: 1.8rem;
+  border: 1px solid rgba(11, 27, 31, 0.08);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 0.8rem;
+}
+
+.pub-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(43, 111, 122, 0.12);
+  color: var(--sea-deep);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.pub-card h3 {
+  margin: 0;
+  color: var(--sea-deep);
+}
+
+.pub-card p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.pub-link {
+  font-weight: 600;
+  color: var(--sea);
+}
+
+@media (max-width: 760px) {
+  .hero {
+    padding: 3.5rem 1.8rem;
+  }
+
+  .hero__inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .hero__logo {
+    margin: 0 auto;
+  }
+}
