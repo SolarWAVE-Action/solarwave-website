@@ -22,7 +22,7 @@ collections:
 
 lsi: false
 safe: true
-source: "index.md"
+#source: "solarwave-website"
 incremental: false
 highlighter: rouge
 gist:
