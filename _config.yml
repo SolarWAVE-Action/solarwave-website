@@ -1,10 +1,24 @@
 title: "SolarWAVE Action"
 description: "Advancing distributed solar ownership rights through data analysis, education, and advocacy."
+#url: "https://yourdomain.org"
+#baseurl: ""
 
-#remote_theme: "mmistakes/minimal-mistakes@4.27.3"
-remote_theme: pages-themes/cayman@v0.2.0
+theme: minimal-mistakes-jekyll
+
 plugins:
-- jekyll-remote-theme
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+markdown: kramdown
+highlighter: rouge
+
+permalink: /:categories/:title/
+
+collections:
+  publications:
+    output: true
+    permalink: /:collection/:name/
 
 lsi: false
 safe: true
@@ -16,9 +30,6 @@ gist:
 kramdown:
   math_engine: mathjax
   syntax_highlighter: rouge
-
-# url: "https://yourdomain.org"
-# baseurl: ""
 
 # Logo
 logo: "/assets/images/SolarWAVEActionLogoSmall.png"
@@ -32,16 +43,10 @@ nav_sort: case_insensitive
 # Footer content
 footer_content: "© 2026 SolarWAVE Action | All Rights Reserved"
 
-# Enable collections for publications
-collections:
-  publications:
-    output: true
-    permalink: /:collection/:name/
-
-# Default layouts
-defaults:
-  - scope:
-      path: ""
-      type: "publications"
-    values:
-      layout: "default"
+## Default layouts
+#defaults:
+#  - scope:
+#      path: ""
+#      type: "publications"
+#    values:
+#      layout: "default"
