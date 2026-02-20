@@ -34,9 +34,9 @@ collections:
 #  math_engine: mathjax
 #  syntax_highlighter: rouge
 
-## Logo
-#logo: "/assets/images/SolarWAVEActionLogoSmall.png"
-#
+# Logo
+logo: "/assets/images/SolarWAVEActionLogoSmall.png"
+
 ## Search
 #search_enabled: true
 #

@@ -10,7 +10,7 @@ header:
 <div class="hero">
   <div class="hero__inner">
     <div class="hero__logo">
-      <img src="/assets/images/SolarWAVEActionLogoSmall.png" alt="SolarWAVE Action logo" />
+      <img src={{"/assets/images/logo.png" | relative_url}} alt="SolarWAVE Action logo" />
     </div>
     <div>
       <h1 class="hero__title">An independent think tank for distributed solar ownership.</h1>
