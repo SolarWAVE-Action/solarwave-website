@@ -4,6 +4,7 @@ gem "jekyll", "~> 4.3"
 
 # Minimal Mistakes theme
 gem "minimal-mistakes-jekyll"
+gem "jekyll-include-cache"
 
 group :jekyll_plugins do
   gem "jekyll-feed"
