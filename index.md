@@ -9,13 +9,17 @@ header:
   caption: ""
 ---
 
-<div class="banner">
-  <img src="/assets/images/SolarWAVEheader3.png" alt="SolarWAVE Action banner" />
-</div>
-
 <div class="hero">
+  <div class="hero__inner">
+    <div>
+      <p class="hero__kicker">SolarWAVE Action</p>
       <h1 class="hero__title">We advance clean energy policy through data-driven research.</h1>
-      <p class="hero__lead">Through transparent data analysis, public-interest research, and avocacy, we advance equitable, clean energy access across California.</p>
+      <p class="hero__lead">Through transparent data analysis, public-interest research, and advocacy, we advance equitable, clean energy access across California.</p>
+      <div class="hero__banner">
+        <img src="/assets/images/SolarWAVEheader3.png" alt="SolarWAVE Action banner" />
+      </div>
+    </div>
+  </div>
 </div>
 
 
@@ -60,7 +64,7 @@ header:
 
 <div class="grid">
   <div class="card">
-    <h3>Analyis</h3>
+    <h3><Analys></Analys>is</h3>
     <p>Perform transparent data analysis using open source software using data from credible sources.</p>
   </div>
   <div class="card">
