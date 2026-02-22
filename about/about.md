@@ -6,23 +6,20 @@ permalink: /about/
 
 <div class="about-hero">
   <h1>Built for rigorous, public-interest energy policy.</h1>
-  <p>SolarWAVE Action is an independent think tank advancing distributed solar ownership rights through data analysis, legal research, and advocacy. We focus on evidence, transparency, and practical solutions that strengthen California’s clean energy future.</p>
+  <p>SolarWAVE Action is an independent think tank advancing distributed solar ownership rights through data analysis, 
+legal research, and advocacy. We focus on evidence, transparency, and practical solutions that strengthen California’s clean energy future.</p>
 </div>
 
 ## Our Mission & Vision
 
 <div class="about-grid">
   <div class="about-card">
-    <h3>Mission</h3>
+    <h3>Our Mission</h3>
     <p>Advance distributed solar ownership rights through rigorous analysis, policy design, and public education.</p>
   </div>
   <div class="about-card">
-    <h3>Vision</h3>
-    <p>A future where distributed solar ownership is protected and central to an equitable, resilient clean energy system.</p>
-  </div>
-  <div class="about-card">
-    <h3>What We Deliver</h3>
-    <p>Open methodologies, transparent datasets, and actionable guidance for regulators, utilities, and community leaders.</p>
+    <h3>Our Vision</h3>
+    <p>A future with an equitable, resilient clean energy system.</p>
   </div>
 </div>
 
@@ -30,8 +27,8 @@ permalink: /about/
 
 <div class="grid">
   <div class="card">
-    <h3>Independent Research</h3>
-    <p>We test assumptions, publish sources, and stress-test policy outcomes with scenario modeling.</p>
+    <h3>What We Deliver</h3>
+    <p>Open methodologies, transparent data analysis, and actionable guidance for the community and lawmakers.</p>
   </div>
   <div class="card">
     <h3>Policy Translation</h3>

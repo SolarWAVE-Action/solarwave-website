@@ -1,5 +1,7 @@
 ---
-layout: splash
+layout: home
+author_profile: true
+#layout: splash
 title: ""
 header:
   overlay_color: "#ffffff"
@@ -7,16 +9,15 @@ header:
   caption: ""
 ---
 
+<div class="banner">
+  <img src="/assets/images/SolarWAVEheader3.png" alt="SolarWAVE Action banner" />
+</div>
+
 <div class="hero">
-      <h1 class="hero__title">An independent think tank for clean energy.</h1>
-      <p class="hero__lead">We deliver transparent data analysis, policy design, and public-interest research that accelerates equitable clean energy access across California.</p>
-      <div class="hero__actions">
-        [View Research](/publications/){: .btn .btn--primary }
-        [About Our Work](/about/){: .btn .btn--inverse }
-      </div>
-    </div>
+      <h1 class="hero__title">We advance clean energy policy through data-driven research.</h1>
+      <p class="hero__lead">Through transparent data analysis, public-interest research, and avocacy, we advance equitable, clean energy access across California.</p>
 </div>
-</div>
+
 
 [//]: # (## Latest Research & Analysis)
 
@@ -59,16 +60,16 @@ header:
 
 <div class="grid">
   <div class="card">
-    <h3>Data Transparency</h3>
-    <p>Open source software and datasets from credible sources that allow regulators and stakeholders to validate findings.</p>
+    <h3>Analyis</h3>
+    <p>Perform transparent data analysis using open source software using data from credible sources.</p>
   </div>
   <div class="card">
-    <h3>Research & Education</h3>
-    <p>Scenario modeling, cost-benefit analysis, and legal review that de-risks policy choices.</p>
+    <h3>Education</h3>
+    <p>Publish reports, articles and blogs with clear, data-driven insights and easily interpretable data visualizations.</p>
   </div>
   <div class="card">
-    <h3>Policy Advocacy</h3>
-    <p>Evidence-driven recommendations that safeguard ownership rights and modernize regulatory frameworks.</p>
+    <h3>Advocacy</h3>
+    <p>Evidence-driven recommendations that safeguard and expand ownership rights and modernize regulatory frameworks.</p>
   </div>
 </div>
 
@@ -76,7 +77,7 @@ header:
 
 <div class="values">
   <div class="value"><strong>Independence</strong>We do not accept funding that constrains our research conclusions.</div>
-  <div class="value"><strong>Methodological Rigor</strong>We publish software, assumptions, and sources with every report.</div>
+  <div class="value"><strong>Methodological Rigor</strong>We share software, assumptions, and sources with every publication.</div>
   <div class="value"><strong>Public Accountability</strong>We engage stakeholders, community leaders, and utilities with open data.</div>
 </div>
 
