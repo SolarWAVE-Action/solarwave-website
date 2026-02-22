@@ -1,0 +1,11 @@
+main:
+  - title: "About"
+    url: /about/
+  - title: "Research"
+    url: /research/
+  - title: "Publications"
+    url: /publications/
+  - title: "Get Involved"
+    url: /get-involved/
+  - title: "Contact"
+    url: /contact/
