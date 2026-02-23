@@ -13,15 +13,23 @@ header:
 #  caption: ""
 ---
 
-<div class="hero">
-  <div class="hero__inner">
-    <div>
-      <p class="hero__kicker">SolarWAVE Action</p>
-      <h1 class="hero__title">We advance clean energy policy through data-driven research.</h1>
-      <p class="hero__lead">Through transparent data analysis, public-interest research, and advocacy, we advance equitable, clean energy access across California.</p>
-    </div>
-  </div>
-</div>
+[//]: # (<div class="hero">)
+
+[//]: # (  <div class="hero__inner">)
+
+[//]: # (    <div>)
+
+[//]: # (      <p class="hero__kicker">SolarWAVE Action</p>)
+
+[//]: # (      <h1 class="hero__title">We advance clean energy policy through data-driven research.</h1>)
+
+[//]: # (      <p class="hero__lead">Through transparent data analysis, public-interest research, and advocacy, we advance equitable, clean energy access across California.</p>)
+
+[//]: # (    </div>)
+
+[//]: # (  </div>)
+
+[//]: # (</div>)
 
 
 [//]: # (## Latest Research & Analysis)
