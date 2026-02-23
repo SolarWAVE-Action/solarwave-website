@@ -1,0 +1,17 @@
+<footer class="page__footer" role="contentinfo">
+  {% if site.footer.links %}
+    <div class="page__footer-follow">
+      <ul class="social-icons">
+        {% for link in site.footer.links %}
+          <li>
+            <a href="{{ link.url | relative_url }}">{{ link.label }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
+  <div class="page__footer-copyright">
+    {{ site.footer_content | default: site.title }}
+  </div>
+</footer>
