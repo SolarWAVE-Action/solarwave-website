@@ -6,14 +6,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --ink: #0b1b1f;
-  --ink-soft: #1f3237;
-  --mist: #f3f5f1;
-  --sand: #f7f1e7;
-  --sun: #f6c64f;
-  --sea: #2b6f7a;
-  --sea-deep: #0f3a43;
-  --accent: #de5b3d;
+  --ink: #0b2340;
+  --ink-soft: #1e3a5a;
+  --mist: #f2f6fb;
+  --sand: #f7f4ea;
+  --sun: #f8d840;
+  --sea: #1070c8;
+  --sea-deep: #0b4f8a;
+  --accent: #00a0a0;
   --card: #ffffff;
   --shadow: 0 18px 45px rgba(11, 27, 31, 0.12);
 }
@@ -21,9 +21,9 @@
 body {
   font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
   color: var(--ink);
-  background: radial-gradient(circle at 20% 10%, rgba(246, 198, 79, 0.2), transparent 45%),
-    radial-gradient(circle at 80% 0%, rgba(43, 111, 122, 0.18), transparent 40%),
-    linear-gradient(180deg, #fbfaf7 0%, #f2f5f2 55%, #eff1ee 100%);
+  background: radial-gradient(circle at 20% 10%, rgba(248, 216, 64, 0.18), transparent 45%),
+    radial-gradient(circle at 80% 0%, rgba(16, 112, 200, 0.16), transparent 40%),
+    linear-gradient(180deg, #f9fbfe 0%, #f1f5f9 55%, #edf1f6 100%);
 }
 
 h1, h2, h3 {
@@ -36,6 +36,15 @@ h1, h2, h3 {
   width: auto;
 }
 
+.layout--splash .page__hero--overlay {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 0;
+  padding: 0;
+  aspect-ratio: 1536 / 550;
+}
+
 .page__content {
   max-width: 1600px;
 }
@@ -45,7 +54,7 @@ h1, h2, h3 {
   padding: 6rem 2.5rem 4.5rem;
   margin: 2.5rem auto 4rem;
   border-radius: 32px;
-  background: linear-gradient(140deg, rgba(15, 58, 67, 0.92), rgba(11, 27, 31, 0.92));
+  background: linear-gradient(140deg, rgba(11, 79, 138, 0.95), rgba(11, 35, 64, 0.95));
   color: #fff;
   box-shadow: var(--shadow);
   overflow: hidden;
@@ -55,7 +64,7 @@ h1, h2, h3 {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top right, rgba(246, 198, 79, 0.35), transparent 55%);
+  background: radial-gradient(circle at top right, rgba(248, 216, 64, 0.35), transparent 55%);
   pointer-events: none;
 }
 
