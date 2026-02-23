@@ -1,12 +1,16 @@
 ---
-layout: home
+#layout: home
 author_profile: true
-#layout: splash
+layout: splash
 title: ""
 header:
-  overlay_color: "#ffffff"
-  overlay_filter: 0
+  overlay_image: /assets/images/SolarWAVEheader3.jpg
+  overlay_filter: 0.3   # darkens image slightly (0–1)
   caption: ""
+#header:
+#  overlay_color: "#ffffff"
+#  overlay_filter: 0
+#  caption: ""
 ---
 
 <div class="hero">
@@ -15,9 +19,6 @@ header:
       <p class="hero__kicker">SolarWAVE Action</p>
       <h1 class="hero__title">We advance clean energy policy through data-driven research.</h1>
       <p class="hero__lead">Through transparent data analysis, public-interest research, and advocacy, we advance equitable, clean energy access across California.</p>
-      <div class="hero__banner">
-        <img src="/assets/images/SolarWAVEheader3.png" alt="SolarWAVE Action banner" />
-      </div>
     </div>
   </div>
 </div>
