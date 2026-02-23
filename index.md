@@ -39,8 +39,8 @@ header:
 
 <div class="values">
   <div class="value"><strong>Independence</strong>We do not accept funding that constrains our research conclusions.</div>
-  <div class="value"><strong>Methodological Rigor</strong>We share software, assumptions, and sources with every publication.</div>
-  <div class="value"><strong>Public Accountability</strong>We engage stakeholders, community leaders, and utilities with open data.</div>
+  <div class="value"><strong>Public Accountability</strong>We openly share software, assumptions, and sources with every publication.</div>
+  <div class="value"><strong>Equitability</strong>We engage stakeholders, community leaders, and lawmakers with policy ideas aimed at a clean energy future for all.</div>
 </div>
 
 [//]: # (## Transparency & Governance)
