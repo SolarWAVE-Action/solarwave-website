@@ -4,7 +4,7 @@ author_profile: true
 layout: splash
 title: ""
 header:
-  overlay_image: /assets/images/SolarWAVEheader3.jpg
+  overlay_image: "{{ '/assets/images/SolarWAVEheader3.jpg' | relative_url }}"
   overlay_filter: 0.3   # darkens image slightly (0–1)
   caption: ""
 #header:
@@ -65,7 +65,7 @@ header:
 
 <div class="grid">
   <div class="card">
-    <h3><Analys></Analys>is</h3>
+    <h3><Analysis></h3>
     <p>Perform transparent data analysis using open source software using data from credible sources.</p>
   </div>
   <div class="card">
@@ -74,7 +74,7 @@ header:
   </div>
   <div class="card">
     <h3>Advocacy</h3>
-    <p>Evidence-driven recommendations that safeguard and expand ownership rights and modernize regulatory frameworks.</p>
+    <p>Evidence-driven policy that safeguard and expand clean energy and modernize regulatory frameworks.</p>
   </div>
 </div>
 
