@@ -128,9 +128,12 @@ footer:
     - label: "Research"
       url: "/research/"
     - label: "Get Involved"
-      url: "/get-involved/"Ï
+      url: "/get-involved/"
     - label: "Contact"
       url: "/contact/"
+
+# Footer content
+footer_content: "© 2026 SolarWAVE Action | All Rights Reserved"
 
 #permalink: /:categories/:title/
 #
@@ -157,8 +160,6 @@ footer:
 ## Navigation structure
 #nav_sort: case_insensitive
 
-# Footer content
-footer_content: "© 2026 SolarWAVE Action | All Rights Reserved"
 
 ## Default layouts
 #defaults:
