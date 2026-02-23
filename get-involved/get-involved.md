@@ -1,11 +1,11 @@
 ---
-layout: single
+layout: splash
 title: "Get Involved"
 permalink: /get-involved/
 ---
 
 <div class="about-hero">
-  <h1>Partner with us to expand solar ownership access.</h1>
+  <h1>Partner with us to expand equitable clean energy access.</h1>
   <p>We collaborate with policymakers, community leaders, and mission-aligned funders to deliver research that protects distributed solar rights.</p>
 </div>
 
@@ -18,17 +18,16 @@ permalink: /get-involved/
   </div>
   <div class="card">
     <h3>Data Collaboration</h3>
-    <p>Share datasets or expertise that can strengthen our modeling and public transparency.</p>
+    <p>Share datasets or expertise that can strengthen our analysis and messaging.</p>
   </div>
   <div class="card">
-    <h3>Funding Support</h3>
-    <p>Provide unrestricted support that preserves our independence and rapid-response capacity.</p>
+    <h3>Donate</h3>
+    <p>Provide unrestricted support that advances our mission while preserving our independence.</p>
   </div>
 </div>
 
 ## Start the Conversation
 
 <div class="footer-links">
-  <a href="/contact/">Contact our team →</a>
-  <a href="/publications/">Browse recent research →</a>
+  <a href="{{ '/contact/' | relative_url }}">Contact us</a>
 </div>

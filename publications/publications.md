@@ -1,12 +1,12 @@
 ---
-layout: single
+layout: splash
 title: "Publications"
 permalink: /publications/
 ---
 
 <div class="about-hero">
-  <h1>Research and policy analysis for an equitable solar future.</h1>
-  <p>Our publications translate complex energy data into clear, actionable guidance for regulators, utilities, and community stakeholders.</p>
+  <h1>Research and policy analysis for an equitable clean energy future.</h1>
+  <p>Our publications translate complex energy data into clear, actionable guidance for lawmakers and community stakeholders.</p>
 </div>
 
 ## Featured Research

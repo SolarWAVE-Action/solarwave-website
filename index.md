@@ -13,7 +13,7 @@ header:
     <div>
       <p class="hero__kicker">SolarWAVE Action</p>
       <h1 class="hero__title">We advance clean energy policy through data-driven research.</h1>
-      <p class="hero__lead">Through transparent data analysis, education, and advocacy, for equitable, clean energy access across California.</p>
+      <p class="hero__lead">With transparent data analysis, education, and advocacy, we work for equitable, clean energy independence across California.</p>
     </div>
 
 </div>
@@ -39,7 +39,7 @@ header:
 
 <div class="values">
   <div class="value"><strong>Independence</strong>We do not accept funding that constrains our research conclusions.</div>
-  <div class="value"><strong>Public Accountability</strong>We openly share software, assumptions, and sources with every publication.</div>
+  <div class="value"><strong>Accountability</strong>We openly share software, assumptions, and sources with every publication.</div>
   <div class="value"><strong>Equitability</strong>We engage stakeholders, community leaders, and lawmakers with policy ideas aimed at a clean energy future for all.</div>
 </div>
 
@@ -55,3 +55,5 @@ header:
 [//]: # (  <a href="/about/#board">Board of Directors</a>)
 
 [//]: # (</div>)
+
+

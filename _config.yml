@@ -121,6 +121,17 @@ defaults:
 atom_feed:
   hide: true
 
+footer:
+  links:
+    - label: "About"
+      url: "/about/"
+    - label: "Research"
+      url: "/research/"
+    - label: "Get Involved"
+      url: "/get-involved/"
+    - label: "Contact"
+      url: "/contact/"
+
 #permalink: /:categories/:title/
 #
 #collections:

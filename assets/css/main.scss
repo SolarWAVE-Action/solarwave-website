@@ -2,7 +2,7 @@
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
 @import "minimal-mistakes";
-@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'aqua' }}";
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'air' }}";
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
 
 :root {
@@ -74,7 +74,7 @@ h1, h2, h3 {
 }
 
 .hero__logo img {
-  max-width: 220px;
+  max-width: 420px;
   height: auto;
 }
 
@@ -215,6 +215,21 @@ h1, h2, h3 {
 .footer-links a {
   color: var(--sea-deep);
   font-weight: 600;
+}
+
+.layout--splash .page__footer,
+.layout--splash .page__footer .page__footer-follow,
+.layout--splash .page__footer .page__footer-copyright {
+  color: var(--sea-deep);
+}
+
+.layout--splash .page__footer a {
+  color: var(--sea-deep);
+}
+
+.layout--splash .page__footer a:hover,
+.layout--splash .page__footer a:focus {
+  color: var(--sea);
 }
 
 .about-hero {
