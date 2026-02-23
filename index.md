@@ -1,10 +1,10 @@
 ---
 #layout: home
-author_profile: true
+author_profile: false
 layout: splash
 title: ""
 header:
-  overlay_image: "{{ '/assets/images/SolarWAVEheader3.png' | relative_url }}"
+  overlay_image: /assets/images/SolarWAVEheader3.png
   overlay_filter: 0.3   # darkens image slightly (0–1)
   caption: ""
 ---
