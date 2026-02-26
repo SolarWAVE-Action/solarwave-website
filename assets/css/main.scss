@@ -38,6 +38,14 @@ h1, h2, h3 {
 
 .masthead {
   font-size: 0.92rem;
+  background: rgba(241, 245, 249, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(11, 35, 64, 0.12);
+}
+
+.greedy-nav {
+  background: transparent;
 }
 
 .greedy-nav .visible-links a {
@@ -48,13 +56,18 @@ h1, h2, h3 {
   font-size: 0.95rem;
 }
 
+.greedy-nav .hidden-links {
+  background: rgba(241, 245, 249, 0.96);
+  border: 1px solid rgba(11, 35, 64, 0.12);
+}
+
 .layout--splash .page__hero--overlay {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   min-height: 0;
   padding: 0;
-  aspect-ratio: 1536 / 550;
+  aspect-ratio: 1536 / 600;
 }
 
 .page__hero--overlay .wrapper {
