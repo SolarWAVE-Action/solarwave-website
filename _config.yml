@@ -31,8 +31,8 @@ subtitle                 : ""  # "We Advance Viable Energy"
 #name                     : "Your Name"
 #description              : "An amazing website."
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : "/assets/images/SolarWAVEActionLogoSmall.png"
-logo                     : "/assets/images/SolarWAVEActionLogoSmall.png"
+teaser                   : "/assets/images/SolarWAVEActionLogoTransparent.png"
+logo                     : "/assets/images/SolarWAVEActionLogoTransparent.png"
 masthead_title           : " "  # for no title
 breadcrumbs              : false  # (default)
 words_per_minute         : 200
