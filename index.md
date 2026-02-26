@@ -12,8 +12,8 @@ header:
 <div class="hero">
     <div>
       <p class="hero__kicker">SolarWAVE Action</p>
-      <h1 class="hero__title">We advance clean energy policy through data-driven research.</h1>
-      <p class="hero__lead">With transparent data analysis, education, and advocacy, we work for equitable, clean energy independence across California.</p>
+      <h1 class="hero__title">With transparent data analysis, education, and advocacy, we work for equitable, clean energy independence across California.</h1>
+      <p class="hero__learn"><a href="/research/">Learn More -></a></p>
     </div>
 
 </div>

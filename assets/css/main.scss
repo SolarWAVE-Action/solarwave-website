@@ -158,6 +158,24 @@ h1, h2, h3 {
   margin: 0 0 2rem;
 }
 
+.hero__learn {
+  margin: -0.2rem 0 1.1rem;
+  font-size: 0.88rem;
+  letter-spacing: 0.01em;
+}
+
+.hero__learn a {
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.hero__learn a:hover,
+.hero__learn a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
@@ -418,6 +436,11 @@ h1, h2, h3 {
   .hero__title {
     font-size: clamp(1.9rem, 8.4vw, 2.6rem);
     margin-bottom: 0.75rem;
+  }
+
+  .hero__learn {
+    font-size: 0.8rem;
+    margin-bottom: 0.9rem;
   }
 
   .hero__lead {
