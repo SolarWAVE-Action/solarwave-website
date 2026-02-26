@@ -127,6 +127,8 @@ footer:
       url: "/about/"
     - label: "Research"
       url: "/research/"
+    - label: "News & Publications"
+      url: "/publications/"
     - label: "Get Involved"
       url: "/get-involved/"
     - label: "Contact"

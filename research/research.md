@@ -15,8 +15,15 @@ permalink: /research/
 
 <div class="highlight">
   <div class="highlight__item">
-    <strong>AB 1104 commercial solar impact report</strong><br />
-    How a commercial solar policy change reduces administrative barriers for small businesses in Santa Cruz county.
+    <strong>AB 1104: Commercial & Industrial Solar Impact Report</strong><br />
+    How the Assembly Bill 1104 reduces administrative barriers for small businesses in Santa Cruz county.
     <a href="{{ "/assets/publications/AB_1104_Report_rev260205.pdf" | relative_url }}">Read report →</a>
   </div>
 </div>
+
+## Transparency
+
+<div class="footer-links">
+  <a href="https://github.com/SolarWAVE-Action/solarwave-analysis">Find our open source software on GitHub</a>
+</div>
+
