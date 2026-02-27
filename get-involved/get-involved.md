@@ -21,8 +21,8 @@ permalink: /get-involved/
     <p>Share datasets or expertise that can strengthen our analysis and messaging.</p>
   </div>
   <div class="card">
-    <h3>Donate</h3>
-    <p>Provide unrestricted support that advances our mission while preserving our independence.</p>
+    <h3><a href="{{ '/donate/' | relative_url }}">Donate</a></h3>
+    <p>Provide support that advances our mission of clean energy for all.</p>
   </div>
 </div>
 
