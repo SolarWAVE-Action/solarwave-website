@@ -1,11 +1,9 @@
 main:
   - title: "About"
     url: /about/
-  - title: "Research"
-    url: /research/
-  - title: "News & Publications"
-    url: /publications/
+  - title: "Our Work"
+    url: /our_work/
   - title: "Get Involved"
     url: /get-involved/
-  - title: "Contact"
-    url: /contact/
+  - title: "Donate"
+    url: /donate/

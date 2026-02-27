@@ -1,7 +1,7 @@
 ---
 #layout: home
 author_profile: false
-layout: splash
+layout: home
 title: ""
 header:
   overlay_image: /assets/images/SolarWAVEheader5.png

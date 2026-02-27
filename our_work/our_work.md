@@ -1,12 +1,12 @@
 ---
-layout: splash
-title: "Publications"
-permalink: /publications/
+layout: single
+title: "Our Work"
+permalink: /our_work/
 ---
 
 <div class="about-hero">
-  <h1>News and Publications.</h1>
-  <p>We translate complex energy data into clear, actionable guidance for lawmakers and community stakeholders.</p>
+  <h1>Our Work</h1>
+  <p>We conduct data analysis and legal analysis to accelerate equitable clean energy access. We translate complex energy information into clear, actionable guidance for lawmakers and community stakeholders.</p>
 </div>
 
 ## Featured Research
@@ -24,6 +24,12 @@ permalink: /publications/
     <p>How the Assembly Bill 1104 reduces administrative barriers for small businesses in Santa Cruz county.</p>
     <a href="{{ "/assets/publications/AB_1104_Report_rev260205.pdf" | relative_url }}">Read report →</a>
   </article>
+</div>
+
+## Transparency
+
+<div class="footer-links">
+  Find our open source software on <a href="https://github.com/SolarWAVE-Action/solarwave-analysis">GitHub</a>
 </div>
 
 [//]: # (## What to Expect)

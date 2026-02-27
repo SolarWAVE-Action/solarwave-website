@@ -21,9 +21,5 @@ permalink: /research/
   </div>
 </div>
 
-## Transparency
 
-<div class="footer-links">
-  <a href="https://github.com/SolarWAVE-Action/solarwave-analysis">Find our open source software on GitHub</a>
-</div>
 
