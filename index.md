@@ -1,7 +1,7 @@
 ---
 #layout: home
 author_profile: false
-layout: home
+layout: splash
 title: ""
 header:
   overlay_image: /assets/images/SolarWAVEheader5.png
@@ -11,9 +11,9 @@ header:
 
 <div class="hero">
     <div>
-      <p class="hero__kicker">SolarWAVE Action</p>
+      <p class="hero__kicker">Our Work</p>
       <h1 class="hero__title">With transparent data analysis, education, and advocacy, we work for equitable, clean energy independence across California.</h1>
-      <p class="hero__learn"><a href="{{ '/research/' | relative_url }}">Learn More →</a></p>
+      <p class="hero__learn"><a href="{{ '/our_work/' | relative_url }}">Learn More →</a></p>
     </div>
 
 </div>
