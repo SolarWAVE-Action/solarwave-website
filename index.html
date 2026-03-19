@@ -1,0 +1,551 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SolarWAVE Action</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sun: #F5A623;
+      --sun-light: #FFD87A;
+      --sky: #0A1628;
+      --sky-mid: #0D2244;
+      --horizon: #1A3A5C;
+      --white: #F7F4EE;
+      --muted: #8A9AB5;
+      --accent: #3DD6A3;
+      --panel: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--sky);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 3rem;
+      background: linear-gradient(to bottom, rgba(10,22,40,0.98), transparent);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-wordmark {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-wordmark span { color: var(--sun); }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+    .nav-links a {
+      font-size: 0.82rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--sun); color: var(--sky) !important;
+      padding: 0.5rem 1.25rem; border-radius: 2px;
+      font-weight: 700 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--sun-light) !important; color: var(--sky) !important; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 3rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 50%, rgba(245,166,35,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 80% at 100% 80%, rgba(61,214,163,0.06) 0%, transparent 50%);
+    }
+
+    /* Sun graphic */
+    .hero-visual {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      height: 480px;
+    }
+
+    .sun-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(245,166,35,0.15);
+      animation: pulse-ring 4s ease-in-out infinite;
+    }
+    .sun-ring:nth-child(1) { width: 440px; height: 440px; animation-delay: 0s; }
+    .sun-ring:nth-child(2) { width: 360px; height: 360px; animation-delay: 0.6s; border-color: rgba(245,166,35,0.2); }
+    .sun-ring:nth-child(3) { width: 280px; height: 280px; animation-delay: 1.2s; border-color: rgba(245,166,35,0.3); }
+
+    @keyframes pulse-ring {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.02); }
+    }
+
+    .sun-core {
+      width: 180px; height: 180px; border-radius: 50%;
+      background: radial-gradient(circle, var(--sun-light) 0%, var(--sun) 50%, #C47A0A 100%);
+      box-shadow: 0 0 60px rgba(245,166,35,0.5), 0 0 120px rgba(245,166,35,0.2);
+      position: relative; z-index: 2;
+      animation: glow 4s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 60px rgba(245,166,35,0.5), 0 0 120px rgba(245,166,35,0.2); }
+      50% { box-shadow: 0 0 80px rgba(245,166,35,0.7), 0 0 160px rgba(245,166,35,0.3); }
+    }
+
+    .hero-text { position: relative; z-index: 2; padding-right: 2rem; }
+
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .eyebrow::before {
+      content: ''; display: inline-block;
+      width: 2rem; height: 1px; background: var(--accent);
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 6vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 1.75rem;
+    }
+    h1 em {
+      font-style: normal;
+      color: var(--sun);
+      display: block;
+    }
+
+    .hero-body {
+      font-size: 1.05rem; line-height: 1.75;
+      color: var(--muted); max-width: 44ch;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--sun); color: var(--sky);
+      padding: 0.85rem 2rem; border-radius: 2px;
+      font-weight: 700; font-size: 0.85rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; transition: all 0.2s;
+      border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: var(--sun-light); transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: transparent; color: var(--white);
+      padding: 0.85rem 2rem; border-radius: 2px;
+      font-weight: 500; font-size: 0.85rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; transition: all 0.2s;
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--white); }
+
+    /* ─── ABOUT / BIO ─── */
+    .about {
+      padding: 7rem 3rem;
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 2fr; gap: 5rem;
+      align-items: start;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--accent);
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      padding-top: 0.5rem;
+    }
+
+    .about-content h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      letter-spacing: 0.03em;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 2rem;
+    }
+    .about-content h2 span { color: var(--sun); }
+
+    .bio-text {
+      font-size: 1.08rem; line-height: 1.85;
+      color: rgba(247,244,238,0.8);
+      margin-bottom: 1.5rem;
+    }
+
+    .bio-text strong { color: var(--white); font-weight: 600; }
+
+    .about-divider {
+      width: 3rem; height: 2px;
+      background: linear-gradient(to right, var(--sun), transparent);
+      margin: 2rem 0;
+    }
+
+    .principles {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+    .principle {
+      background: var(--sky); padding: 1.75rem;
+      transition: background 0.2s;
+    }
+    .principle:hover { background: var(--sky-mid); }
+
+    .principle-icon {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; color: var(--accent);
+      letter-spacing: 0.15em; margin-bottom: 0.75rem;
+    }
+    .principle h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem; letter-spacing: 0.08em;
+      color: var(--white); margin-bottom: 0.5rem;
+    }
+    .principle p {
+      font-size: 0.85rem; line-height: 1.65;
+      color: var(--muted);
+    }
+
+    /* ─── WHAT WE DO ─── */
+    .work {
+      background: var(--sky-mid);
+      padding: 7rem 3rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .work-inner { max-width: 1200px; margin: 0 auto; }
+
+    .work-header {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; margin-bottom: 4rem;
+    }
+
+    .work-header h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      letter-spacing: 0.03em;
+    }
+    .work-header h2 span { color: var(--sun); }
+
+    .work-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    }
+
+    .work-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      position: relative; overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .work-card:hover {
+      border-color: rgba(245,166,35,0.3);
+      transform: translateY(-4px);
+    }
+    .work-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--sun), var(--accent));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .work-card:hover::after { transform: scaleX(1); }
+
+    .card-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; color: var(--sun);
+      letter-spacing: 0.2em; margin-bottom: 1.5rem;
+    }
+    .work-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem; letter-spacing: 0.05em;
+      color: var(--white); margin-bottom: 0.75rem;
+    }
+    .work-card p { font-size: 0.9rem; line-height: 1.7; color: var(--muted); }
+
+    /* ─── CTA ─── */
+    .cta {
+      padding: 8rem 3rem;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(245,166,35,0.07) 0%, transparent 70%);
+    }
+
+    .cta-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+
+    .cta h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      line-height: 0.95; letter-spacing: 0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .cta h2 span { color: var(--sun); }
+
+    .cta p {
+      font-size: 1rem; color: var(--muted);
+      line-height: 1.75; margin-bottom: 2.5rem;
+    }
+
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #ffffff;
+      border-top: 3px solid var(--sun);
+      padding: 3rem 3rem 2rem;
+    }
+    .footer-top {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #E8EAF0;
+    }
+    .footer-logo-img {
+      display: block;
+      height: 64px; width: auto;
+    }
+    .footer-tagline {
+      font-size: 0.85rem; color: #6B7A99;
+      margin-top: 0.6rem; max-width: 28ch;
+      line-height: 1.6;
+    }
+    .footer-nav-group h5 { display: none; }
+    .footer-links { display: flex; flex-direction: row; gap: 2rem; list-style: none; }
+    .footer-links a {
+      font-size: 0.85rem; color: #6B7A99;
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--sky); }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-copy {
+      font-size: 0.75rem; color: #A0AABF;
+      font-family: 'DM Mono', monospace;
+    }
+    .footer-legal { display: flex; gap: 1.5rem; }
+    .footer-legal a {
+      font-size: 0.75rem; color: #A0AABF;
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-legal a:hover { color: var(--sky); }
+
+    /* ─── ANIMATIONS ─── */
+    .fade-in {
+      opacity: 0; transform: translateY(24px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .delay-1 { animation-delay: 0.15s; }
+    .delay-2 { animation-delay: 0.3s; }
+    .delay-3 { animation-delay: 0.45s; }
+    .delay-4 { animation-delay: 0.6s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
+      .hero-visual { display: none; }
+      .about { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem; }
+      .section-label { writing-mode: horizontal-tb; transform: none; }
+      .principles { grid-template-columns: 1fr; }
+      .work-cards { grid-template-columns: 1fr; }
+      .work-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      footer { padding: 2rem 1.5rem; }
+      .footer-top { flex-direction: column; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+      .footer-legal { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-wordmark">Solar<span>WAVE</span> Action</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Our Work</a></li>
+      <li><a href="#involved">Get Involved</a></li>
+      <li><a href="{{ '/donate/' | relative_url }}" class="nav-cta">Donate</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="eyebrow fade-in">Clean Energy Policy Research</div>
+      <h1 class="fade-in delay-1">
+        The Data<br>Behind<br><em>Clean Energy.</em>
+      </h1>
+      <p class="hero-body fade-in delay-2">
+        California's clean energy future depends on policy grounded in evidence, not ideology.
+        SolarWAVE Action produces rigorous, open-source research and translates it into
+        advocacy that moves lawmakers to act.
+      </p>
+      <div class="hero-actions fade-in delay-3">
+        <a href="#work" class="btn-primary">See Our Work</a>
+        <a href="#about" class="btn-secondary">Who We Are</a>
+      </div>
+    </div>
+    <div class="hero-visual fade-in delay-4">
+      <div class="sun-ring"></div>
+      <div class="sun-ring"></div>
+      <div class="sun-ring"></div>
+      <div class="sun-core"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT / BIO -->
+  <section class="about" id="about">
+    <div class="section-label">About</div>
+    <div class="about-content">
+      <h2>We Turn <span>Data</span><br>Into Policy.</h2>
+      <p class="bio-text">
+        California sits at the center of America's clean energy transformation — and at the center of its most contentious energy policy debates. <strong>SolarWAVE Action</strong> exists to ensure those debates are shaped by evidence.
+      </p>
+      <p class="bio-text">
+        We are a nonpartisan research and advocacy organization dedicated to advancing equitable, data-driven clean energy policy across California. Our team produces rigorous, <strong>open-source analysis</strong> using publicly available data, then translates those findings into clear reports, legislative testimony, and policy recommendations that lawmakers and advocates can actually use.
+      </p>
+      <div class="about-divider"></div>
+      <p class="bio-text">
+        We don't accept funding that constrains our conclusions. We publish every assumption, every dataset, and every line of code behind our work. Because clean energy policy that doesn't hold up to scrutiny won't hold up in Sacramento.
+      </p>
+
+      <div class="principles">
+        <div class="principle">
+          <div class="principle-icon">01 — Principle</div>
+          <h4>Accountability</h4>
+          <p>Every publication includes our software, data sources, and assumptions — open to anyone who wants to check our work.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-icon">02 — Principle</div>
+          <h4>Independence</h4>
+          <p>We do not accept funding that constrains our research conclusions. Our findings go where the evidence leads.</p>
+        </div>
+        <div class="principle">
+          <div class="principle-icon">03 — Principle</div>
+          <h4>Equitability</h4>
+          <p>A clean energy future that doesn't serve all Californians isn't worth advocating for. Equity is embedded in every policy recommendation we make.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section class="work" id="work">
+    <div class="work-inner">
+      <div class="work-header">
+        <h2>What We <span>Do</span></h2>
+      </div>
+      <div class="work-cards">
+        <div class="work-card">
+          <div class="card-num">01 — Analysis</div>
+          <h3>Open-Source Research</h3>
+          <p>We perform transparent data analysis using open-source software and credible public datasets — publishing every model and methodology so our work can be independently verified.</p>
+        </div>
+        <div class="work-card">
+          <div class="card-num">02 — Education</div>
+          <h3>Clear Communication</h3>
+          <p>We publish reports, articles, and data visualizations designed for policymakers, advocates, and the public — translating complex energy economics into accessible, actionable insight.</p>
+        </div>
+        <div class="work-card">
+          <div class="card-num">03 — Advocacy</div>
+          <h3>Evidence-Based Policy</h3>
+          <p>We bring our research directly into the policy arena — engaging lawmakers, regulators, and stakeholders with concrete proposals to safeguard and expand California's clean energy infrastructure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="involved">
+    <div class="cta-inner">
+      <div class="eyebrow" style="justify-content: center; margin-bottom: 1.25rem;">Get Involved</div>
+      <h2>Help Us <span>Power</span><br>Better Policy.</h2>
+      <p>Whether you want to support our research, follow our work, or partner with us on advocacy — there's a place for you in California's clean energy future.</p>
+      <div class="cta-actions">
+        <a href="{{ '/donate/' | relative_url }}" class="btn-primary">Donate</a>
+        <a href="{{ '/get-involved/' | relative_url }}" class="btn-secondary">Stay Informed</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img class="footer-logo-img"
+          src="{{ '/assets/images/SolarWAVELogoNoTag.png' | relative_url }}"
+          alt="SolarWAVE Action" />
+        <p class="footer-tagline">Advancing clean energy policy through data-driven research.</p>
+      </div>
+      <div class="footer-nav-group">
+        <h5>Navigate</h5>
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Our Work</a></li>
+          <li><a href="#involved">Get Involved</a></li>
+          <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+          <li><a href="{{ '/donate/' | relative_url }}">Donate</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 SolarWAVE Action. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
