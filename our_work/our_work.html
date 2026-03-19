@@ -1,13 +1,13 @@
 ---
 layout: none
-permalink: /about/
+permalink: /our_work/
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About — SolarWAVE Action</title>
+  <title>Our Work — SolarWAVE Action</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -107,12 +107,89 @@ permalink: /about/
       color: var(--muted); max-width: 60ch;
     }
 
-    /* ─── MISSION / VISION ─── */
-    .mission {
+    /* ─── FEATURED RESEARCH ─── */
+    .research {
       padding: 6rem 3rem;
       max-width: 1200px; margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex; align-items: baseline; justify-content: space-between;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 3.5vw, 3rem);
+      letter-spacing: 0.03em;
+    }
+    .section-header h2 span { color: var(--sun); }
+
+    .pub-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    }
+
+    .pub-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      display: flex; flex-direction: column;
+      position: relative; overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .pub-card:hover {
+      border-color: rgba(245,166,35,0.3);
+      transform: translateY(-4px);
+    }
+    .pub-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--sun), var(--accent));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .pub-card:hover::after { transform: scaleX(1); }
+
+    .pub-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; color: var(--sun);
+      letter-spacing: 0.2em; text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .pub-card h3 {
+      font-size: 1rem; font-weight: 600; line-height: 1.5;
+      color: var(--white); margin-bottom: 0.75rem;
+      flex: 1;
+    }
+
+    .pub-card p {
+      font-size: 0.875rem; line-height: 1.65;
+      color: var(--muted); margin-bottom: 1.75rem;
+    }
+
+    .pub-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent);
+      text-decoration: none; margin-top: auto;
+      transition: color 0.2s;
+    }
+    .pub-link:hover { color: var(--sun); }
+
+    /* ─── TRANSPARENCY ─── */
+    .transparency {
+      background: var(--sky-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 3rem;
+    }
+
+    .transparency-inner {
+      max-width: 1200px; margin: 0 auto;
       display: grid; grid-template-columns: 1fr 2fr; gap: 5rem;
-      align-items: start;
+      align-items: center;
     }
 
     .section-label {
@@ -121,96 +198,33 @@ permalink: /about/
       text-transform: uppercase; color: var(--accent);
       writing-mode: vertical-rl;
       transform: rotate(180deg);
-      padding-top: 0.5rem;
     }
 
-    .mission-content h2 {
+    .transparency-content h2 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(2.2rem, 3.5vw, 3rem);
-      letter-spacing: 0.03em; line-height: 1;
-      color: var(--white); margin-bottom: 3rem;
+      letter-spacing: 0.03em; margin-bottom: 1.25rem;
     }
-    .mission-content h2 span { color: var(--sun); }
+    .transparency-content h2 span { color: var(--sun); }
 
-    .mission-cards {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
-      background: var(--border); border: 1px solid var(--border);
+    .transparency-content p {
+      font-size: 1.05rem; line-height: 1.8;
+      color: var(--muted); margin-bottom: 2rem; max-width: 56ch;
     }
 
-    .mission-card {
-      background: var(--sky); padding: 2.25rem;
-      transition: background 0.2s;
-    }
-    .mission-card:hover { background: var(--sky-mid); }
-
-    .mission-card-label {
+    .github-link {
+      display: inline-flex; align-items: center; gap: 0.6rem;
       font-family: 'DM Mono', monospace;
-      font-size: 0.65rem; color: var(--sun);
-      letter-spacing: 0.2em; margin-bottom: 1rem;
+      font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); text-decoration: none;
+      border: 1px solid rgba(61,214,163,0.3);
+      padding: 0.7rem 1.4rem; border-radius: 2px;
+      transition: all 0.2s;
     }
-    .mission-card h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem; letter-spacing: 0.06em;
-      color: var(--white); margin-bottom: 0.75rem;
+    .github-link:hover {
+      background: rgba(61,214,163,0.08);
+      border-color: var(--accent);
     }
-    .mission-card p {
-      font-size: 0.95rem; line-height: 1.75;
-      color: var(--muted);
-    }
-
-    /* ─── HOW WE WORK ─── */
-    .how {
-      background: var(--sky-mid);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 6rem 3rem;
-    }
-
-    .how-inner { max-width: 1200px; margin: 0 auto; }
-
-    .how-inner h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.2rem, 3.5vw, 3rem);
-      letter-spacing: 0.03em; margin-bottom: 3.5rem;
-    }
-    .how-inner h2 span { color: var(--sun); }
-
-    .how-cards {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-    }
-
-    .how-card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      padding: 2.5rem;
-      position: relative; overflow: hidden;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .how-card:hover {
-      border-color: rgba(245,166,35,0.3);
-      transform: translateY(-4px);
-    }
-    .how-card::after {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(to right, var(--sun), var(--accent));
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.3s;
-    }
-    .how-card:hover::after { transform: scaleX(1); }
-
-    .card-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem; color: var(--sun);
-      letter-spacing: 0.2em; margin-bottom: 1.5rem;
-    }
-    .how-card h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem; letter-spacing: 0.05em;
-      color: var(--white); margin-bottom: 0.75rem;
-    }
-    .how-card p { font-size: 0.9rem; line-height: 1.7; color: var(--muted); }
 
     /* ─── CTA ─── */
     .cta {
@@ -227,8 +241,7 @@ permalink: /about/
     .cta h2 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(3rem, 5vw, 4.5rem);
-      line-height: 0.95; letter-spacing: 0.02em;
-      margin-bottom: 1.5rem;
+      line-height: 0.95; letter-spacing: 0.02em; margin-bottom: 1.5rem;
     }
     .cta h2 span { color: var(--sun); }
     .cta p { font-size: 1rem; color: var(--muted); line-height: 1.75; margin-bottom: 2.5rem; }
@@ -293,7 +306,6 @@ permalink: /about/
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
     .delay-1 { animation-delay: 0.15s; }
     .delay-2 { animation-delay: 0.3s; }
-    .delay-3 { animation-delay: 0.45s; }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
@@ -301,11 +313,11 @@ permalink: /about/
       .nav-links { display: none; }
       .page-hero { padding: 8rem 1.5rem 4rem; }
       .page-hero::after { left: 1.5rem; right: 1.5rem; }
-      .mission { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem; }
+      .research { padding: 4rem 1.5rem; }
+      .pub-grid { grid-template-columns: 1fr; }
+      .transparency { padding: 4rem 1.5rem; }
+      .transparency-inner { grid-template-columns: 1fr; gap: 2rem; }
       .section-label { writing-mode: horizontal-tb; transform: none; }
-      .mission-cards { grid-template-columns: 1fr; }
-      .how { padding: 4rem 1.5rem; }
-      .how-cards { grid-template-columns: 1fr; }
       .cta { padding: 5rem 1.5rem; }
       footer { padding: 2rem 1.5rem; }
       .footer-top { flex-direction: column; gap: 2rem; }
@@ -320,8 +332,8 @@ permalink: /about/
   <nav>
     <a href="{{ '/' | relative_url }}" class="nav-wordmark">Solar<span>WAVE</span> Action</a>
     <ul class="nav-links">
-      <li><a href="{{ '/about/' | relative_url }}" class="active">About</a></li>
-      <li><a href="{{ '/our_work/' | relative_url }}">Our Work</a></li>
+      <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+      <li><a href="{{ '/our_work/' | relative_url }}" class="active">Our Work</a></li>
       <li><a href="{{ '/#involved' | relative_url }}">Get Involved</a></li>
       <li><a href="{{ '/donate/' | relative_url }}" class="nav-cta">Donate</a></li>
     </ul>
@@ -329,51 +341,48 @@ permalink: /about/
 
   <!-- PAGE HERO -->
   <div class="page-hero">
-    <div class="eyebrow fade-in">Who We Are</div>
-    <h1 class="fade-in delay-1">Built for <span>Equitable</span> Clean Energy.</h1>
-    <p class="fade-in delay-2">SolarWAVE Action is an independent research and advocacy organization advancing clean energy through data analysis, education, and evidence-based policy. We focus on transparency and practical solutions that strengthen California's clean energy future.</p>
+    <div class="eyebrow fade-in">Research &amp; Publications</div>
+    <h1 class="fade-in delay-1">Our <span>Work</span></h1>
+    <p class="fade-in delay-2">We conduct data analysis and legal analysis to accelerate equitable clean energy access. We translate complex energy information into clear, actionable guidance for lawmakers and community stakeholders.</p>
   </div>
 
-  <!-- MISSION & VISION -->
-  <section class="mission">
-    <div class="section-label">Mission</div>
-    <div class="mission-content">
-      <h2>Our Mission <span>&</span> Vision</h2>
-      <div class="mission-cards">
-        <div class="mission-card">
-          <div class="mission-card-label">01 — Mission</div>
-          <h3>Our Mission</h3>
-          <p>To advance clean energy policy through data-driven research that is open, rigorous, and actionable.</p>
-        </div>
-        <div class="mission-card">
-          <div class="mission-card-label">02 — Vision</div>
-          <h3>Our Vision</h3>
-          <p>A future with equitable, resilient clean energy for all Californians — powered by policy that holds up to scrutiny.</p>
-        </div>
-      </div>
+  <!-- FEATURED RESEARCH -->
+  <section class="research">
+    <div class="section-header">
+      <h2>Featured <span>Research</span></h2>
+    </div>
+    <div class="pub-grid">
+      <article class="pub-card">
+        <div class="pub-tag">Article</div>
+        <h3>How Defending Solar Ownership Rights Benefits Local Businesses</h3>
+        <p>News article for the Santa Cruz Area Chamber of Commerce.</p>
+        <a class="pub-link" href="https://web.santacruzchamber.org/news/newsarticledisplay.aspx?ArticleID=2127">Read Article →</a>
+      </article>
+      <article class="pub-card">
+        <div class="pub-tag">Report</div>
+        <h3>AB 1104: Commercial &amp; Industrial Solar Impact Report</h3>
+        <p>How Assembly Bill 1104 reduces administrative barriers for small businesses in Santa Cruz county.</p>
+        <a class="pub-link" href="{{ '/assets/publications/AB_1104_Report_rev260205.pdf' | relative_url }}">Read Report →</a>
+      </article>
+      <article class="pub-card">
+        <div class="pub-tag">Article</div>
+        <h3>Protecting Small Business Access to Clean Energy: Understanding the Impacts of AB 942</h3>
+        <p>News article for the Santa Cruz Area Chamber of Commerce.</p>
+        <a class="pub-link" href="https://web.santacruzchamber.org/news/newsarticledisplay.aspx?ArticleID=2097">Read Article →</a>
+      </article>
     </div>
   </section>
 
-  <!-- HOW WE WORK -->
-  <section class="how">
-    <div class="how-inner">
-      <h2>How We <span>Work</span></h2>
-      <div class="how-cards">
-        <div class="how-card">
-          <div class="card-num">01 — Deliver</div>
-          <h3>What We Deliver</h3>
-          <p>Open methodologies, transparent data analysis, and actionable guidance — every assumption, dataset, and line of code published for public scrutiny.</p>
-        </div>
-        <div class="how-card">
-          <div class="card-num">02 — Translate</div>
-          <h3>Policy Translation</h3>
-          <p>We turn complex energy data into concise briefings for lawmakers and stakeholders — making evidence accessible to the people who shape policy.</p>
-        </div>
-        <div class="how-card">
-          <div class="card-num">03 — Engage</div>
-          <h3>Public Accountability</h3>
-          <p>We invite scrutiny and constructive debate through open data access — because clean energy policy that doesn't hold up to scrutiny won't hold up in Sacramento.</p>
-        </div>
+  <!-- TRANSPARENCY -->
+  <section class="transparency">
+    <div class="transparency-inner">
+      <div class="section-label">Transparency</div>
+      <div class="transparency-content">
+        <h2>Open <span>Source</span> by Default</h2>
+        <p>Every analysis we publish includes the underlying software, data sources, and methodology. Our work is reproducible by design — because policy conclusions that can't be independently verified shouldn't be trusted.</p>
+        <a class="github-link" href="https://github.com/SolarWAVE-Action/solarwave-analysis">
+          View Our Code on GitHub →
+        </a>
       </div>
     </div>
   </section>
