@@ -212,6 +212,54 @@ permalink: /about/
     }
     .how-card p { font-size: 0.9rem; line-height: 1.7; color: var(--muted); }
 
+    /* ─── FOUNDERS ─── */
+    .founders {
+      padding: 6rem 3rem;
+      max-width: 1200px; margin: 0 auto;
+    }
+
+    .founders h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 3.5vw, 3rem);
+      letter-spacing: 0.03em; margin-bottom: 3rem;
+    }
+    .founders h2 span { color: var(--sun); }
+
+    .founder-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+    .founder-card {
+      background: var(--panel); border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .founder-photo {
+      width: 100%; aspect-ratio: 4/3;
+      object-fit: cover; object-position: top;
+      display: block;
+      filter: grayscale(20%);
+    }
+
+    .founder-body { padding: 2rem; }
+
+    .founder-role {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; color: var(--sun);
+      letter-spacing: 0.2em; text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .founder-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.75rem; letter-spacing: 0.05em;
+      color: var(--white); margin-bottom: 1.25rem;
+    }
+
+    .founder-bio {
+      font-size: 0.9rem; line-height: 1.75;
+      color: var(--muted);
+    }
+    .founder-bio + .founder-bio { margin-top: 0.85rem; }
+
     /* ─── CTA ─── */
     .cta {
       padding: 8rem 3rem;
@@ -306,6 +354,8 @@ permalink: /about/
       .mission-cards { grid-template-columns: 1fr; }
       .how { padding: 4rem 1.5rem; }
       .how-cards { grid-template-columns: 1fr; }
+      .founders { padding: 4rem 1.5rem; }
+      .founder-cards { grid-template-columns: 1fr; }
       .cta { padding: 5rem 1.5rem; }
       footer { padding: 2rem 1.5rem; }
       .footer-top { flex-direction: column; gap: 2rem; }
@@ -375,6 +425,39 @@ permalink: /about/
           <p>We invite scrutiny and constructive debate through open data access — because clean energy policy that doesn't hold up to scrutiny won't hold up in Sacramento.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- FOUNDERS -->
+  <section class="founders">
+    <h2>Our <span>Founders</span></h2>
+    <div class="founder-cards">
+
+      <div class="founder-card">
+        <img class="founder-photo"
+          src="{{ '/assets/images/JF2026BW.jpg' | relative_url }}"
+          alt="Jenny Folkesson" />
+        <div class="founder-body">
+          <div class="founder-role">Executive Director &amp; Co-Founder</div>
+          <div class="founder-name">Jenny Folkesson</div>
+          <p class="founder-bio">Jenny Folkesson is the Executive Director and co-founder of SolarWAVE Action.</p>
+          <p class="founder-bio">She holds a Ph.D. in Computer Science from the University of Copenhagen and has almost two decades of experience in data science, machine learning, and software engineering — notably at the Chan Zuckerberg Biohub, where she led imaging initiatives. Driven by a passion for using technology to make the world better, she transitioned her expertise toward climate action, contributing data science work to Save Our Shores and Reef Check before she and Angela co-founded SolarWAVE Action.</p>
+        </div>
+      </div>
+
+      <div class="founder-card">
+        <img class="founder-photo"
+          src="{{ '/assets/images/AL.jpg' | relative_url }}"
+          alt="Angela Lipanovich" />
+        <div class="founder-body">
+          <div class="founder-role">Co-Founder</div>
+          <div class="founder-name">Angela Lipanovich</div>
+          <p class="founder-bio">Angela Lipanovich is co-founder of SolarWAVE Action and founder and principal attorney of Estriatus Law, where she serves both as outside general counsel and project-specific advisor to entities across the cleantech and renewable energy spectrum — from early-stage startups to established public enterprises. Her clients range in size and structure, but share a common purpose: building technologies and solutions that drive a more sustainable world.</p>
+          <p class="founder-bio">Before launching Estriatus Law, Ms. Lipanovich served as General Counsel for a publicly traded solar company, where she played a key role in lobbying to uncap the residential solar investment tax credit and supported the successful raise of over $44 million in capital.</p>
+          <p class="founder-bio">She founded Estriatus Law not just to practice law, but to support the pioneers building a cleaner, smarter, more sustainable future. With every client, every project, and every partnership, she brings mission-driven legal guidance designed to clear obstacles and create momentum — because she believes the future depends on it.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
