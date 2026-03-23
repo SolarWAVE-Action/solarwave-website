@@ -1,0 +1,494 @@
+---
+layout: none
+permalink: /blog/ab-1104-analysis/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AB 1104: How Removing Permitting Barriers Affects Solar Adoption Rates — SolarWAVE Action</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sun: #F5A623;
+      --sun-light: #FFD87A;
+      --sky: #0A1628;
+      --sky-mid: #0D2244;
+      --card: #131F35;
+      --white: #F7F4EE;
+      --muted: #8A9AB5;
+      --accent: #3DD6A3;
+      --panel: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--sky); color: var(--white); overflow-x: hidden; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 3rem;
+      background: rgba(10,22,40,0.98);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-wordmark { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.08em; color: var(--white); text-decoration: none; }
+    .nav-wordmark span { color: var(--sun); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-cta { background: var(--sun); color: var(--sky) !important; padding: 0.5rem 1.25rem; border-radius: 2px; font-weight: 700 !important; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--sun-light) !important; color: var(--sky) !important; }
+
+    /* ─── BREADCRUMB ─── */
+    .breadcrumb-bar {
+      padding: 5rem 3rem 0;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .breadcrumb-bar a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb-bar a:hover { color: var(--white); }
+    .breadcrumb-bar .sep { color: var(--border); }
+    .breadcrumb-bar .current { color: var(--sun); }
+
+    /* ─── POST HEADER ─── */
+    .post-header {
+      margin: 1.25rem 2rem;
+      background: var(--sky-mid);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3rem;
+    }
+
+    .post-meta-top {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.5rem; flex-wrap: wrap;
+    }
+
+    .tag-pill {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem; font-weight: 600;
+      padding: 0.25rem 0.8rem; border-radius: 999px;
+      border: 1px solid;
+    }
+    .tag-pill.analysis { border-color: rgba(61,214,163,0.4); color: var(--accent); }
+    .tag-pill.policy   { border-color: rgba(245,166,35,0.4); color: var(--sun); }
+    .tag-pill.data     { border-color: rgba(100,160,255,0.4); color: #7EB3FF; }
+
+    .meta-text {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em;
+    }
+
+    .post-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700; line-height: 1.15;
+      color: var(--white); margin-bottom: 1rem;
+    }
+
+    .post-header .subtitle {
+      font-size: 1rem; line-height: 1.7;
+      color: var(--muted); max-width: 64ch; margin-bottom: 2rem;
+    }
+
+    .author-row {
+      display: flex; align-items: center; gap: 0.85rem;
+    }
+    .author-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--sky-mid));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Mono', monospace; font-size: 0.7rem;
+      font-weight: 700; color: var(--sky); flex-shrink: 0;
+    }
+    .author-name { font-size: 0.9rem; font-weight: 600; color: var(--white); }
+    .author-role { font-size: 0.8rem; color: var(--muted); }
+
+    /* ─── POST BODY ─── */
+    .post-body {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 2rem 4rem;
+      align-items: start;
+    }
+
+    /* ─── ARTICLE ─── */
+    article {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.5rem;
+    }
+
+    article h2 {
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--white); margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    article p {
+      font-size: 0.95rem; line-height: 1.8;
+      color: rgba(247,244,238,0.8);
+      margin-bottom: 1.25rem;
+    }
+
+    article section { margin-bottom: 2.5rem; }
+    article section:last-child { margin-bottom: 0; }
+
+    /* Figure */
+    .figure-block {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+      margin: 1.75rem 0;
+    }
+    .figure-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 0.5rem;
+    }
+    .figure-title {
+      font-size: 0.9rem; font-weight: 600;
+      color: var(--white); margin-bottom: 1.5rem;
+    }
+
+    /* Grouped bar chart */
+    .chart-area {
+      display: flex; align-items: flex-end;
+      gap: 1rem; height: 160px; margin-bottom: 1rem;
+    }
+    .bar-group {
+      display: flex; align-items: flex-end; gap: 3px;
+      flex: 1;
+    }
+    .bar {
+      flex: 1; border-radius: 2px 2px 0 0;
+      transition: opacity 0.2s;
+    }
+    .bar:hover { opacity: 0.85; }
+    .bar.before { background: #A8C8F0; }
+    .bar.after  { background: #3B7FD4; }
+
+    .chart-labels {
+      display: flex; gap: 1rem;
+    }
+    .chart-label {
+      flex: 1; text-align: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; color: var(--muted); letter-spacing: 0.05em;
+    }
+
+    .chart-legend {
+      display: flex; gap: 1.5rem; margin-top: 0.75rem;
+    }
+    .legend-item {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; color: var(--muted);
+    }
+    .legend-swatch { width: 12px; height: 12px; border-radius: 2px; }
+
+    .figure-source {
+      font-size: 0.75rem; color: var(--muted);
+      margin-top: 1rem; line-height: 1.5;
+    }
+
+    /* Blockquote */
+    blockquote {
+      border-left: 3px solid var(--sun);
+      background: rgba(245,166,35,0.05);
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0;
+      border-radius: 0 4px 4px 0;
+    }
+    blockquote p {
+      font-style: italic; font-size: 0.95rem;
+      color: rgba(247,244,238,0.9);
+      margin: 0;
+    }
+
+    /* ─── SIDEBAR ─── */
+    .sidebar { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .sidebar-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .sidebar-card h4 {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 1rem;
+    }
+
+    .toc-list { list-style: none; }
+    .toc-list li {
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.875rem;
+    }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .toc-list a:hover { color: var(--white); }
+    .toc-list li.active a { color: var(--sun); }
+
+    .sidebar-card p {
+      font-size: 0.85rem; line-height: 1.65; color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .sidebar-link {
+      display: block; font-size: 0.82rem; color: var(--accent);
+      text-decoration: none; transition: color 0.2s; margin-bottom: 0.4rem;
+    }
+    .sidebar-link:hover { color: var(--sun); }
+
+    .related-list { list-style: none; }
+    .related-list li { margin-bottom: 0.5rem; }
+    .related-list a { font-size: 0.85rem; color: var(--accent); text-decoration: none; transition: color 0.2s; line-height: 1.4; display: block; }
+    .related-list a:hover { color: var(--sun); }
+
+    .topics { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .topic-pill {
+      font-size: 0.75rem; color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.7rem; border-radius: 999px;
+    }
+
+    /* ─── FOOTER ─── */
+    footer { background: #ffffff; border-top: 3px solid var(--sun); padding: 3rem 3rem 2rem; }
+    .footer-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #E8EAF0; }
+    .footer-logo-img { display: block; height: 64px; width: auto; }
+    .footer-tagline { font-size: 0.85rem; color: #6B7A99; margin-top: 0.6rem; max-width: 28ch; line-height: 1.6; }
+    .footer-nav-group h5 { display: none; }
+    .footer-links { display: flex; flex-direction: row; gap: 2rem; list-style: none; }
+    .footer-links a { font-size: 0.85rem; color: #6B7A99; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--sky); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .footer-copy { font-size: 0.75rem; color: #A0AABF; font-family: 'DM Mono', monospace; }
+    .footer-legal { display: flex; gap: 1.5rem; }
+    .footer-legal a { font-size: 0.75rem; color: #A0AABF; text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: var(--sky); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .breadcrumb-bar { padding: 4.5rem 1.5rem 0; }
+      .post-header { margin: 1rem; padding: 2rem; }
+      .post-body { grid-template-columns: 1fr; padding: 0 1rem 3rem; }
+      .sidebar { order: -1; }
+      footer { padding: 2rem 1.5rem; }
+      .footer-top { flex-direction: column; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+      .footer-legal { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="{{ '/' | relative_url }}" class="nav-wordmark">Solar<span>WAVE</span> Action</a>
+    <ul class="nav-links">
+      <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+      <li><a href="{{ '/our_work/' | relative_url }}" class="active">Our Work</a></li>
+      <li><a href="{{ '/get-involved/' | relative_url }}">Get Involved</a></li>
+      <li><a href="{{ '/donate/' | relative_url }}" class="nav-cta">Donate</a></li>
+    </ul>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb-bar">
+    <a href="{{ '/our_work/' | relative_url }}">Our Work</a>
+    <span class="sep">→</span>
+    <a href="{{ '/blog/' | relative_url }}">Blog</a>
+    <span class="sep">→</span>
+    <span class="current">AB 1104 Analysis</span>
+  </div>
+
+  <!-- POST HEADER -->
+  <div class="post-header">
+    <div class="post-meta-top">
+      <span class="tag-pill analysis">Analysis</span>
+      <span class="meta-text">March 10, 2026 &nbsp;·&nbsp; 8 min read</span>
+    </div>
+    <h1>AB 1104: How Removing Permitting Barriers Affects Solar Adoption Rates</h1>
+    <p class="subtitle">A data analysis of commercial solar permit timelines across Santa Cruz County before and after AB 1104's administrative reforms.</p>
+    <div class="author-row">
+      <div class="author-avatar">SW</div>
+      <div>
+        <div class="author-name">SolarWAVE Action</div>
+        <div class="author-role">Research Team</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST BODY -->
+  <div class="post-body">
+
+    <article>
+
+      <section id="background">
+        <h2>Background</h2>
+        <p>Assembly Bill 1104 reduced administrative barriers for small businesses seeking to install commercial solar in Santa Cruz County. Prior to its passage, permit approval timelines averaged 47 days — a figure our team documented through a review of county records from 2022–2024.</p>
+        <p>This analysis examines whether shorter timelines have translated into measurable increases in solar adoption, and which business sectors have benefited most.</p>
+
+        <div class="figure-block">
+          <div class="figure-label">Figure 1</div>
+          <div class="figure-title">Average permit approval time (days) — before vs. after AB 1104</div>
+          <div class="chart-area">
+            <div class="bar-group">
+              <div class="bar before" style="height:80%;"></div>
+              <div class="bar after"  style="height:35%;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar before" style="height:90%;"></div>
+              <div class="bar after"  style="height:40%;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar before" style="height:70%;"></div>
+              <div class="bar after"  style="height:30%;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar before" style="height:100%;"></div>
+              <div class="bar after"  style="height:34%;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar before" style="height:75%;"></div>
+              <div class="bar after"  style="height:38%;"></div>
+            </div>
+          </div>
+          <div class="chart-labels">
+            <div class="chart-label">Retail</div>
+            <div class="chart-label">Food &amp; Bev</div>
+            <div class="chart-label">Office</div>
+            <div class="chart-label">Mfg.</div>
+            <div class="chart-label">Services</div>
+          </div>
+          <div class="chart-legend">
+            <div class="legend-item"><div class="legend-swatch" style="background:#A8C8F0;"></div> Before AB 1104</div>
+            <div class="legend-item"><div class="legend-swatch" style="background:#3B7FD4;"></div> After AB 1104</div>
+          </div>
+          <p class="figure-source">Source: Santa Cruz County permit records, 2022–2025. Analysis: SolarWAVE Action.</p>
+        </div>
+      </section>
+
+      <section id="key-findings">
+        <h2>Key findings</h2>
+        <p>Across all commercial categories, permit timelines fell by an average of 54% following the bill's implementation. Manufacturing saw the largest absolute reduction, from 47 days to 16 days on average.</p>
+        <blockquote>
+          <p>"The data suggests that administrative friction — not financing or technology costs — was the primary barrier for small businesses considering solar."</p>
+        </blockquote>
+        <p>Adoption rates in the 12 months following AB 1104 increased 31% year-over-year in Santa Cruz County, compared to 12% statewide over the same period — suggesting the local permitting reforms had an effect above and beyond broader market trends.</p>
+      </section>
+
+      <section id="methodology">
+        <h2>Methodology</h2>
+        <p>All data used in this analysis is publicly available from Santa Cruz County records. Our code and full dataset are published on GitHub under an open-source license and can be independently reproduced.</p>
+      </section>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="sidebar-card">
+        <h4>In this post</h4>
+        <ul class="toc-list">
+          <li class="active"><a href="#background">Background</a></li>
+          <li><a href="#key-findings">Key findings</a></li>
+          <li><a href="#methodology">Methodology</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card">
+        <h4>Data &amp; Code</h4>
+        <p>This analysis is fully reproducible. All data and source code are published openly.</p>
+        <a class="sidebar-link" href="https://github.com/SolarWAVE-Action/solarwave-analysis">View on GitHub →</a>
+        <a class="sidebar-link" href="#">Download dataset →</a>
+      </div>
+
+      <div class="sidebar-card">
+        <h4>Related</h4>
+        <ul class="related-list">
+          <li><a href="#">AB 942: Small Business Clean Energy Access</a></li>
+          <li><a href="#">NEM 3.0 County-Level Impact</a></li>
+          <li><a href="{{ '/assets/publications/AB_1104_Report.pdf' | relative_url }}">Full AB 1104 Report (PDF)</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card">
+        <h4>Topics</h4>
+        <div class="topics">
+          <span class="topic-pill">Solar</span>
+          <span class="topic-pill">Permitting</span>
+          <span class="topic-pill">AB 1104</span>
+          <span class="topic-pill">Santa Cruz</span>
+          <span class="topic-pill">Small business</span>
+        </div>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img class="footer-logo-img" src="{{ '/assets/images/SolarWAVELogoNoTag.png' | relative_url }}" alt="SolarWAVE Action" />
+        <p class="footer-tagline">Advancing clean energy policy through data-driven research.</p>
+      </div>
+      <div class="footer-nav-group">
+        <h5>Navigate</h5>
+        <ul class="footer-links">
+          <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+          <li><a href="{{ '/our_work/' | relative_url }}">Our Work</a></li>
+          <li><a href="{{ '/get-involved/' | relative_url }}">Get Involved</a></li>
+          <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+          <li><a href="{{ '/donate/' | relative_url }}">Donate</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 SolarWAVE Action. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Highlight active TOC item on scroll
+    const sections = document.querySelectorAll('article section[id]');
+    const tocLinks = document.querySelectorAll('.toc-list li');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(li => li.classList.remove('active'));
+          const active = document.querySelector(`.toc-list a[href="#${entry.target.id}"]`);
+          if (active) active.parentElement.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>
