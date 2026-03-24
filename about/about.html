@@ -336,6 +336,78 @@ permalink: /about/
     }
     .footer-legal a:hover { color: var(--sky); }
 
+    /* ─── TEAM TABS ─── */
+    .team-tabs {
+      display: flex; gap: 0; margin-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .team-tab {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--muted);
+      background: none; border: none;
+      padding: 0.85rem 1.75rem 0.85rem 0;
+      cursor: pointer; position: relative;
+      transition: color 0.2s;
+      margin-right: 2rem;
+    }
+    .team-tab::after {
+      content: '';
+      position: absolute; bottom: -1px; left: 0; right: 0;
+      height: 2px; background: var(--sun);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.25s;
+    }
+    .team-tab:hover { color: var(--white); }
+    .team-tab.active { color: var(--white); }
+    .team-tab.active::after { transform: scaleX(1); }
+
+    /* ─── BOARD CARDS ─── */
+    .board-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    }
+    .board-grid .board-card:first-child {
+      grid-column: 1 / -1;
+      max-width: calc(50% - 1rem);
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .board-card {
+      background: var(--panel); border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .board-photo-placeholder {
+      width: 100%; aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--sky-mid) 0%, rgba(61,214,163,0.08) 100%);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem; letter-spacing: 0.12em;
+      color: var(--sun); opacity: 0.6;
+    }
+
+    .board-body { padding: 1.75rem; }
+
+    .board-role {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; color: var(--sun);
+      letter-spacing: 0.2em; text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .board-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.65rem; letter-spacing: 0.05em;
+      color: var(--white); margin-bottom: 1rem;
+    }
+
+    .board-bio {
+      font-size: 0.88rem; line-height: 1.75;
+      color: var(--muted);
+    }
+
     /* ─── ANIMATIONS ─── */
     .fade-in { opacity: 0; transform: translateY(24px); animation: fadeUp 0.8s ease forwards; }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
@@ -356,6 +428,8 @@ permalink: /about/
       .how-cards { grid-template-columns: 1fr; }
       .founders { padding: 4rem 1.5rem; }
       .founder-cards { grid-template-columns: 1fr; }
+      .board-grid { grid-template-columns: 1fr; }
+      .board-grid .board-card:first-child { max-width: 100%; }
       .cta { padding: 5rem 1.5rem; }
       footer { padding: 2rem 1.5rem; }
       .footer-top { flex-direction: column; gap: 2rem; }
@@ -404,37 +478,102 @@ permalink: /about/
     </div>
   </section>
 
-  <!-- FOUNDERS -->
+  <!-- FOUNDERS / GOVERNANCE -->
   <section class="founders">
-    <h2>Our <span>Founders</span></h2>
-    <p style="font-size:1.05rem; line-height:1.8; color:var(--muted); max-width:72ch; margin-bottom:3rem;">In 2025, Angela Lipanovich partnered with Jenny Folkesson to support the passage of California Assembly Bill 1104, a commercial solar energy bill successfully signed into law in October that year. That collaboration became the foundation for SolarWAVE Action — built on the conviction that rigorous data analysis and sharp legal strategy are the most powerful tools for accelerating the clean energy transition.</p>
-    <div class="founder-cards">
+    <h2>Our <span>People</span></h2>
 
-      <div class="founder-card">
-        <img class="founder-photo"
-          src="{{ '/assets/images/JF.jpg' | relative_url }}"
-          alt="Jenny Folkesson" />
-        <div class="founder-body">
-          <div class="founder-role">Executive Director &amp; Co-Founder</div>
-          <div class="founder-name">Jenny Folkesson</div>
-          <p class="founder-bio">Jenny Folkesson is the Executive Director and co-founder of SolarWAVE Action.</p>
-          <p class="founder-bio">She holds a Ph.D. in Computer Science from the University of Copenhagen and has almost two decades of experience in data science, machine learning, and software engineering — notably at the Chan Zuckerberg Biohub, where she led image analysis initiatives. Driven by a passion for using technology to make the world better, she transitioned her expertise toward climate action, contributing data science work to Save Our Shores and Reef Check before she and Angela co-founded SolarWAVE Action.</p>
-        </div>
-      </div>
-
-      <div class="founder-card">
-        <img class="founder-photo"
-          src="{{ '/assets/images/AL.jpg' | relative_url }}"
-          alt="Angela Lipanovich" />
-        <div class="founder-body">
-          <div class="founder-role">Board Chair & Co-Founder</div>
-          <div class="founder-name">Angela Lipanovich</div>
-          <p class="founder-bio">Angela Lipanovich is co-founder of SolarWAVE Action and founder and principal attorney of Estriatus Law, where she serves both as outside general counsel and project-specific advisor to entities across the cleantech and renewable energy spectrum — from early-stage startups to established public enterprises.</p>
-          <p class="founder-bio">She founded Estriatus Law not just to practice law, but to support the pioneers building a cleaner, smarter, more sustainable future. With every client, every project, and every partnership, she brings mission-driven legal guidance designed to clear obstacles and create momentum — because she believes the future depends on it.</p>
-        </div>
-      </div>
-
+    <div class="team-tabs">
+      <button class="team-tab active" data-tab="founders">Founders</button>
+      <button class="team-tab" data-tab="board">Governance</button>
     </div>
+
+    <!-- ── Founders tab ── -->
+    <div id="tab-founders" class="tab-content">
+      <p style="font-size:1.05rem; line-height:1.8; color:var(--muted); max-width:72ch; margin-bottom:3rem;">In 2025, Angela Lipanovich partnered with Jenny Folkesson to support the passage of California Assembly Bill 1104, a commercial solar energy bill successfully signed into law in October that year. That collaboration became the foundation for SolarWAVE Action — built on the conviction that rigorous data analysis and sharp legal strategy are the most powerful tools for accelerating the clean energy transition.</p>
+      <div class="founder-cards">
+
+        <div class="founder-card">
+          <img class="founder-photo"
+            src="{{ '/assets/images/JF.jpg' | relative_url }}"
+            alt="Jenny Folkesson" />
+          <div class="founder-body">
+            <div class="founder-role">Executive Director &amp; Co-Founder</div>
+            <div class="founder-name">Jenny Folkesson</div>
+            <p class="founder-bio">Jenny Folkesson is the Executive Director and co-founder of SolarWAVE Action.</p>
+            <p class="founder-bio">She holds a Ph.D. in Computer Science from the University of Copenhagen and has almost two decades of experience in data science, machine learning, and software engineering — notably at the Chan Zuckerberg Biohub, where she led image analysis initiatives. Driven by a passion for using technology to make the world better, she transitioned her expertise toward climate action, contributing data science work to Save Our Shores and Reef Check before she and Angela co-founded SolarWAVE Action.</p>
+          </div>
+        </div>
+
+        <div class="founder-card">
+          <img class="founder-photo"
+            src="{{ '/assets/images/AL.jpg' | relative_url }}"
+            alt="Angela Lipanovich" />
+          <div class="founder-body">
+            <div class="founder-role">Board Chair &amp; Co-Founder</div>
+            <div class="founder-name">Angela Lipanovich</div>
+            <p class="founder-bio">Angela Lipanovich is co-founder of SolarWAVE Action and founder and principal attorney of Estriatus Law, where she serves both as outside general counsel and project-specific advisor to entities across the cleantech and renewable energy spectrum — from early-stage startups to established public enterprises.</p>
+            <p class="founder-bio">She founded Estriatus Law not just to practice law, but to support the pioneers building a cleaner, smarter, more sustainable future. With every client, every project, and every partnership, she brings mission-driven legal guidance designed to clear obstacles and create momentum — because she believes the future depends on it.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── Governance tab ── -->
+    <div id="tab-board" class="tab-content" hidden>
+      <p style="font-size:1.05rem; line-height:1.8; color:var(--muted); max-width:72ch; margin-bottom:3rem;">SolarWAVE Action is governed by a five-member Board of Directors who provide strategic oversight and ensure the organization remains accountable to its mission of advancing equitable clean energy policy in California.</p>
+
+      <!-- Chair centered at top, then other four — all in one grid -->
+      <div class="board-grid">
+
+        <div class="board-card">
+          <div class="board-photo-placeholder">AL</div>
+          <div class="board-body">
+            <div class="board-role">Chair</div>
+            <div class="board-name">Angela Lipanovich</div>
+            <p class="board-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+        </div>
+
+        <div class="board-card">
+          <div class="board-photo-placeholder">PS</div>
+          <div class="board-body">
+            <div class="board-role">Treasurer</div>
+            <div class="board-name">Pete Scudder</div>
+            <p class="board-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+          </div>
+        </div>
+
+        <div class="board-card">
+          <div class="board-photo-placeholder">JF</div>
+          <div class="board-body">
+            <div class="board-role">Secretary</div>
+            <div class="board-name">Jenny Folkesson</div>
+            <p class="board-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+          </div>
+        </div>
+
+        <div class="board-card">
+          <div class="board-photo-placeholder">JW</div>
+          <div class="board-body">
+            <div class="board-role">Director</div>
+            <div class="board-name">Jan Friewald</div>
+            <p class="board-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+          </div>
+        </div>
+
+        <div class="board-card">
+          <div class="board-photo-placeholder">KB</div>
+          <div class="board-body">
+            <div class="board-role">Director</div>
+            <div class="board-name">Kristen Brown</div>
+            <p class="board-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </section>
 
   <!-- HOW WE WORK -->
@@ -502,6 +641,17 @@ permalink: /about/
       </div>
     </div>
   </footer>
+
+  <script>
+    document.querySelectorAll('.team-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.team-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => { c.hidden = true; });
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).hidden = false;
+      });
+    });
+  </script>
 
 </body>
 </html>
