@@ -139,9 +139,23 @@ permalink: /about/
 
     .mission-card {
       background: var(--sky); padding: 2.25rem;
-      transition: background 0.2s;
+      position: relative; overflow: hidden;
+      transition: background 0.2s, border-color 0.3s, transform 0.3s;
     }
-    .mission-card:hover { background: var(--sky-mid); }
+    .mission-card:hover {
+      background: var(--sky-mid);
+      border-color: rgba(245,166,35,0.3);
+      transform: translateY(-4px);
+    }
+    .mission-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--sun), var(--accent));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .mission-card:hover::after { transform: scaleX(1); }
 
     .mission-card-label {
       font-family: 'DM Mono', monospace;
@@ -462,7 +476,7 @@ permalink: /about/
   <div class="page-hero">
     <div class="eyebrow fade-in">Who We Are</div>
     <h1 class="fade-in delay-1">Built for <span>Equitable</span> Clean Energy.</h1>
-    <p class="fade-in delay-2">SolarWAVE Action is an independent research and advocacy organization advancing clean energy through data analysis, education, and evidence-based policy. We focus on transparency and practical solutions that strengthen California's clean energy future.</p>
+    <p class="fade-in delay-2">SolarWAVE Action is an independent research and advocacy organization advancing clean energy through legal and data analysis. We build the tools, standards, and coalitions that make distributed clean energy ownership the default, not the exception.</p>
   </div>
 
   <!-- MISSION & VISION -->
@@ -474,12 +488,12 @@ permalink: /about/
         <div class="mission-card">
           <div class="mission-card-label">01 — Mission</div>
           <h3>Our Mission</h3>
-          <p>We build the tools, standards, and coalitions that make distributed clean energy ownership the default, not the exception.</p>
+          <p>Advancing clean energy with legal and data analysis.</p>
         </div>
         <div class="mission-card">
           <div class="mission-card-label">02 — Vision</div>
           <h3>Our Vision</h3>
-          <p>A future with resilient clean energy for all — powered by policy that holds up to scrutiny.</p>
+          <p>A future with resilient clean energy for all.</p>
         </div>
       </div>
     </div>
