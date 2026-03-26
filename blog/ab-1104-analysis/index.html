@@ -147,11 +147,19 @@ permalink: /blog/ab-1104-analysis/
 
     /* Figure */
     .figure-block {
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
       background: rgba(255,255,255,0.03);
       border: 1px solid var(--border);
       border-radius: 6px;
       padding: 1.5rem;
       margin: 1.75rem 0;
+    }
+
+    .chart-placeholder .plotly-graph-div {
+      width: 100% !important;
+      height: 220px !important;
     }
     .figure-label {
       font-family: 'DM Mono', monospace;
