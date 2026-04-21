@@ -334,7 +334,7 @@ layout: none
 
     /* ─── FOOTER ─── */
     footer {
-      background: --sky-mid;
+      background: var(--sky-mid);
       border-top: 3px solid var(--sun);
       padding: 2rem 3rem 1rem;
     }
@@ -413,7 +413,7 @@ layout: none
     <ul class="nav-links">
       <li><a href="{{ '/about/' | relative_url }}">About</a></li>
       <li><a href="{{ '/our_work/' | relative_url }}">Our Work</a></li>
-      <li><a href="#involved">Get Involved</a></li>
+      <li><a href="{{ '/get_involved/' | relative_url }}" class="nav-cta">Get Involved</a></li>
       <li><a href="{{ '/donate/' | relative_url }}" class="nav-cta">Donate</a></li>
     </ul>
   </nav>
@@ -513,7 +513,7 @@ layout: none
       <p>Whether you want to support our research, follow our work, or partner with us on advocacy — there's a place for you in California's clean energy future.</p>
       <div class="cta-actions">
         <a href="{{ '/donate/' | relative_url }}" class="btn-primary">Donate</a>
-        <a href="{{ '/get-involved/' | relative_url }}" class="btn-secondary">Stay Informed</a>
+        <a href="{{ '/get-involved/' | relative_url }}" class="btn-secondary">Get Involved</a>
       </div>
     </div>
   </section>
