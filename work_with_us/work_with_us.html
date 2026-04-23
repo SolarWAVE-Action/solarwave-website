@@ -1,0 +1,824 @@
+---
+layout: none
+permalink: /work_with_us/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Work With Us — SolarWAVE Action</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sun: #F5A623;
+      --sun-light: #FFD87A;
+      --sky: #0A1628;
+      --sky-mid: #0D2244;
+      --white: #F7F4EE;
+      --muted: #8A9AB5;
+      --accent: #3DD6A3;
+      --panel: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--sky); color: var(--white); overflow-x: hidden; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 3rem;
+      background: rgba(10,22,40,0.98);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-wordmark { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.08em; color: var(--white); text-decoration: none; }
+    .nav-wordmark span { color: var(--sun); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-cta { background: var(--sun); color: var(--sky) !important; padding: 0.5rem 1.25rem; border-radius: 2px; font-weight: 700 !important; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--sun-light) !important; color: var(--sky) !important; }
+
+    /* ─── PAGE HERO ─── */
+    .page-hero {
+      padding: 10rem 3rem 6rem;
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 4rem; align-items: center;
+      position: relative;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute; bottom: 0; left: 3rem; right: 3rem;
+      height: 1px; background: var(--border);
+    }
+
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .eyebrow::before { content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--accent); }
+
+    .page-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 0.95; letter-spacing: 0.02em;
+      color: var(--white); margin-bottom: 1.5rem;
+    }
+    .page-hero h1 span { color: var(--sun); }
+    .page-hero p { font-size: 1.08rem; line-height: 1.8; color: var(--muted); max-width: 58ch; }
+
+    .entity-badge {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .entity-badge-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 0.5rem;
+    }
+    .entity-badge-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem; letter-spacing: 0.06em;
+      color: var(--white); display: block; margin-bottom: 0.4rem;
+    }
+    .entity-badge-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.12em;
+      color: var(--sun);
+    }
+
+    /* ─── INDEPENDENCE NOTICE ─── */
+    .notice-wrap {
+      max-width: 1200px; margin: 0 auto;
+      padding: 2.5rem 3rem 0;
+    }
+    .notice {
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      background: rgba(245,166,35,0.05);
+      border: 1px solid rgba(245,166,35,0.25);
+      padding: 1.5rem 2rem;
+    }
+    .notice-icon {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: rgba(245,166,35,0.15);
+      border: 1px solid rgba(245,166,35,0.4);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .notice-icon svg { width: 11px; height: 11px; }
+    .notice p { font-size: 0.9rem; line-height: 1.75; color: var(--muted); }
+    .notice p strong { color: var(--white); font-weight: 600; }
+
+    /* ─── SECTION SCAFFOLDING ─── */
+    .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 3rem; }
+
+    .section-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem;
+    }
+
+    .section-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      letter-spacing: 0.03em; color: var(--white);
+      margin-bottom: 3rem;
+    }
+    .section-heading span { color: var(--sun); }
+
+    /* ─── SERVICES ─── */
+    .services {
+      padding: 6rem 3rem;
+      max-width: 1200px; margin: 0 auto;
+    }
+
+    .service-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      position: relative; overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .service-card:hover { border-color: rgba(245,166,35,0.3); transform: translateY(-4px); }
+    .service-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, var(--sun), var(--accent));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .service-card:hover::after { transform: scaleX(1); }
+
+    .service-icon {
+      width: 44px; height: 44px; border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem; letter-spacing: 0.05em;
+      color: var(--white); margin-bottom: 0.75rem;
+    }
+
+    .service-card p { font-size: 0.9rem; line-height: 1.75; color: var(--muted); margin-bottom: 1.25rem; }
+
+    .service-examples { display: flex; flex-direction: column; gap: 0.4rem; }
+    .service-example {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; color: var(--muted);
+      display: flex; align-items: flex-start; gap: 0.6rem;
+    }
+    .service-example::before { content: '—'; color: var(--accent); flex-shrink: 0; }
+
+    /* ─── FEES ─── */
+    .fees {
+      background: var(--sky-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 6rem 3rem;
+    }
+
+    .fees-table {
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .fees-table-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+    .fees-table-header h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem; letter-spacing: 0.05em; color: var(--white);
+    }
+    .fees-table-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .fees-col-row {
+      display: grid; grid-template-columns: 2fr 1fr 1.25fr 1.5fr;
+      padding: 0.75rem 2rem;
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid var(--border);
+      gap: 1.5rem;
+    }
+    .fees-col-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .fee-row {
+      display: grid; grid-template-columns: 2fr 1fr 1.25fr 1.5fr;
+      padding: 1.75rem 2rem;
+      border-bottom: 1px solid var(--border);
+      gap: 1.5rem; align-items: start;
+      transition: background 0.2s;
+    }
+    .fee-row:last-child { border-bottom: none; }
+    .fee-row:hover { background: rgba(255,255,255,0.02); }
+
+    .fee-type {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.2rem; letter-spacing: 0.05em;
+      color: var(--white); margin-bottom: 0.4rem;
+    }
+    .fee-desc { font-size: 0.85rem; line-height: 1.65; color: var(--muted); }
+
+    .fee-timeline { font-size: 0.88rem; color: var(--muted); padding-top: 0.2rem; }
+
+    .fee-price {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem; font-weight: 600;
+      color: var(--white); margin-bottom: 0.25rem;
+    }
+    .fee-price-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .fee-includes { display: flex; flex-direction: column; gap: 0.35rem; padding-top: 0.2rem; }
+    .fee-include {
+      font-size: 0.82rem; color: var(--muted);
+      display: flex; align-items: flex-start; gap: 0.5rem;
+    }
+    .fee-include::before { content: '✓'; color: var(--accent); flex-shrink: 0; font-size: 0.75rem; }
+
+    /* ─── PROCESS ─── */
+    .process {
+      padding: 6rem 3rem;
+      max-width: 1200px; margin: 0 auto;
+    }
+
+    .process-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--border);
+    }
+
+    .process-step {
+      padding: 2.5rem 2rem;
+      border-right: 1px solid var(--border);
+      position: relative; overflow: hidden;
+      transition: background 0.2s;
+    }
+    .process-step:last-child { border-right: none; }
+    .process-step:hover { background: var(--panel); }
+    .process-step::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, var(--sun), var(--accent));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .process-step:hover::before { transform: scaleX(1); }
+
+    .step-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.2em; color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .process-step h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem; letter-spacing: 0.05em;
+      color: var(--white); margin-bottom: 0.75rem;
+    }
+    .process-step p { font-size: 0.88rem; line-height: 1.7; color: var(--muted); }
+
+    /* ─── FORM ─── */
+    .form-section {
+      background: var(--sky-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 6rem 3rem;
+    }
+
+    .form-card {
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .form-card-header {
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+    }
+    .form-card-header h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.75rem; letter-spacing: 0.04em;
+      color: var(--white); margin-bottom: 0.4rem;
+    }
+    .form-card-header p { font-size: 0.92rem; color: var(--muted); }
+
+    .form-card-body { padding: 2.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+    .field { display: flex; flex-direction: column; gap: 0.45rem; }
+    .field label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    .field input,
+    .field select,
+    .field textarea {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 0.75rem 1rem;
+      border-radius: 2px;
+      outline: none;
+      width: 100%;
+      transition: border-color 0.2s;
+      appearance: none;
+    }
+    .field input::placeholder,
+    .field textarea::placeholder { color: var(--muted); }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus { border-color: rgba(245,166,35,0.5); }
+    .field select { background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%238A9AB5' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
+    .field select option { background: var(--sky-mid); color: var(--white); }
+    .field textarea { resize: vertical; min-height: 120px; line-height: 1.65; }
+
+    .form-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; padding-top: 0.5rem;
+    }
+    .form-footer-note { font-size: 0.82rem; color: var(--muted); line-height: 1.65; max-width: 46ch; }
+
+    .btn-submit {
+      background: var(--sun); color: var(--sky);
+      padding: 0.85rem 2rem; border-radius: 2px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+      font-weight: 700; border: none; cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-flex; align-items: center; gap: 0.6rem;
+    }
+    .btn-submit:hover { background: var(--sun-light); transform: translateY(-1px); }
+    .btn-submit:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+
+    /* ─── FORM STATES ─── */
+    .form-success {
+      display: none;
+      padding: 3.5rem 2.5rem;
+      text-align: center;
+    }
+    .form-success.visible { display: block; }
+    .form-success-icon {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(61,214,163,0.1);
+      border: 1px solid rgba(61,214,163,0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    .form-success h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.75rem; letter-spacing: 0.04em;
+      color: var(--white); margin-bottom: 0.75rem;
+    }
+    .form-success p { font-size: 0.95rem; color: var(--muted); line-height: 1.75; max-width: 44ch; margin: 0 auto; }
+
+    .form-error-msg {
+      display: none;
+      font-size: 0.82rem; color: #f87171;
+      margin-top: 0.75rem; text-align: right;
+    }
+    .form-error-msg.visible { display: block; }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--sky-mid); border-top: 3px solid var(--sun); padding: 2rem 3rem 1rem; }
+    .footer-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #E8EAF0; }
+    .footer-logo-img { display: block; height: 64px; width: auto; }
+    .footer-tagline { font-size: 0.85rem; color: #6B7A99; margin-top: 0.6rem; max-width: 28ch; line-height: 1.6; }
+    .footer-nav-group h5 { display: none; }
+    .footer-links { display: flex; flex-direction: row; gap: 2rem; list-style: none; }
+    .footer-links a { font-size: 0.85rem; color: #6B7A99; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--sky); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .footer-copy { font-size: 0.75rem; color: #A0AABF; font-family: 'DM Mono', monospace; }
+    .footer-legal { display: flex; gap: 1.5rem; }
+    .footer-legal a { font-size: 0.75rem; color: #A0AABF; text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: var(--sky); }
+
+    /* ─── ANIMATIONS ─── */
+    .fade-in { opacity: 0; transform: translateY(24px); animation: fadeUp 0.8s ease forwards; }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .delay-1 { animation-delay: 0.15s; }
+    .delay-2 { animation-delay: 0.3s; }
+    .delay-3 { animation-delay: 0.45s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .page-hero { padding: 8rem 1.5rem 4rem; grid-template-columns: 1fr; gap: 2rem; }
+      .page-hero::after { left: 1.5rem; right: 1.5rem; }
+      .entity-badge { text-align: left; }
+      .notice-wrap { padding: 2rem 1.5rem 0; }
+      .services { padding: 4rem 1.5rem; }
+      .service-cards { grid-template-columns: 1fr; }
+      .fees { padding: 4rem 1.5rem; }
+      .fees-col-row, .fee-row { grid-template-columns: 1fr 1fr; }
+      .fees-col-row .fees-col-label:nth-child(n+3),
+      .fee-row > *:nth-child(n+3) { display: none; }
+      .fees-table-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+      .process { padding: 4rem 1.5rem; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-step { border-right: none; border-bottom: 1px solid var(--border); }
+      .process-step:nth-child(odd) { border-right: 1px solid var(--border); }
+      .process-step:nth-last-child(-n+2) { border-bottom: none; }
+      .form-section { padding: 4rem 1.5rem; }
+      .form-card-body { padding: 1.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-footer { flex-direction: column; align-items: flex-start; }
+      footer { padding: 2rem 1.5rem; }
+      .footer-top { flex-direction: column; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+      .footer-legal { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="{{ '/' | relative_url }}" class="nav-wordmark">Solar<span>WAVE</span> Action</a>
+    <ul class="nav-links">
+      <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+      <li><a href="{{ '/our_work/' | relative_url }}">Our Work</a></li>
+      <li><a href="{{ '/get_involved/' | relative_url }}">Get Involved</a></li>
+      <li><a href="{{ '/work_with_us/' | relative_url }}" class="active">Work With Us</a></li>
+      <li><a href="{{ '/donate/' | relative_url }}" class="nav-cta">Donate</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div>
+      <div class="eyebrow fade-in">Commission Research</div>
+      <h1 class="fade-in delay-1">Work <span>With</span> Us</h1>
+      <p class="fade-in delay-2">Need rigorous legal and data analysis to support your clean energy work? We take on a limited number of commissioned engagements each year.</p>
+    </div>
+    <div class="entity-badge fade-in delay-2">
+      <div class="entity-badge-label">Commissioned work provided by</div>
+      <span class="entity-badge-name">SolarWAVE Action</span>
+      <div class="entity-badge-tag">501(c)(4) · Not tax-deductible</div>
+    </div>
+  </div>
+
+  <!-- INDEPENDENCE NOTICE -->
+  <div class="notice-wrap fade-in delay-3">
+    <div class="notice">
+      <div class="notice-icon">
+        <svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="5" cy="5" r="4" stroke="#F5A623" stroke-width="1.2"/>
+          <line x1="5" y1="3" x2="5" y2="5.5" stroke="#F5A623" stroke-width="1.2" stroke-linecap="round"/>
+          <circle cx="5" cy="7" r="0.6" fill="#F5A623"/>
+        </svg>
+      </div>
+      <p><strong>Our independence is non-negotiable.</strong> Commissioned engagements do not influence our conclusions. Clients commission our analysis — not our findings. If you need a predetermined result, we are not the right partner.</p>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services">
+    <div class="section-eyebrow">What We Offer</div>
+    <div class="section-heading">Our <span>Services</span></div>
+
+    <div class="service-cards">
+
+      <div class="service-card fade-in">
+        <div class="service-icon" style="background: rgba(24,95,165,0.12);">
+          <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 3.5h7.5L15 6.5V16a1 1 0 01-1 1H5a1 1 0 01-1-1V4.5A1 1 0 015 3.5z" stroke="#5BA3E0" stroke-width="1.25" stroke-linejoin="round"/>
+            <path d="M12.5 3.5V6.5H15" stroke="#5BA3E0" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="7" y1="9.5" x2="13" y2="9.5" stroke="#5BA3E0" stroke-width="1.25" stroke-linecap="round"/>
+            <line x1="7" y1="12" x2="13" y2="12" stroke="#5BA3E0" stroke-width="1.25" stroke-linecap="round"/>
+            <line x1="7" y1="14.5" x2="10.5" y2="14.5" stroke="#5BA3E0" stroke-width="1.25" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Policy Impact Analysis</h3>
+        <p>Legal and data analysis of proposed or enacted legislation — built for lawmakers, advocates, and stakeholders navigating complex energy policy.</p>
+        <div class="service-examples">
+          <div class="service-example">Legislative support</div>
+          <div class="service-example">Stakeholder briefing decks</div>
+        </div>
+      </div>
+
+      <div class="service-card fade-in delay-1">
+        <div class="service-icon" style="background: rgba(61,214,163,0.1);">
+          <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="4" width="14" height="12" rx="1.25" stroke="#3DD6A3" stroke-width="1.25"/>
+            <line x1="3" y1="8" x2="17" y2="8" stroke="#3DD6A3" stroke-width="1.1"/>
+            <line x1="8" y1="8" x2="8" y2="16" stroke="#3DD6A3" stroke-width="1.1"/>
+            <line x1="10" y1="11" x2="15" y2="11" stroke="#3DD6A3" stroke-width="1" stroke-linecap="round"/>
+            <line x1="10" y1="13.5" x2="13" y2="13.5" stroke="#3DD6A3" stroke-width="1" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Data Reports &amp; Briefings</h3>
+        <p>Clear, publishable research reports translating complex energy data into actionable guidance — written for decision-makers, not just experts.</p>
+        <div class="service-examples">
+          <div class="service-example">Grid &amp; utility data analysis</div>
+          <div class="service-example">Public-facing reports</div>
+        </div>
+      </div>
+
+      <div class="service-card fade-in delay-2">
+        <div class="service-icon" style="background: rgba(245,166,35,0.1);">
+          <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 16 L3 12 L7 9 L10 11 L14 6 L17 8" stroke="#F5A623" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="3" y1="16" x2="17" y2="16" stroke="#F5A623" stroke-width="1.2" stroke-linecap="round"/>
+            <circle cx="14" cy="6" r="1.75" fill="rgba(245,166,35,0.15)" stroke="#F5A623" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <h3>Custom Data Analysis</h3>
+        <p>Bespoke quantitative analysis of your specific data questions, delivered with full open-source methodology and reproducible code.</p>
+        <div class="service-examples">
+          <div class="service-example">Quantitative analysis</div>
+          <div class="service-example">Equity impact modeling</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEES -->
+  <section class="fees">
+    <div class="section-inner">
+      <div class="section-eyebrow">Fee Structure</div>
+      <div class="section-heading">Engagement <span>Fees</span></div>
+
+      <div class="fees-table">
+        <div class="fees-table-header">
+          <h3>Engagement Types</h3>
+          <span class="fees-table-note">All fees billed through SolarWAVE Action 501(c)(4) · Not tax-deductible</span>
+        </div>
+
+        <div class="fees-col-row">
+          <div class="fees-col-label">Engagement type</div>
+          <div class="fees-col-label">Timeline</div>
+          <div class="fees-col-label">Fee range</div>
+          <div class="fees-col-label">Includes</div>
+        </div>
+
+        <div class="fee-row">
+          <div>
+            <div class="fee-type">Data Briefing</div>
+            <div class="fee-desc">Short-form analysis with data visualization, scoped to a specific policy question.</div>
+          </div>
+          <div class="fee-timeline">2 – 3 weeks</div>
+          <div>
+            <div class="fee-price">Quote on request</div>
+<!--            <div class="fee-price">$3,000 – $6,000</div>-->
+            <div class="fee-price-note">Fixed fee</div>
+          </div>
+          <div class="fee-includes">
+            <div class="fee-include">Written summary</div>
+            <div class="fee-include">Up to 3 charts</div>
+          </div>
+        </div>
+
+        <div class="fee-row">
+          <div>
+            <div class="fee-type">Policy Impact Report</div>
+            <div class="fee-desc">Full research report with quantitative modeling, suitable for public release.</div>
+          </div>
+          <div class="fee-timeline">4 – 8 weeks</div>
+          <div>
+            <div class="fee-price">Quote on request/div>
+<!--            <div class="fee-price">$8,000 – $18,000</div>-->
+            <div class="fee-price-note">Fixed fee, scoped per project</div>
+          </div>
+          <div class="fee-includes">
+            <div class="fee-include">Full written report</div>
+            <div class="fee-include">Data visualizations</div>
+            <div class="fee-include">Methodology appendix</div>
+          </div>
+        </div>
+
+        <div class="fee-row">
+          <div>
+            <div class="fee-type">Custom Engagement</div>
+            <div class="fee-desc">Multi-phase or ongoing analysis for complex, evolving policy questions.</div>
+          </div>
+          <div class="fee-timeline">Scoped per project</div>
+          <div>
+            <div class="fee-price">Quote on request</div>
+            <div class="fee-price-note">Milestone-based billing</div>
+          </div>
+          <div class="fee-includes">
+            <div class="fee-include">Scoped deliverables</div>
+            <div class="fee-include">Iterative collaboration</div>
+            <div class="fee-include">Full transparency</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process">
+    <div class="section-eyebrow">How It Works</div>
+    <div class="section-heading">The <span>Process</span></div>
+
+    <div class="process-steps">
+      <div class="process-step fade-in">
+        <div class="step-num">01 — Inquiry</div>
+        <h4>Submit a Request</h4>
+        <p>Tell us about your question, timeline, and organization. We respond within 5 business days.</p>
+      </div>
+      <div class="process-step fade-in delay-1">
+        <div class="step-num">02 — Scoping</div>
+        <h4>Scoping Call</h4>
+        <p>We discuss the research question, agree on scope, deliverables, and confirm independence terms.</p>
+      </div>
+      <div class="process-step fade-in delay-2">
+        <div class="step-num">03 — Agreement</div>
+        <h4>Sign &amp; Deposit</h4>
+        <p>We issue a simple engagement agreement and request a 50% deposit to begin work.</p>
+      </div>
+      <div class="process-step fade-in delay-3">
+        <div class="step-num">04 — Delivery</div>
+        <h4>Receive Your Work</h4>
+        <p>We deliver agreed outputs — with full methodology, data, and code — on the agreed timeline.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INQUIRY FORM -->
+  <section class="form-section">
+    <div class="section-inner">
+      <div class="section-eyebrow">Inquiry Form</div>
+      <div class="section-heading">Start a <span>Conversation</span></div>
+
+      <div class="form-card">
+        <div class="form-card-header">
+          <h3>Tell us about your project</h3>
+          <p>We'll be in touch within 5 business days to discuss fit and scope.</p>
+        </div>
+        <div class="form-success" id="form-success">
+          <div class="form-success-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 11.5L9 15.5L17 7" stroke="#3DD6A3" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h4>Inquiry Received</h4>
+          <p>Thanks for reaching out. We'll review your inquiry and be in touch within 5 business days.</p>
+        </div>
+        <form class="form-card-body" id="inquiry-form" action="https://formspree.io/f/mvzddryp" method="post">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" placeholder="" />
+            </div>
+            <div class="field">
+              <label for="org">Organization</label>
+              <input type="text" id="org" name="organization" placeholder="Organization name" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="" />
+            </div>
+            <div class="field">
+              <label for="org-type">Organization type</label>
+              <select id="org-type" name="org_type">
+                <option value="">Select one…</option>
+                <option>Nonprofit / advocacy organization</option>
+                <option>Local or state government</option>
+                <option>Trade association</option>
+                <option>Academic institution</option>
+                <option>Private company</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="engagement">Type of engagement</label>
+              <select id="engagement" name="engagement_type">
+                <option value="">Select one…</option>
+                <option>Data Briefing</option>
+                <option>Policy Impact Report</option>
+                <option>Custom Engagement</option>
+                <option>Not sure — I'd like to discuss</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="timeline">Approximate timeline needed</label>
+              <select id="timeline" name="timeline">
+                <option value="">Select one…</option>
+                <option>Within 2 weeks</option>
+                <option>Within a month</option>
+                <option>1 – 3 months</option>
+                <option>Flexible</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="description">Describe your research question or project</label>
+            <textarea id="description" name="description" placeholder="What policy question are you trying to answer? What decisions will this analysis inform?"></textarea>
+          </div>
+          <div class="form-footer">
+            <p class="form-footer-note">Submitting this form does not create an engagement. We will follow up to discuss fit and scope before any commitment is made.</p>
+            <div>
+              <button type="submit" class="btn-submit" id="submit-btn">Submit Inquiry →</button>
+              <div class="form-error-msg" id="form-error">Something went wrong — please try again or email us directly at <a href="mailto:hello@solarwaveaction.org" style="color:var(--accent);">hello@solarwaveaction.org</a>.</div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img class="footer-logo-img" src="{{ '/assets/images/SolarWAVEDark.png' | relative_url }}" alt="SolarWAVE Action" />
+        <p class="footer-tagline">Advancing clean energy policy through data-driven research.</p>
+      </div>
+      <div class="footer-nav-group">
+        <h5>Navigate</h5>
+        <ul class="footer-links">
+          <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+          <li><a href="{{ '/our_work/' | relative_url }}">Our Work</a></li>
+          <li><a href="{{ '/get_involved/' | relative_url }}">Get Involved</a></li>
+          <li><a href="{{ '/work_with_us/' | relative_url }}">Work With Us</a></li>
+          <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+          <li><a href="{{ '/donate/' | relative_url }}">Donate</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 SolarWAVE Action. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('inquiry-form').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      const errorMsg = document.getElementById('form-error');
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      errorMsg.classList.remove('visible');
+
+      try {
+        const res = await fetch('https://formspree.io/f/mvzddryp', {
+          method: 'POST',
+          body: new FormData(this),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          this.style.display = 'none';
+          document.getElementById('form-success').classList.add('visible');
+        } else {
+          throw new Error('non-ok response');
+        }
+      } catch {
+        btn.disabled = false;
+        btn.textContent = 'Submit Inquiry →';
+        errorMsg.classList.add('visible');
+      }
+    });
+  </script>
+
+</body>
+</html>
