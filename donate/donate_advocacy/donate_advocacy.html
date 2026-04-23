@@ -1,0 +1,385 @@
+---
+layout: none
+permalink: /donate/donate_advocacy/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Donate — Advocacy | SolarWAVE Action</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --sun: #F5A623;
+      --sun-light: #FFD87A;
+      --sky: #0A1628;
+      --sky-mid: #0D2244;
+      --white: #F7F4EE;
+      --muted: #8A9AB5;
+      --accent: #3DD6A3;
+      --panel: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--sky); color: var(--white); overflow-x: hidden; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 3rem;
+      background: rgba(10,22,40,0.98);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-wordmark { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.08em; color: var(--white); text-decoration: none; }
+    .nav-wordmark span { color: var(--sun); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--sun); color: var(--sky) !important; padding: 0.5rem 1.25rem; border-radius: 2px; font-weight: 700 !important; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--sun-light) !important; color: var(--sky) !important; }
+
+    /* ─── LAYOUT ─── */
+    .page-wrap {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 72px;
+    }
+
+    /* ─── LEFT PANEL ─── */
+    .left-panel {
+      background: var(--sky-mid);
+      border-right: 1px solid var(--border);
+      padding: 5rem 4rem;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .left-panel::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--sun), #f07d1a);
+    }
+    .left-panel::after {
+      content: '';
+      position: absolute; bottom: -80px; right: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,166,35,0.06) 0%, transparent 70%);
+    }
+
+    .back-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-bottom: 3rem;
+      transition: color 0.2s;
+    }
+    .back-link::before { content: '←'; }
+    .back-link:hover { color: var(--white); }
+
+    .entity-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--sun);
+      background: rgba(245,166,35,0.1);
+      border: 1px solid rgba(245,166,35,0.25);
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      border-radius: 2px;
+      margin-bottom: 1.75rem;
+    }
+
+    .left-panel h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      line-height: 0.95; letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .left-panel h1 span { color: var(--sun); }
+
+    .entity-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .left-panel p {
+      font-size: 0.95rem; line-height: 1.8;
+      color: var(--muted);
+      max-width: 46ch;
+      margin-bottom: 1rem;
+    }
+
+    .tax-note {
+      margin-top: 2rem;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid rgba(245,166,35,0.25);
+      border-radius: 2px;
+      background: rgba(245,166,35,0.04);
+    }
+    .tax-note-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--sun);
+      margin-bottom: 0.5rem;
+    }
+    .tax-note p {
+      font-size: 0.82rem; line-height: 1.65;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ─── RIGHT PANEL (FORM) ─── */
+    .right-panel {
+      padding: 5rem 4rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+
+    .form-section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .amount-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .amount-btn {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem; font-weight: 500;
+      padding: 0.85rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .amount-btn:hover { border-color: rgba(245,166,35,0.5); background: rgba(245,166,35,0.06); }
+    .amount-btn.selected { border-color: var(--sun); background: rgba(245,166,35,0.1); color: var(--sun); }
+
+    .custom-amount {
+      position: relative; margin-bottom: 2rem;
+    }
+    .custom-amount span {
+      position: absolute; left: 1rem; top: 50%; transform: translateY(-50%);
+      color: var(--muted); font-size: 1rem;
+    }
+    .custom-amount input {
+      width: 100%;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      padding: 0.85rem 1rem 0.85rem 2rem;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .custom-amount input::placeholder { color: var(--muted); }
+    .custom-amount input:focus { border-color: rgba(245,166,35,0.5); }
+
+    .field-group { margin-bottom: 1.25rem; }
+    .field-group label {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .field-group input {
+      width: 100%;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 0.75rem 1rem;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .field-group input::placeholder { color: var(--muted); }
+    .field-group input:focus { border-color: rgba(245,166,35,0.5); }
+
+    .coming-soon-badge {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--sun);
+      border: 1px solid rgba(245,166,35,0.3);
+      padding: 0.75rem 1.75rem; border-radius: 2px;
+      margin-bottom: 1rem;
+      width: 100%; justify-content: center;
+    }
+    .coming-soon-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sun); animation: blink 1.5s ease-in-out infinite; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    .submit-note {
+      font-size: 0.78rem; color: var(--muted); line-height: 1.6; text-align: center;
+    }
+    .submit-note a { color: var(--accent); text-decoration: none; }
+    .submit-note a:hover { color: var(--sun); }
+
+    .form-divider {
+      border: none; border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--sky-mid); border-top: 3px solid var(--sun); padding: 2rem 3rem 1rem; }
+    .footer-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #E8EAF0; }
+    .footer-logo-img { display: block; height: 64px; width: auto; }
+    .footer-tagline { font-size: 0.85rem; color: #6B7A99; margin-top: 0.6rem; max-width: 28ch; line-height: 1.6; }
+    .footer-nav-group h5 { display: none; }
+    .footer-links { display: flex; flex-direction: row; gap: 2rem; list-style: none; }
+    .footer-links a { font-size: 0.85rem; color: #6B7A99; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--sky); }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .footer-copy { font-size: 0.75rem; color: #A0AABF; font-family: 'DM Mono', monospace; }
+    .footer-legal { display: flex; gap: 1.5rem; }
+    .footer-legal a { font-size: 0.75rem; color: #A0AABF; text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: var(--sky); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .page-wrap { grid-template-columns: 1fr; }
+      .left-panel, .right-panel { padding: 4rem 1.5rem; }
+      .left-panel { justify-content: flex-start; }
+      footer { padding: 2rem 1.5rem; }
+      .footer-top { flex-direction: column; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+      .footer-legal { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="{{ '/' | relative_url }}" class="nav-wordmark">Solar<span>WAVE</span> Action</a>
+    <ul class="nav-links">
+      <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+      <li><a href="{{ '/our_work/' | relative_url }}">Our Work</a></li>
+      <li><a href="{{ '/get_involved/' | relative_url }}">Get Involved</a></li>
+      <li><a href="{{ '/donate/' | relative_url }}" class="nav-cta">Donate</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-wrap">
+
+    <!-- LEFT: Context -->
+    <div class="left-panel">
+      <a href="{{ '/donate/' | relative_url }}" class="back-link">All Giving Options</a>
+      <div class="entity-tag">501(c)(4) · Not Tax-Deductible</div>
+      <h1>Support Our <span>Advocacy</span></h1>
+      <div class="entity-name">SolarWAVE Action</div>
+      <p>Your contribution directly funds our lobbying, legislative campaigns, and advocacy work — the engine that translates research into California law.</p>
+      <p>As a 501(c)(4) social welfare organization, we can fight for clean energy policy without restriction. That requires unrestricted funding.</p>
+      <div class="tax-note">
+        <div class="tax-note-label">Tax Information</div>
+        <p>Contributions to SolarWAVE Action (c4) are not deductible as charitable contributions for federal income tax purposes. To make a tax-deductible gift, <a href="{{ '/donate/research/' | relative_url }}" style="color:var(--sun);text-decoration:none;">donate to our Research &amp; Education Project</a> instead.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: Form -->
+    <div class="right-panel">
+      <div class="form-section-label">Select Amount</div>
+
+      <div class="amount-grid">
+        <button class="amount-btn" data-amount="25">$25</button>
+        <button class="amount-btn selected" data-amount="50">$50</button>
+        <button class="amount-btn" data-amount="100">$100</button>
+        <button class="amount-btn" data-amount="250">$250</button>
+        <button class="amount-btn" data-amount="500">$500</button>
+        <button class="amount-btn" data-amount="1000">$1,000</button>
+      </div>
+
+      <div class="custom-amount">
+        <span>$</span>
+        <input type="number" id="custom-input" placeholder="Other amount" min="1" />
+      </div>
+
+      <hr class="form-divider" />
+
+      <div class="form-section-label">Your Information</div>
+
+      <div class="field-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Jane Smith" />
+      </div>
+      <div class="field-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="jane@example.com" />
+      </div>
+
+      <hr class="form-divider" />
+
+      <div class="coming-soon-badge">Payment Processing Coming Soon</div>
+      <p class="submit-note">Online giving will be available shortly. In the meantime, <a href="{{ '/contact/' | relative_url }}">contact us</a> to discuss supporting our advocacy work directly.</p>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img class="footer-logo-img" src="{{ '/assets/images/SolarWAVEDark.png' | relative_url }}" alt="SolarWAVE Action" />
+        <p class="footer-tagline">Advancing clean energy policy through data-driven research.</p>
+      </div>
+      <div class="footer-nav-group">
+        <h5>Navigate</h5>
+        <ul class="footer-links">
+          <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+          <li><a href="{{ '/our_work/' | relative_url }}">Our Work</a></li>
+          <li><a href="{{ '/get_involved/' | relative_url }}">Get Involved</a></li>
+          <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+          <li><a href="{{ '/donate/' | relative_url }}">Donate</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 SolarWAVE Action. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const amountBtns = document.querySelectorAll('.amount-btn');
+    const customInput = document.getElementById('custom-input');
+
+    amountBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        amountBtns.forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        customInput.value = '';
+      });
+    });
+
+    customInput.addEventListener('input', () => {
+      amountBtns.forEach(b => b.classList.remove('selected'));
+    });
+  </script>
+
+</body>
+</html>

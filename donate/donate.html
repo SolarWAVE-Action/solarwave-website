@@ -46,68 +46,143 @@ permalink: /donate/
 
     /* ─── PAGE HERO ─── */
     .page-hero {
-      min-height: 100vh;
-      display: flex; align-items: center;
-      padding: 10rem 3rem 6rem;
-      position: relative; overflow: hidden;
+      padding: 10rem 3rem 5rem;
+      max-width: 1200px; margin: 0 auto;
+      text-align: center;
+      position: relative;
     }
-    .page-hero::before {
+    .page-hero::after {
       content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 60% 60% at 50% 40%, rgba(245,166,35,0.07) 0%, transparent 70%);
+      position: absolute; bottom: 0; left: 3rem; right: 3rem;
+      height: 1px; background: var(--border);
     }
-
-    .page-hero-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; text-align: center; }
 
     .eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 0.75rem; }
-    .eyebrow::before { content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--accent); }
-    .eyebrow::after { content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--accent); }
+    .eyebrow::before, .eyebrow::after { content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--accent); }
 
-    .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.5rem, 7vw, 5.5rem); line-height: 0.95; letter-spacing: 0.02em; color: var(--white); margin-bottom: 1.75rem; }
+    .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 5rem); line-height: 0.95; letter-spacing: 0.02em; color: var(--white); margin-bottom: 1.5rem; }
     .page-hero h1 span { color: var(--sun); }
+    .page-hero > p { font-size: 1.08rem; line-height: 1.8; color: var(--muted); max-width: 60ch; margin: 0 auto; }
 
-    .page-hero p { font-size: 1.08rem; line-height: 1.8; color: var(--muted); margin-bottom: 1rem; }
-
-    .legal-note {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem; letter-spacing: 0.08em;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      border-radius: 2px;
-      margin: 1.5rem 0 2.5rem;
-      line-height: 1.6;
+    /* ─── CHOOSE SECTION ─── */
+    .choose {
+      padding: 5rem 3rem 7rem;
+      max-width: 1200px; margin: 0 auto;
     }
 
-    .coming-soon-badge {
+    .choose-intro {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .choose-intro h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .choose-intro p { font-size: 0.95rem; color: var(--muted); line-height: 1.75; max-width: 56ch; margin: 0 auto; }
+
+    .donate-options {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    }
+
+    .donate-option {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 3rem 2.5rem;
+      position: relative; overflow: hidden;
+      text-decoration: none;
+      display: flex; flex-direction: column;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .donate-option:hover {
+      border-color: rgba(245,166,35,0.35);
+      transform: translateY(-4px);
+    }
+    .donate-option::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      transition: opacity 0.3s;
+      opacity: 0;
+    }
+    .donate-option:hover::before { opacity: 1; }
+    .donate-option.c4::before { background: linear-gradient(to right, var(--sun), #f07d1a); }
+    .donate-option.c3::before { background: linear-gradient(to right, var(--accent), #1bbf94); }
+
+    .option-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.22em;
+      text-transform: uppercase;
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      border-radius: 2px;
+      margin-bottom: 1.75rem;
+      align-self: flex-start;
+    }
+    .c4 .option-tag { color: var(--sun); background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.25); }
+    .c3 .option-tag { color: var(--accent); background: rgba(61,214,163,0.08); border: 1px solid rgba(61,214,163,0.2); }
+
+    .option-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.8rem, 2.5vw, 2.25rem);
+      letter-spacing: 0.04em;
+      color: var(--white);
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+
+    .option-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .option-desc {
+      font-size: 0.92rem; line-height: 1.75;
+      color: var(--muted);
+      flex: 1;
+      margin-bottom: 2rem;
+    }
+
+    .option-cta {
       display: inline-flex; align-items: center; gap: 0.6rem;
       font-family: 'DM Mono', monospace;
-      font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--sun);
-      border: 1px solid rgba(245,166,35,0.3);
-      padding: 0.75rem 1.75rem; border-radius: 2px;
-      margin-bottom: 3rem;
+      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+      font-weight: 500;
+      padding: 0.85rem 1.5rem;
+      border-radius: 2px;
+      align-self: flex-start;
+      transition: all 0.2s;
     }
-    .coming-soon-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sun); animation: blink 1.5s ease-in-out infinite; }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .option-cta::after { content: '→'; transition: transform 0.2s; }
+    .donate-option:hover .option-cta::after { transform: translateX(4px); }
 
-    .divider { width: 3rem; height: 2px; background: linear-gradient(to right, var(--sun), transparent); margin: 0 auto 2.5rem; }
+    .c4 .option-cta { background: var(--sun); color: var(--sky); }
+    .c4:hover .option-cta { background: var(--sun-light); }
+    .c3 .option-cta { background: var(--accent); color: var(--sky); }
+    .c3:hover .option-cta { background: #5ae8bc; }
 
-    .interim-text { font-size: 0.95rem; color: var(--muted); line-height: 1.75; margin-bottom: 2rem; }
-    .interim-text a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
-    .interim-text a:hover { color: var(--sun); }
-
-    .btn-secondary {
-      display: inline-block;
-      background: transparent; color: var(--white);
-      padding: 0.85rem 2rem; border-radius: 2px;
-      font-weight: 500; font-size: 0.85rem;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      text-decoration: none; transition: all 0.2s;
-      border: 1px solid var(--border);
+    /* ─── EXPLAINER ─── */
+    .explainer {
+      background: var(--sky-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 3rem;
     }
-    .btn-secondary:hover { border-color: var(--white); }
+    .explainer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    }
+    .explainer-block h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem; letter-spacing: 0.05em;
+      color: var(--white); margin-bottom: 1rem;
+    }
+    .explainer-block p { font-size: 0.9rem; line-height: 1.8; color: var(--muted); }
 
     /* ─── FOOTER ─── */
     footer { background: var(--sky-mid); border-top: 3px solid var(--sun); padding: 2rem 3rem 1rem; }
@@ -136,6 +211,11 @@ permalink: /donate/
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
       .page-hero { padding: 8rem 1.5rem 4rem; }
+      .page-hero::after { left: 1.5rem; right: 1.5rem; }
+      .choose { padding: 4rem 1.5rem 5rem; }
+      .donate-options { grid-template-columns: 1fr; }
+      .explainer { padding: 4rem 1.5rem; }
+      .explainer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       footer { padding: 2rem 1.5rem; }
       .footer-top { flex-direction: column; gap: 2rem; }
       .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
@@ -151,26 +231,59 @@ permalink: /donate/
     <ul class="nav-links">
       <li><a href="{{ '/about/' | relative_url }}">About</a></li>
       <li><a href="{{ '/our_work/' | relative_url }}">Our Work</a></li>
-      <li><a href="{{ '/get-involved/' | relative_url }}">Get Involved</a></li>
+      <li><a href="{{ '/get_involved/' | relative_url }}">Get Involved</a></li>
       <li><a href="{{ '/donate/' | relative_url }}" class="nav-cta">Donate</a></li>
     </ul>
   </nav>
 
   <!-- PAGE HERO -->
   <div class="page-hero">
-    <div class="page-hero-inner">
-      <div class="eyebrow fade-in">Support Our Work</div>
-      <h1 class="fade-in delay-1">Power <span>Better</span> Policy.</h1>
-      <p class="fade-in delay-2">Your support funds rigorous, independent research that shapes California's clean energy future.</p>
-      <div class="legal-note fade-in delay-2">
-        Donate to our 501(c)(3) eligible activities &mdash; our Research &amp; Education Project.
-      </div>
-      <div class="coming-soon-badge fade-in delay-3">Donation Link Coming Soon</div>
-      <div class="divider fade-in delay-3"></div>
-      <p class="interim-text fade-in delay-3">In the meantime, <a href="{{ '/contact/' | relative_url }}">get in touch</a> if you'd like to discuss supporting our work directly.</p>
-      <a href="{{ '/get-involved/' | relative_url }}" class="btn-secondary fade-in delay-3">Other Ways to Help</a>
-    </div>
+    <div class="eyebrow fade-in">Support Our Work</div>
+    <h1 class="fade-in delay-1">Power <span>Better</span> Policy.</h1>
+    <p class="fade-in delay-2">Your support funds the research, advocacy, and legal strategy driving California's clean energy transition. Choose the giving type that works best for you.</p>
   </div>
+
+  <!-- CHOOSE -->
+  <section class="choose">
+    <div class="choose-intro fade-in">
+      <h2>Two Ways to Give</h2>
+      <p>SolarWAVE Action operates two entities — our advocacy arm and our research & education project — each accepting donations for different purposes.</p>
+    </div>
+
+    <div class="donate-options">
+
+      <a href="{{ '/donate/donate_advocacy/' | relative_url }}" class="donate-option c4 fade-in delay-1">
+        <span class="option-tag">501(c)(4)</span>
+        <div class="option-heading">Support Our Advocacy</div>
+        <div class="option-sub">Not Tax-Deductible</div>
+        <p class="option-desc">Fund our lobbying, legislative campaigns, and direct policy advocacy — the work that turns research into law. Contributions are not tax-deductible as charitable donations.</p>
+        <span class="option-cta">Donate to Advocacy</span>
+      </a>
+
+      <a href="{{ '/donate/donate_research/' | relative_url }}" class="donate-option c3 fade-in delay-2">
+        <span class="option-tag">501(c)(3)</span>
+        <div class="option-heading">Support Our Research</div>
+        <div class="option-sub">Tax-Deductible</div>
+        <p class="option-desc">Fund our independent data analysis, public education, and open-methodology research. Contributions are tax-deductible to the extent permitted by law.</p>
+        <span class="option-cta">Donate to Research</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- EXPLAINER -->
+  <section class="explainer">
+    <div class="explainer-inner">
+      <div class="explainer-block">
+        <h3>What's the Difference?</h3>
+        <p>Our 501(c)(4) entity — SolarWAVE Action — is a social welfare organization that can engage in lobbying and direct political advocacy without restriction. Donations are not tax-deductible, but they directly fund the campaigns that move legislation.</p>
+      </div>
+      <div class="explainer-block">
+        <h3>Tax-Deductible Giving</h3>
+        <p>Our affiliated 501(c)(3) — SolarWAVE Action Research &amp; Education Project — supports non-partisan research, data tools, and public education. Contributions here are tax-deductible as charitable donations under IRS rules.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer>
@@ -184,7 +297,7 @@ permalink: /donate/
         <ul class="footer-links">
           <li><a href="{{ '/about/' | relative_url }}">About</a></li>
           <li><a href="{{ '/our_work/' | relative_url }}">Our Work</a></li>
-          <li><a href="{{ '/get-involved/' | relative_url }}">Get Involved</a></li>
+          <li><a href="{{ '/get_involved/' | relative_url }}">Get Involved</a></li>
           <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
           <li><a href="{{ '/donate/' | relative_url }}">Donate</a></li>
         </ul>
