@@ -63,8 +63,11 @@ permalink: /get_involved/
     .engage {
       padding: 6rem 3rem;
       background: var(--sky-mid);
-      max-width: 1200px; margin: 0 auto;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
+
+    .engage-inner { max-width: 1200px; margin: 0 auto; }
 
     .engage h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.2rem, 3.5vw, 3rem); letter-spacing: 0.03em; margin-bottom: 3rem; }
     .engage h2 span { color: var(--sun); }
@@ -132,6 +135,7 @@ permalink: /get_involved/
       .page-hero { padding: 8rem 1.5rem 4rem; }
       .page-hero::after { left: 1.5rem; right: 1.5rem; }
       .engage { padding: 4rem 1.5rem; }
+      .engage-inner { padding: 0; }
       .engage-cards { grid-template-columns: 1fr; }
       .conversation { padding: 4rem 1.5rem; }
       .conversation-inner { grid-template-columns: 1fr; gap: 2rem; }
@@ -166,6 +170,7 @@ permalink: /get_involved/
 
   <!-- WAYS TO ENGAGE -->
   <section class="engage">
+    <div class="engage-inner">
     <h2>Ways to <span>Engage</span></h2>
     <div class="engage-cards">
       <div class="engage-card">
@@ -184,6 +189,7 @@ permalink: /get_involved/
         <p>Provide financial support that advances our mission of equitable clean energy for all Californians.</p>
         <a href="{{ '/donate/' | relative_url }}" style="display:inline-block; margin-top:1.5rem; font-family:'DM Mono',monospace; font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); text-decoration:none;">Donate →</a>
       </div>
+    </div>
     </div>
   </section>
 
