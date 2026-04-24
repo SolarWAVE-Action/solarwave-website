@@ -113,7 +113,7 @@ permalink: /get_involved/
     .footer-logo-img { display: block; height: 64px; width: auto; }
     .footer-tagline { font-size: 0.85rem; color: #6B7A99; margin-top: 0.6rem; max-width: 28ch; line-height: 1.6; }
     .footer-nav-group h5 { display: none; }
-    .footer-links { display: flex; flex-direction: row; gap: 2rem; list-style: none; }
+    .footer-links { display: flex; flex-direction: row; gap: 2rem; list-style: none; flex-wrap: wrap; }
     .footer-links a { font-size: 0.85rem; color: #6B7A99; text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--sky); }
     .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
@@ -145,6 +145,40 @@ permalink: /get_involved/
       .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
       .footer-legal { justify-content: center; }
     }
+
+    /* ─── MOBILE NAV ─── */
+    .nav-burger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+      z-index: 101; position: relative;
+    }
+    .nav-burger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--white); border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-nav {
+      display: none; position: fixed; inset: 0; z-index: 99;
+      background: var(--sky); flex-direction: column;
+      align-items: center; justify-content: center; gap: 2.5rem;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem; letter-spacing: 0.08em;
+      color: var(--white); text-decoration: none; transition: color 0.2s;
+    }
+    .mobile-nav a:hover, .mobile-nav a.active { color: var(--sun); }
+    .mobile-nav .mobile-cta {
+      background: var(--sun); color: var(--sky) !important;
+      padding: 0.6rem 2.5rem; border-radius: 2px;
+    }
+    .mobile-nav .mobile-cta:hover { background: var(--sun-light) !important; }
+    @media (max-width: 900px) { .nav-burger { display: flex; } }
   </style>
 </head>
 <body>
@@ -159,7 +193,18 @@ permalink: /get_involved/
       <li><a href="{{ '/work_with_us/' | relative_url }}">Work With Us</a></li>
       <li><a href="{{ '/donate/' | relative_url }}" class="nav-cta">Donate</a></li>
     </ul>
+    <button class="nav-burger" id="nav-burger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="{{ '/about/' | relative_url }}">About</a>
+    <a href="{{ '/our_work/' | relative_url }}">Our Work</a>
+    <a href="{{ '/get_involved/' | relative_url }}">Get Involved</a>
+    <a href="{{ '/work_with_us/' | relative_url }}">Work With Us</a>
+    <a href="{{ '/donate/' | relative_url }}" class="mobile-cta">Donate</a>
+  </div>
 
   <!-- PAGE HERO -->
   <div class="page-hero">
@@ -233,5 +278,24 @@ permalink: /get_involved/
     </div>
   </footer>
 
+
+  <script>
+    (function() {
+      var burger = document.getElementById('nav-burger');
+      var mobileNav = document.getElementById('mobile-nav');
+      burger.addEventListener('click', function() {
+        burger.classList.toggle('open');
+        mobileNav.classList.toggle('open');
+        document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+      });
+      mobileNav.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          burger.classList.remove('open');
+          mobileNav.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
