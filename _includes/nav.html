@@ -1,0 +1,13 @@
+<nav{% if page.url == '/' %} class="nav--gradient"{% endif %}>
+  <a href="{{ '/' | relative_url }}" class="nav-wordmark">Solar<span>WAVE</span> Action</a>
+  <ul class="nav-links">
+    <li><a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} class="active"{% endif %}>About</a></li>
+    <li><a href="{{ '/our_work/' | relative_url }}"{% if page.url == '/our_work/' %} class="active"{% endif %}>Our Work</a></li>
+    <li><a href="{{ '/get_involved/' | relative_url }}"{% if page.url == '/get_involved/' %} class="active"{% endif %}>Get Involved</a></li>
+    <li><a href="{{ '/work_with_us/' | relative_url }}"{% if page.url == '/work_with_us/' %} class="active"{% endif %}>Work With Us</a></li>
+    <li><a href="{{ '/donate/' | relative_url }}" class="nav-cta">Donate</a></li>
+  </ul>
+  <button class="nav-burger" id="nav-burger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
