@@ -33,6 +33,16 @@ permalink: /donate/
       background: radial-gradient(circle, rgba(245,166,35,0.06) 0%, transparent 70%);
     }
 
+    eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .eyebrow::before { content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--accent); }
+
+
     .back-link {
       font-family: 'DM Mono', monospace;
       font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
@@ -212,8 +222,9 @@ permalink: /donate/
 
     <!-- LEFT: Context -->
     <div class="left-panel">
+      <div class="eyebrow fade-in">Donate</div>
       <h1>Power Better <span>Policy</span></h1>
-      <div class="entity-name">SolarWAVE Action</div>
+<!--      <div class="entity-name">SolarWAVE Action</div>-->
       <p>We build the tools, standards, and coalitions that make distributed clean energy ownership the default, not the exception. Your support matters.</p>
       <div class="tax-note">
         <div class="tax-note-label">Tax Information</div>
