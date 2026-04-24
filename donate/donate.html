@@ -309,7 +309,7 @@ permalink: /donate/
     function updateBtn(dollars) {
       if (dollars && dollars > 0) {
         donateBtn.textContent = 'Donate $' + Number(dollars).toLocaleString() + ' →';
-        donateBtn.href = STRIPE_BASE + '?prefilled_amount=' + dollars;
+        donateBtn.href = STRIPE_BASE + '?prefilled_amount=' + (dollars * 100);
       } else {
         donateBtn.textContent = 'Donate →';
         donateBtn.href = STRIPE_BASE;
