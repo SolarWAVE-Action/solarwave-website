@@ -302,17 +302,27 @@ permalink: /donate/
 
   <script>
     const STRIPE_BASE = 'https://donate.stripe.com/aFa9AVa2U6EO4Hw6xWbwk00';
+    const STRIPE_LINKS = {
+      25:     STRIPE_BASE + '?prefilled_amount=25',
+      50:     STRIPE_BASE + '?prefilled_amount=50',
+      100:    STRIPE_BASE + '?prefilled_amount=100',
+      250:    STRIPE_BASE + '?prefilled_amount=250',
+      500:    STRIPE_BASE + '?prefilled_amount=500',
+      1000:   STRIPE_BASE + '?prefilled_amount=1000',
+      custom: STRIPE_BASE
+    };
+
     const amountBtns = document.querySelectorAll('.amount-btn');
     const customInput = document.getElementById('custom-input');
     const donateBtn  = document.getElementById('donate-btn');
 
     function updateBtn(dollars) {
+      const key = STRIPE_LINKS[parseInt(dollars)] ? parseInt(dollars) : 'custom';
+      donateBtn.href = STRIPE_LINKS[key];
       if (dollars && dollars > 0) {
         donateBtn.textContent = 'Donate $' + Number(dollars).toLocaleString() + ' →';
-        donateBtn.href = STRIPE_BASE + '?prefilled_amount=' + (dollars * 100);
       } else {
         donateBtn.textContent = 'Donate →';
-        donateBtn.href = STRIPE_BASE;
       }
     }
 
