@@ -210,24 +210,21 @@ permalink: /donate/
     .field-group input::placeholder { color: var(--muted); }
     .field-group input:focus { border-color: rgba(245,166,35,0.5); }
 
-    .coming-soon-badge {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--sun);
-      border: 1px solid rgba(245,166,35,0.3);
-      padding: 0.75rem 1.75rem; border-radius: 2px;
+    .donate-btn {
+      display: block; width: 100%;
+      background: var(--sun); color: var(--sky);
+      padding: 1rem; border-radius: 2px;
+      font-weight: 700; font-size: 0.95rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      text-decoration: none; text-align: center;
+      transition: background 0.2s;
       margin-bottom: 1rem;
-      width: 100%; justify-content: center;
     }
-    .coming-soon-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sun); animation: blink 1.5s ease-in-out infinite; }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+    .donate-btn:hover { background: var(--sun-light); }
 
     .submit-note {
       font-size: 0.78rem; color: var(--muted); line-height: 1.6; text-align: center;
     }
-    .submit-note a { color: var(--accent); text-decoration: none; }
-    .submit-note a:hover { color: var(--sun); }
 
     .form-divider {
       border: none; border-top: 1px solid var(--border);
@@ -268,7 +265,7 @@ permalink: /donate/
             <p>Supporting coalitions that amplify the voice of the clean energy community</p>
           </div>
         </div>
-        <p>Every dollar moves clean energy policy forward. Your support matters.</p>
+        <p>Every dollar moves clean energy policy forward. <strong>Your support matters.</strong></p>
         <!--        <div class="tax-note">-->
 <!--          <div class="tax-note-label">Tax Information</div>-->
 <!--          <p>Contributions to SolarWAVE Action 501(c)(4) are not deductible as charitable contributions for federal income tax purposes.</p>-->
@@ -294,40 +291,42 @@ permalink: /donate/
         <input type="number" id="custom-input" placeholder="Other amount" min="1" />
       </div>
 
-      <hr class="form-divider" />
-
-      <div class="form-section-label">Your Information</div>
-
-      <div class="field-group">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" placeholder="Jane Smith" />
-      </div>
-      <div class="field-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" placeholder="jane@example.com" />
-      </div>
-
-      <hr class="form-divider" />
-
-      <div class="coming-soon-badge">Payment Processing Coming Soon</div>
-      <p class="submit-note">Online giving will be available shortly. In the meantime, <a href="{{ '/contact/' | relative_url }}">contact us</a> to discuss supporting our advocacy work directly.</p>
+      <a href="https://donate.stripe.com/aFa9AVa2U6EO4Hw6xWbwk00?prefilled_amount=5000"
+         id="donate-btn" class="donate-btn" target="_blank" rel="noopener">
+        Donate $50 →
+      </a>
+      <p class="submit-note">You'll be taken to Stripe's secure checkout to complete your gift.</p>
     </div>
 
   </div>
 
   <script>
+    const STRIPE_BASE = 'https://donate.stripe.com/aFa9AVa2U6EO4Hw6xWbwk00';
     const amountBtns = document.querySelectorAll('.amount-btn');
     const customInput = document.getElementById('custom-input');
+    const donateBtn  = document.getElementById('donate-btn');
+
+    function updateBtn(dollars) {
+      if (dollars && dollars > 0) {
+        donateBtn.textContent = 'Donate $' + Number(dollars).toLocaleString() + ' →';
+        donateBtn.href = STRIPE_BASE + '?prefilled_amount=' + (dollars * 100);
+      } else {
+        donateBtn.textContent = 'Donate →';
+        donateBtn.href = STRIPE_BASE;
+      }
+    }
 
     amountBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         amountBtns.forEach(b => b.classList.remove('selected'));
         btn.classList.add('selected');
         customInput.value = '';
+        updateBtn(btn.dataset.amount);
       });
     });
 
     customInput.addEventListener('input', () => {
       amountBtns.forEach(b => b.classList.remove('selected'));
+      updateBtn(customInput.value);
     });
   </script>
