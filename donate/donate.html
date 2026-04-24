@@ -7,7 +7,7 @@ permalink: /donate/
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Donate — SolarWAVE Action</title>
+  <title>Donate — Advocacy | SolarWAVE Action</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -44,149 +44,201 @@ permalink: /donate/
     .nav-cta { background: var(--sun); color: var(--sky) !important; padding: 0.5rem 1.25rem; border-radius: 2px; font-weight: 700 !important; transition: background 0.2s !important; }
     .nav-cta:hover { background: var(--sun-light) !important; color: var(--sky) !important; }
 
-    /* ─── PAGE HERO ─── */
-    .page-hero {
-      padding: 10rem 3rem 5rem;
-      max-width: 1200px; margin: 0 auto;
-      text-align: center;
-      position: relative;
-    }
-    .page-hero::after {
-      content: '';
-      position: absolute; bottom: 0; left: 3rem; right: 3rem;
-      height: 1px; background: var(--border);
+    /* ─── LAYOUT ─── */
+    .page-wrap {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 72px;
     }
 
-    .eyebrow { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 0.75rem; }
-    .eyebrow::before, .eyebrow::after { content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--accent); }
-
-    .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 6vw, 5rem); line-height: 0.95; letter-spacing: 0.02em; color: var(--white); margin-bottom: 1.5rem; }
-    .page-hero h1 span { color: var(--sun); }
-    .page-hero > p { font-size: 1.08rem; line-height: 1.8; color: var(--muted); max-width: 60ch; margin: 0 auto; }
-
-    /* ─── CHOOSE SECTION ─── */
-    .choose {
-      padding: 5rem 3rem;
+    /* ─── LEFT PANEL ─── */
+    .left-panel {
       background: var(--sky-mid);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .choose-inner { max-width: 1200px; margin: 0 auto; }
-
-    .choose-intro {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-    .choose-intro h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      letter-spacing: 0.04em;
-      color: var(--white);
-      margin-bottom: 0.75rem;
-    }
-    .choose-intro p { font-size: 0.95rem; color: var(--muted); line-height: 1.75; max-width: 56ch; margin: 0 auto; }
-
-    .donate-options {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
-    }
-
-    .donate-option {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      padding: 3rem 2.5rem;
+      border-right: 1px solid var(--border);
+      padding: 5rem 4rem;
+      display: flex; flex-direction: column; justify-content: center;
       position: relative; overflow: hidden;
-      text-decoration: none;
-      display: flex; flex-direction: column;
-      transition: border-color 0.3s, transform 0.3s;
     }
-    .donate-option:hover {
-      border-color: rgba(245,166,35,0.35);
-      transform: translateY(-4px);
-    }
-    .donate-option::before {
+    .left-panel::before {
       content: '';
       position: absolute; top: 0; left: 0; right: 0;
       height: 3px;
-      transition: opacity 0.3s;
-      opacity: 0;
+      background: linear-gradient(to right, var(--sun), #f07d1a);
     }
-    .donate-option:hover::before { opacity: 1; }
-    .donate-option.c4::before { background: linear-gradient(to right, var(--sun), #f07d1a); }
-    .donate-option.c3::before { background: linear-gradient(to right, var(--accent), #1bbf94); }
+    .left-panel::after {
+      content: '';
+      position: absolute; bottom: -80px; right: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,166,35,0.06) 0%, transparent 70%);
+    }
 
-    .option-tag {
+    .back-link {
       font-family: 'DM Mono', monospace;
-      font-size: 0.65rem; letter-spacing: 0.22em;
-      text-transform: uppercase;
+      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-bottom: 3rem;
+      transition: color 0.2s;
+    }
+    .back-link::before { content: '←'; }
+    .back-link:hover { color: var(--white); }
+
+    .entity-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--sun);
+      background: rgba(245,166,35,0.1);
+      border: 1px solid rgba(245,166,35,0.25);
       display: inline-block;
       padding: 0.35rem 0.85rem;
       border-radius: 2px;
       margin-bottom: 1.75rem;
-      align-self: flex-start;
     }
-    .c4 .option-tag { color: var(--sun); background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.25); }
-    .c3 .option-tag { color: var(--accent); background: rgba(61,214,163,0.08); border: 1px solid rgba(61,214,163,0.2); }
 
-    .option-heading {
+    .left-panel h1 {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(1.8rem, 2.5vw, 2.25rem);
-      letter-spacing: 0.04em;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      line-height: 0.95; letter-spacing: 0.02em;
       color: var(--white);
-      margin-bottom: 1rem;
-      line-height: 1;
+      margin-bottom: 0.75rem;
     }
+    .left-panel h1 span { color: var(--sun); }
 
-    .option-sub {
+    .entity-name {
       font-family: 'DM Mono', monospace;
-      font-size: 0.7rem; letter-spacing: 0.12em;
-      text-transform: uppercase;
+      font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 1.25rem;
-    }
-
-    .option-desc {
-      font-size: 0.92rem; line-height: 1.75;
-      color: var(--muted);
-      flex: 1;
       margin-bottom: 2rem;
     }
 
-    .option-cta {
+    .left-panel p {
+      font-size: 0.95rem; line-height: 1.8;
+      color: var(--muted);
+      max-width: 46ch;
+      margin-bottom: 1rem;
+    }
+
+    .tax-note {
+      margin-top: 2rem;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid rgba(245,166,35,0.25);
+      border-radius: 2px;
+      background: rgba(245,166,35,0.04);
+    }
+    .tax-note-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--sun);
+      margin-bottom: 0.5rem;
+    }
+    .tax-note p {
+      font-size: 0.82rem; line-height: 1.65;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ─── RIGHT PANEL (FORM) ─── */
+    .right-panel {
+      padding: 5rem 4rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+
+    .form-section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .amount-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .amount-btn {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem; font-weight: 500;
+      padding: 0.85rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .amount-btn:hover { border-color: rgba(245,166,35,0.5); background: rgba(245,166,35,0.06); }
+    .amount-btn.selected { border-color: var(--sun); background: rgba(245,166,35,0.1); color: var(--sun); }
+
+    .custom-amount {
+      position: relative; margin-bottom: 2rem;
+    }
+    .custom-amount span {
+      position: absolute; left: 1rem; top: 50%; transform: translateY(-50%);
+      color: var(--muted); font-size: 1rem;
+    }
+    .custom-amount input {
+      width: 100%;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      padding: 0.85rem 1rem 0.85rem 2rem;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .custom-amount input::placeholder { color: var(--muted); }
+    .custom-amount input:focus { border-color: rgba(245,166,35,0.5); }
+
+    .field-group { margin-bottom: 1.25rem; }
+    .field-group label {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .field-group input {
+      width: 100%;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 0.75rem 1rem;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .field-group input::placeholder { color: var(--muted); }
+    .field-group input:focus { border-color: rgba(245,166,35,0.5); }
+
+    .coming-soon-badge {
       display: inline-flex; align-items: center; gap: 0.6rem;
       font-family: 'DM Mono', monospace;
-      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
-      font-weight: 500;
-      padding: 0.85rem 1.5rem;
-      border-radius: 2px;
-      align-self: flex-start;
-      transition: all 0.2s;
+      font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--sun);
+      border: 1px solid rgba(245,166,35,0.3);
+      padding: 0.75rem 1.75rem; border-radius: 2px;
+      margin-bottom: 1rem;
+      width: 100%; justify-content: center;
     }
-    .option-cta::after { content: '→'; transition: transform 0.2s; }
-    .donate-option:hover .option-cta::after { transform: translateX(4px); }
+    .coming-soon-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--sun); animation: blink 1.5s ease-in-out infinite; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-    .c4 .option-cta { background: var(--sun); color: var(--sky); }
-    .c4:hover .option-cta { background: var(--sun-light); }
-    .c3 .option-cta { background: var(--accent); color: var(--sky); }
-    .c3:hover .option-cta { background: #5ae8bc; }
+    .submit-note {
+      font-size: 0.78rem; color: var(--muted); line-height: 1.6; text-align: center;
+    }
+    .submit-note a { color: var(--accent); text-decoration: none; }
+    .submit-note a:hover { color: var(--sun); }
 
-    /* ─── EXPLAINER ─── */
-    .explainer {
-      background: var(--panel);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 5rem 3rem;
+    .form-divider {
+      border: none; border-top: 1px solid var(--border);
+      margin: 2rem 0;
     }
-    .explainer-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
-    }
-    .explainer-block h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem; letter-spacing: 0.05em;
-      color: var(--white); margin-bottom: 1rem;
-    }
-    .explainer-block p { font-size: 0.9rem; line-height: 1.8; color: var(--muted); }
 
     /* ─── FOOTER ─── */
     footer { background: var(--sky-mid); border-top: 3px solid var(--sun); padding: 2rem 3rem 1rem; }
@@ -203,23 +255,13 @@ permalink: /donate/
     .footer-legal a { font-size: 0.75rem; color: #A0AABF; text-decoration: none; transition: color 0.2s; }
     .footer-legal a:hover { color: var(--sky); }
 
-    /* ─── ANIMATIONS ─── */
-    .fade-in { opacity: 0; transform: translateY(24px); animation: fadeUp 0.8s ease forwards; }
-    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-    .delay-1 { animation-delay: 0.15s; }
-    .delay-2 { animation-delay: 0.3s; }
-    .delay-3 { animation-delay: 0.45s; }
-
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
-      .page-hero { padding: 8rem 1.5rem 4rem; }
-      .page-hero::after { left: 1.5rem; right: 1.5rem; }
-      .choose { padding: 4rem 1.5rem 5rem; }
-      .donate-options { grid-template-columns: 1fr; }
-      .explainer { padding: 4rem 1.5rem; }
-      .explainer-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .page-wrap { grid-template-columns: 1fr; }
+      .left-panel, .right-panel { padding: 4rem 1.5rem; }
+      .left-panel { justify-content: flex-start; }
       footer { padding: 2rem 1.5rem; }
       .footer-top { flex-direction: column; gap: 2rem; }
       .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
@@ -241,56 +283,59 @@ permalink: /donate/
     </ul>
   </nav>
 
-  <!-- PAGE HERO -->
-  <div class="page-hero">
-    <div class="eyebrow fade-in">Support Our Work</div>
-    <h1 class="fade-in delay-1">Power <span>Better</span> Policy.</h1>
-    <p class="fade-in delay-2">Your support funds the research, advocacy, and legal strategy driving California's clean energy transition. Choose the giving type that works best for you.</p>
+  <div class="page-wrap">
+
+    <!-- LEFT: Context -->
+    <div class="left-panel">
+      <div class="entity-tag">501(c)(4) · Not Tax-Deductible</div>
+      <h1>Support Our <span>Cause</span></h1>
+      <div class="entity-name">SolarWAVE Action</div>
+      <p>Your contribution directly funds our research and advocacy work — the engine that translates research into California law.</p>
+      <p>As a 501(c)(4) organization, we can fight for clean energy policy without restriction. That requires unrestricted funding.</p>
+      <div class="tax-note">
+        <div class="tax-note-label">Tax Information</div>
+        <p>Contributions to SolarWAVE Action (c4) are not deductible as charitable contributions for federal income tax purposes.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: Form -->
+    <div class="right-panel">
+      <div class="form-section-label">Select Amount</div>
+
+      <div class="amount-grid">
+        <button class="amount-btn" data-amount="25">$25</button>
+        <button class="amount-btn selected" data-amount="50">$50</button>
+        <button class="amount-btn" data-amount="100">$100</button>
+        <button class="amount-btn" data-amount="250">$250</button>
+        <button class="amount-btn" data-amount="500">$500</button>
+        <button class="amount-btn" data-amount="1000">$1,000</button>
+      </div>
+
+      <div class="custom-amount">
+        <span>$</span>
+        <input type="number" id="custom-input" placeholder="Other amount" min="1" />
+      </div>
+
+      <hr class="form-divider" />
+
+      <div class="form-section-label">Your Information</div>
+
+      <div class="field-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Jane Smith" />
+      </div>
+      <div class="field-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="jane@example.com" />
+      </div>
+
+      <hr class="form-divider" />
+
+      <div class="coming-soon-badge">Payment Processing Coming Soon</div>
+      <p class="submit-note">Online giving will be available shortly. In the meantime, <a href="{{ '/contact/' | relative_url }}">contact us</a> to discuss supporting our advocacy work directly.</p>
+    </div>
+
   </div>
-
-  <!-- CHOOSE -->
-  <section class="choose">
-    <div class="choose-inner">
-      <div class="choose-intro fade-in">
-        <h2>Two Ways to Give</h2>
-        <p>SolarWAVE Action operates two entities — our advocacy arm and our research & education project — each accepting donations for different purposes.</p>
-      </div>
-
-      <div class="donate-options">
-
-        <a href="{{ '/donate/donate_advocacy/' | relative_url }}" class="donate-option c4 fade-in delay-1">
-          <span class="option-tag">501(c)(4)</span>
-          <div class="option-heading">Support Our Advocacy</div>
-          <div class="option-sub">Not Tax-Deductible</div>
-          <p class="option-desc">Fund our lobbying, legislative campaigns, and direct policy advocacy — the work that turns research into law. Contributions are not tax-deductible as charitable donations.</p>
-          <span class="option-cta">Donate to Advocacy</span>
-        </a>
-
-        <a href="{{ '/donate/donate_research/' | relative_url }}" class="donate-option c3 fade-in delay-2">
-          <span class="option-tag">501(c)(3)</span>
-          <div class="option-heading">Support Our Research</div>
-          <div class="option-sub">Tax-Deductible</div>
-          <p class="option-desc">Coming soon: Fund our independent data analysis, public education, and open-methodology research. Contributions are tax-deductible to the extent permitted by law.</p>
-          <span class="option-cta">Donate to Research</span>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPLAINER -->
-  <section class="explainer">
-    <div class="explainer-inner">
-      <div class="explainer-block">
-        <h3>What's the Difference?</h3>
-        <p>Our 501(c)(4) entity — SolarWAVE Action — is a social welfare organization that can engage in lobbying and direct political advocacy without restriction. Donations are not tax-deductible, but they directly fund the campaigns that move legislation.</p>
-      </div>
-      <div class="explainer-block">
-        <h3>Tax-Deductible Giving</h3>
-        <p>Our affiliated 501(c)(3) — SolarWAVE Action Research &amp; Education Project — supports non-partisan research, data tools, and public education. Contributions here are tax-deductible as charitable donations under IRS rules.</p>
-      </div>
-    </div>
-  </section>
 
   <!-- FOOTER -->
   <footer>
@@ -319,6 +364,23 @@ permalink: /donate/
       </div>
     </div>
   </footer>
+
+  <script>
+    const amountBtns = document.querySelectorAll('.amount-btn');
+    const customInput = document.getElementById('custom-input');
+
+    amountBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        amountBtns.forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        customInput.value = '';
+      });
+    });
+
+    customInput.addEventListener('input', () => {
+      amountBtns.forEach(b => b.classList.remove('selected'));
+    });
+  </script>
 
 </body>
 </html>
