@@ -291,7 +291,7 @@ permalink: /donate/
         <input type="number" id="custom-input" placeholder="Other amount" min="1" />
       </div>
 
-      <a href="https://donate.stripe.com/aFa9AVa2U6EO4Hw6xWbwk00?prefilled_amount=5000"
+      <a href="https://donate.stripe.com/aFa9AVa2U6EO4Hw6xWbwk00?prefilled_amount=50"
          id="donate-btn" class="donate-btn" target="_blank" rel="noopener">
         Donate $50 →
       </a>
@@ -309,7 +309,7 @@ permalink: /donate/
     function updateBtn(dollars) {
       if (dollars && dollars > 0) {
         donateBtn.textContent = 'Donate $' + Number(dollars).toLocaleString() + ' →';
-        donateBtn.href = STRIPE_BASE + '?prefilled_amount=' + (dollars * 100);
+        donateBtn.href = STRIPE_BASE + '?prefilled_amount=' + dollars;
       } else {
         donateBtn.textContent = 'Donate →';
         donateBtn.href = STRIPE_BASE;
