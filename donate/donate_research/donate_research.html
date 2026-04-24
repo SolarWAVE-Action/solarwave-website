@@ -1,50 +1,9 @@
 ---
-layout: none
+title: "Donate — Research &amp; Education | SolarWAVE Action"
+layout: default
 permalink: /donate/donate_research/
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Donate — Research &amp; Education | SolarWAVE Action</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --sun: #F5A623;
-      --sun-light: #FFD87A;
-      --sky: #0A1628;
-      --sky-mid: #0D2244;
-      --white: #F7F4EE;
-      --muted: #8A9AB5;
-      --accent: #3DD6A3;
-      --panel: rgba(255,255,255,0.04);
-      --border: rgba(255,255,255,0.08);
-    }
-
-    html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--sky); color: var(--white); overflow-x: hidden; }
-
-    /* ─── NAV ─── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.25rem 3rem;
-      background: rgba(10,22,40,0.98);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-wordmark { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.08em; color: var(--white); text-decoration: none; }
-    .nav-wordmark span { color: var(--sun); }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
-    .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--white); }
-    .nav-cta { background: var(--sun); color: var(--sky) !important; padding: 0.5rem 1.25rem; border-radius: 2px; font-weight: 700 !important; transition: background 0.2s !important; }
-    .nav-cta:hover { background: var(--sun-light) !important; color: var(--sky) !important; }
-
-    /* ─── LAYOUT ─── */
+<style>/* ─── LAYOUT ─── */
     .page-wrap {
       min-height: 100vh;
       display: grid;
@@ -240,95 +199,16 @@ permalink: /donate/donate_research/
       margin: 2rem 0;
     }
 
-    /* ─── FOOTER ─── */
-    footer { background: var(--sky-mid); border-top: 3px solid var(--sun); padding: 2rem 3rem 1rem; }
-    .footer-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid #E8EAF0; }
-    .footer-logo-img { display: block; height: 64px; width: auto; }
-    .footer-tagline { font-size: 0.85rem; color: #6B7A99; margin-top: 0.6rem; max-width: 28ch; line-height: 1.6; }
-    .footer-nav-group h5 { display: none; }
-    .footer-links { display: flex; flex-direction: row; gap: 2rem; list-style: none; flex-wrap: wrap; }
-    .footer-links a { font-size: 0.85rem; color: #6B7A99; text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--sky); }
-    .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
-    .footer-copy { font-size: 0.75rem; color: #A0AABF; font-family: 'DM Mono', monospace; }
-    .footer-legal { display: flex; gap: 1.5rem; }
-    .footer-legal a { font-size: 0.75rem; color: #A0AABF; text-decoration: none; transition: color 0.2s; }
-    .footer-legal a:hover { color: var(--sky); }
-
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
       .page-wrap { grid-template-columns: 1fr; }
       .left-panel, .right-panel { padding: 4rem 1.5rem; }
       .left-panel { justify-content: flex-start; }
-      footer { padding: 2rem 1.5rem; }
-      .footer-top { flex-direction: column; gap: 2rem; }
-      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-      .footer-legal { justify-content: center; }
     }
 
-    /* ─── MOBILE NAV ─── */
-    .nav-burger {
-      display: none; flex-direction: column; gap: 5px;
-      background: none; border: none; cursor: pointer; padding: 4px;
-      z-index: 101; position: relative;
-    }
-    .nav-burger span {
-      display: block; width: 22px; height: 2px;
-      background: var(--white); border-radius: 2px;
-      transition: transform 0.3s, opacity 0.3s;
-    }
-    .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-burger.open span:nth-child(2) { opacity: 0; }
-    .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    </style>
 
-    .mobile-nav {
-      display: none; position: fixed; inset: 0; z-index: 99;
-      background: var(--sky); flex-direction: column;
-      align-items: center; justify-content: center; gap: 2.5rem;
-    }
-    .mobile-nav.open { display: flex; }
-    .mobile-nav a {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.5rem; letter-spacing: 0.08em;
-      color: var(--white); text-decoration: none; transition: color 0.2s;
-    }
-    .mobile-nav a:hover, .mobile-nav a.active { color: var(--sun); }
-    .mobile-nav .mobile-cta {
-      background: var(--sun); color: var(--sky) !important;
-      padding: 0.6rem 2.5rem; border-radius: 2px;
-    }
-    .mobile-nav .mobile-cta:hover { background: var(--sun-light) !important; }
-    @media (max-width: 900px) { .nav-burger { display: flex; } }
-  </style>
-</head>
-<body>
-
-  <!-- NAV -->
-  <nav>
-    <a href="{{ '/' | relative_url }}" class="nav-wordmark">Solar<span>WAVE</span> Action</a>
-    <ul class="nav-links">
-      <li><a href="{{ '/about/' | relative_url }}">About</a></li>
-      <li><a href="{{ '/our_work/' | relative_url }}">Our Work</a></li>
-      <li><a href="{{ '/get_involved/' | relative_url }}">Get Involved</a></li>
-      <li><a href="{{ '/work_with_us/' | relative_url }}">Work With Us</a></li>
-      <li><a href="{{ '/donate/' | relative_url }}" class="nav-cta">Donate</a></li>
-    </ul>
-    <button class="nav-burger" id="nav-burger" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <div class="mobile-nav" id="mobile-nav">
-    <a href="{{ '/about/' | relative_url }}">About</a>
-    <a href="{{ '/our_work/' | relative_url }}">Our Work</a>
-    <a href="{{ '/get_involved/' | relative_url }}">Get Involved</a>
-    <a href="{{ '/work_with_us/' | relative_url }}">Work With Us</a>
-    <a href="{{ '/donate/' | relative_url }}" class="mobile-cta">Donate</a>
-  </div>
-
-  <div class="page-wrap">
+<div class="page-wrap">
 
     <!-- LEFT: Context -->
     <div class="left-panel">
@@ -383,34 +263,6 @@ permalink: /donate/donate_research/
 
   </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-top">
-      <div class="footer-brand">
-        <img class="footer-logo-img" src="{{ '/assets/images/SolarWAVELogoDark.png' | relative_url }}" alt="SolarWAVE Action" />
-        <p class="footer-tagline">Advancing clean energy policy through data-driven research.</p>
-      </div>
-      <div class="footer-nav-group">
-        <h5>Navigate</h5>
-        <ul class="footer-links">
-          <li><a href="{{ '/about/' | relative_url }}">About</a></li>
-          <li><a href="{{ '/our_work/' | relative_url }}">Our Work</a></li>
-          <li><a href="{{ '/get_involved/' | relative_url }}">Get Involved</a></li>
-          <li><a href="{{ '/work_with_us/' | relative_url }}">Work With Us</a></li>
-          <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
-          <li><a href="{{ '/donate/' | relative_url }}">Donate</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2026 SolarWAVE Action. All rights reserved.</div>
-      <div class="footer-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
-      </div>
-    </div>
-  </footer>
-
   <script>
     const amountBtns = document.querySelectorAll('.amount-btn');
     const customInput = document.getElementById('custom-input');
@@ -427,25 +279,3 @@ permalink: /donate/donate_research/
       amountBtns.forEach(b => b.classList.remove('selected'));
     });
   </script>
-
-
-  <script>
-    (function() {
-      var burger = document.getElementById('nav-burger');
-      var mobileNav = document.getElementById('mobile-nav');
-      burger.addEventListener('click', function() {
-        burger.classList.toggle('open');
-        mobileNav.classList.toggle('open');
-        document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
-      });
-      mobileNav.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
-          burger.classList.remove('open');
-          mobileNav.classList.remove('open');
-          document.body.style.overflow = '';
-        });
-      });
-    })();
-  </script>
-</body>
-</html>

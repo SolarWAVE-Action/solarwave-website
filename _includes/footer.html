@@ -1,17 +1,28 @@
-<footer class="page__footer" role="contentinfo">
-  {% if site.footer.links %}
-    <div class="page__footer">
-      <ul class="social-icons">
-        {% for link in site.footer.links %}
-          <li>
-            <a href="{{ link.url | relative_url }}">{{ link.label }}</a>
-          </li>
-        {% endfor %}
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img class="footer-logo-img"
+        src="{{ '/assets/images/SolarWAVELogoDark.png' | relative_url }}"
+        alt="SolarWAVE Action" />
+      <p class="footer-tagline">Advancing clean energy policy through data-driven research.</p>
+    </div>
+    <div class="footer-nav-group">
+      <h5>Navigate</h5>
+      <ul class="footer-links">
+        <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+        <li><a href="{{ '/our_work/' | relative_url }}">Our Work</a></li>
+        <li><a href="{{ '/get_involved/' | relative_url }}">Get Involved</a></li>
+        <li><a href="{{ '/work_with_us/' | relative_url }}">Work With Us</a></li>
+        <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+        <li><a href="{{ '/donate/' | relative_url }}">Donate</a></li>
       </ul>
     </div>
-  {% endif %}
-
-  <div class="page__footer-copyright">
-    {{ site.footer_content | default: site.title }}
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 SolarWAVE Action. All rights reserved.</div>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+    </div>
   </div>
 </footer>
