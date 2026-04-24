@@ -96,6 +96,31 @@ permalink: /donate/
       border-radius: 2px;
       background: rgba(245,166,35,0.04);
     }
+    .left-divider {
+      width: 3rem; height: 2px;
+      background: linear-gradient(to right, var(--sun), transparent);
+      margin: 1.75rem 0;
+    }
+
+    .support-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .support-items { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem; }
+
+    .support-item { display: flex; gap: 1rem; align-items: flex-start; }
+
+    .support-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; color: var(--sun);
+      letter-spacing: 0.15em; padding-top: 0.2rem; flex-shrink: 0;
+    }
+
+    .support-item p { margin: 0; font-size: 0.9rem; line-height: 1.7; color: var(--muted); }
+
     .tax-note-label {
       font-family: 'DM Mono', monospace;
       font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
@@ -227,12 +252,22 @@ permalink: /donate/
         <h1>Power Better <span>Policy</span></h1>
   <!--      <div class="entity-name">SolarWAVE Action</div>-->
         <p>We build the tools, standards, and coalitions that make distributed clean energy ownership the default, not the exception.</p>
-          <h2>How Your Support Helps</h2>
-          <ul>
-            <li>Funding data-driven policy analysis that legislators and regulators actually use</li>
-            <li>Building legal and technical arguments for clean energy legislation</li>
-            <li>Supporting coalitions that amplify the voice of the clean energy community</li>
-          </ul>
+        <div class="left-divider"></div>
+        <div class="support-label">How Your Support Helps</div>
+        <div class="support-items">
+          <div class="support-item">
+            <span class="support-num">01</span>
+            <p>Funding data-driven policy analysis that legislators and regulators actually use</p>
+          </div>
+          <div class="support-item">
+            <span class="support-num">02</span>
+            <p>Building legal and technical arguments for clean energy legislation</p>
+          </div>
+          <div class="support-item">
+            <span class="support-num">03</span>
+            <p>Supporting coalitions that amplify the voice of the clean energy community</p>
+          </div>
+        </div>
         <p>Every dollar moves clean energy policy forward. Your support matters.</p>
         <!--        <div class="tax-note">-->
 <!--          <div class="tax-note-label">Tax Information</div>-->
