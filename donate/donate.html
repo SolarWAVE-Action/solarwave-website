@@ -278,12 +278,12 @@ permalink: /donate/
       <div class="form-section-label">Select Amount</div>
 
       <div class="amount-grid">
-        <button class="amount-btn" data-amount="25">$25</button>
-        <button class="amount-btn selected" data-amount="50">$50</button>
-        <button class="amount-btn" data-amount="100">$100</button>
+        <button class="amount-btn" data-amount="50">$50</button>
+        <button class="amount-btn selected" data-amount="100">$100</button>
         <button class="amount-btn" data-amount="250">$250</button>
         <button class="amount-btn" data-amount="500">$500</button>
         <button class="amount-btn" data-amount="1000">$1,000</button>
+        <button class="amount-btn" data-amount="1000">$1,500</button>
       </div>
 
       <div class="custom-amount">
@@ -291,9 +291,9 @@ permalink: /donate/
         <input type="number" id="custom-input" placeholder="Other amount" min="1" />
       </div>
 
-      <a href="https://donate.stripe.com/aFa9AVa2U6EO4Hw6xWbwk00?prefilled_amount=50"
+      <a href="https://buy.stripe.com/dRm4gBejafbkfmaaOcbwk02"
          id="donate-btn" class="donate-btn" target="_blank" rel="noopener">
-        Donate $50 →
+        Donate $100 →
       </a>
       <p class="submit-note">You'll be taken to Stripe's secure checkout to complete your gift.</p>
     </div>
@@ -301,15 +301,15 @@ permalink: /donate/
   </div>
 
   <script>
-    const STRIPE_BASE = 'https://donate.stripe.com/aFa9AVa2U6EO4Hw6xWbwk00';
+
     const STRIPE_LINKS = {
-      25:     STRIPE_BASE + '?prefilled_amount=25',
-      50:     STRIPE_BASE + '?prefilled_amount=50',
-      100:    STRIPE_BASE + '?prefilled_amount=100',
-      250:    STRIPE_BASE + '?prefilled_amount=250',
-      500:    STRIPE_BASE + '?prefilled_amount=500',
-      1000:   STRIPE_BASE + '?prefilled_amount=1000',
-      custom: STRIPE_BASE
+      50:     'https://donate.stripe.com/aFa9AVa2U6EO4Hw6xWbwk00',
+      100:    'https://buy.stripe.com/dRm4gBejafbkfmaaOcbwk02',
+      250:    'https://donate.stripe.com/6oUfZj6QIgfofma7C0bwk04',
+      500:    'https://donate.stripe.com/8x27sNb6Ygfoc9Y5tSbwk05',
+      1000:   'https://donate.stripe.com/eVq3cx5ME6EO2zoaOcbwk06',
+      1500:   'https://donate.stripe.com/28E28t1wofbk3Ds4pObwk07',
+      custom: 'https://donate.stripe.com/aFa9AVa2U6EO4Hw6xWbwk00'
     };
 
     const amountBtns = document.querySelectorAll('.amount-btn');
