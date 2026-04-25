@@ -165,27 +165,12 @@ permalink: /donate/
     .amount-btn:hover { border-color: rgba(245,166,35,0.5); background: rgba(245,166,35,0.06); }
     .amount-btn.selected { border-color: var(--sun); background: rgba(245,166,35,0.1); color: var(--sun); }
 
-    .custom-amount {
-      position: relative; margin-bottom: 2rem;
+    .amount-btn--wide {
+      grid-column: 1 / -1;
+      font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted);
     }
-    .custom-amount span {
-      position: absolute; left: 1rem; top: 50%; transform: translateY(-50%);
-      color: var(--muted); font-size: 1rem;
-    }
-    .custom-amount input {
-      width: 100%;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      color: var(--white);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1rem;
-      padding: 0.85rem 1rem 0.85rem 2rem;
-      border-radius: 2px;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .custom-amount input::placeholder { color: var(--muted); }
-    .custom-amount input:focus { border-color: rgba(245,166,35,0.5); }
+    .amount-btn--wide.selected { color: var(--sun); }
 
     .field-group { margin-bottom: 1.25rem; }
     .field-group label {
@@ -286,10 +271,7 @@ permalink: /donate/
         <button class="amount-btn" data-amount="1500">$1,500</button>
       </div>
 
-      <div class="custom-amount">
-        <span>$</span>
-        <input type="number" id="custom-input" placeholder="Other amount" min="1" />
-      </div>
+      <button class="amount-btn amount-btn--wide" data-amount="custom">Custom Amount</button>
 
       <a href="https://buy.stripe.com/dRm4gBejafbkfmaaOcbwk02"
          id="donate-btn" class="donate-btn" target="_blank" rel="noopener">
@@ -313,30 +295,18 @@ permalink: /donate/
     };
 
     const amountBtns = document.querySelectorAll('.amount-btn');
-    const customInput = document.getElementById('custom-input');
     const donateBtn  = document.getElementById('donate-btn');
-
-    function updateBtn(dollars) {
-      const key = STRIPE_LINKS[parseInt(dollars)] ? parseInt(dollars) : 'custom';
-      donateBtn.href = STRIPE_LINKS[key];
-      if (dollars && dollars > 0) {
-        donateBtn.textContent = 'Donate $' + Number(dollars).toLocaleString() + ' →';
-      } else {
-        donateBtn.textContent = 'Donate →';
-      }
-    }
 
     amountBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         amountBtns.forEach(b => b.classList.remove('selected'));
         btn.classList.add('selected');
-        customInput.value = '';
-        updateBtn(btn.dataset.amount);
+        const amount = btn.dataset.amount;
+        const key = STRIPE_LINKS[parseInt(amount)] ? parseInt(amount) : 'custom';
+        donateBtn.href = STRIPE_LINKS[key];
+        donateBtn.textContent = key === 'custom'
+          ? 'Custom Amount →'
+          : 'Donate $' + Number(amount).toLocaleString() + ' →';
       });
-    });
-
-    customInput.addEventListener('input', () => {
-      amountBtns.forEach(b => b.classList.remove('selected'));
-      updateBtn(customInput.value);
     });
   </script>
