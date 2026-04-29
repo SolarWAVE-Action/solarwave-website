@@ -66,6 +66,35 @@ permalink: /get_involved/
     .btn-primary { background: var(--sun); color: var(--sky); padding: 0.85rem 2rem; border-radius: 2px; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.2s; display: inline-block; }
     .btn-primary:hover { background: var(--sun-light); transform: translateY(-1px); }
 
+    /* ─── NEWSLETTER ─── */
+    .newsletter {
+      padding: 6rem 3rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .newsletter-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    }
+    .newsletter h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 3.5vw, 3rem);
+      letter-spacing: 0.03em; margin-bottom: 1.25rem;
+    }
+    .newsletter h2 span { color: var(--sun); }
+    .newsletter p {
+      font-size: 1.05rem; line-height: 1.8;
+      color: var(--muted); max-width: 52ch;
+    }
+    .newsletter-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .newsletter-meta::before { content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--accent); }
+    .newsletter-cta { margin-top: 2rem; }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       .page-hero { padding: 8rem 1.5rem 4rem; }
@@ -73,6 +102,8 @@ permalink: /get_involved/
       .engage { padding: 4rem 1.5rem; }
       .engage-inner { padding: 0; }
       .engage-cards { grid-template-columns: 1fr; }
+      .newsletter { padding: 4rem 1.5rem; }
+      .newsletter-inner { grid-template-columns: 1fr; gap: 2rem; }
       .conversation { padding: 4rem 1.5rem; }
       .conversation-inner { grid-template-columns: 1fr; gap: 2rem; }
       .section-label { writing-mode: horizontal-tb; transform: none; }
@@ -116,6 +147,36 @@ permalink: /get_involved/
         <a href="{{ '/donate/' | relative_url }}" style="display:inline-block; margin-top:1.5rem; font-family:'DM Mono',monospace; font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); text-decoration:none;">Donate →</a>
       </div>
     </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter">
+    <div class="newsletter-inner">
+      <div>
+        <div class="newsletter-meta">Stay Informed</div>
+        <h2>Follow the <span>Fight.</span></h2>
+        <p>Sign up for updates on our research, policy work, and opportunities to make your voice heard on clean energy issues.</p>
+        <div class="newsletter-cta">
+          <a href="https://solarwave-action.kit.com/459c44ad1a" class="btn-primary" target="_blank" rel="noopener">Subscribe to Updates →</a>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex; flex-direction:column; gap:1.25rem;">
+          <div style="display:flex; gap:1rem; align-items:flex-start;">
+            <span style="font-family:'DM Mono',monospace; font-size:0.65rem; color:var(--sun); letter-spacing:0.15em; padding-top:0.15rem; flex-shrink:0;">01</span>
+            <p style="margin:0; font-size:0.9rem; line-height:1.7; color:var(--muted);">Policy updates and research findings as they happen</p>
+          </div>
+          <div style="display:flex; gap:1rem; align-items:flex-start;">
+            <span style="font-family:'DM Mono',monospace; font-size:0.65rem; color:var(--sun); letter-spacing:0.15em; padding-top:0.15rem; flex-shrink:0;">02</span>
+            <p style="margin:0; font-size:0.9rem; line-height:1.7; color:var(--muted);">Action alerts when your input can influence clean energy legislation</p>
+          </div>
+          <div style="display:flex; gap:1rem; align-items:flex-start;">
+            <span style="font-family:'DM Mono',monospace; font-size:0.65rem; color:var(--sun); letter-spacing:0.15em; padding-top:0.15rem; flex-shrink:0;">03</span>
+            <p style="margin:0; font-size:0.9rem; line-height:1.7; color:var(--muted);">Invitations to events, coalitions, and collaborative opportunities</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
