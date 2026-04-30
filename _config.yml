@@ -1,8 +1,8 @@
 title: "We advance clean energy policy through data-driven research."  # "SolarWAVE Action"
 description: "We advance clean energy policy through data-driven research."  #"Advancing distributed solar ownership rights through data analysis, education, and advocacy."
 
-url: "https://solarwave-action.github.io"
-baseurl: "/solarwave-website"
+url: "https://www.solarwaveaction.org"  # your actual domain
+baseurl: ""
 
 # theme: minimal-mistakes-jekyll  # removed — site uses custom _layouts/default.html
 
