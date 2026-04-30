@@ -95,6 +95,33 @@ permalink: /get_involved/
     .newsletter-meta::before { content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--accent); }
     .newsletter-cta { margin-top: 2rem; }
 
+    .mc-signup-form { display: flex; flex-direction: column; gap: 0.75rem; }
+    .mc-signup-form label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted);
+    }
+    .mc-signup-form input[type="email"] {
+      width: 100%; box-sizing: border-box;
+      background: var(--panel); border: 1px solid var(--border);
+      color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+      padding: 0.75rem 1rem; border-radius: 2px; outline: none;
+      transition: border-color 0.2s;
+    }
+    .mc-signup-form input[type="email"]::placeholder { color: var(--muted); }
+    .mc-signup-form input[type="email"]:focus { border-color: rgba(245,166,35,0.5); }
+    .mc-signup-form input[type="submit"] {
+      background: var(--sun); color: var(--sky);
+      border: none; cursor: pointer;
+      padding: 0.85rem 2rem; border-radius: 2px;
+      font-family: 'DM Sans', sans-serif; font-weight: 700;
+      font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+      transition: background 0.2s; align-self: flex-start;
+    }
+    .mc-signup-form input[type="submit"]:hover { background: var(--sun-light); }
+    #mce-success-response { color: var(--accent); font-size: 0.85rem; margin-top: 0.5rem; }
+    #mce-error-response { color: #e05; font-size: 0.85rem; margin-top: 0.5rem; }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       .page-hero { padding: 8rem 1.5rem 4rem; }
@@ -158,7 +185,20 @@ permalink: /get_involved/
         <h2>Follow the <span>Fight</span></h2>
         <p>Sign up for updates on our research, policy work, and updates on clean energy issues.</p>
         <div class="newsletter-cta">
-          <a href="https://solarwave-action.kit.com/459c44ad1a" class="btn-primary" target="_blank" rel="noopener">Subscribe to Updates →</a>
+          <form action="https://github.us7.list-manage.com/subscribe/post?u=a794191a3e439eee0ee8f3194&amp;id=c8b50ae51f&amp;f_id=00f7afe4f0"
+                method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                class="mc-signup-form validate" target="_blank">
+            <label for="mce-EMAIL">Email Address</label>
+            <input type="email" name="EMAIL" id="mce-EMAIL" placeholder="you@example.com" required>
+            <div aria-hidden="true" style="position:absolute; left:-5000px;">
+              <input type="text" name="b_a794191a3e439eee0ee8f3194_c8b50ae51f" tabindex="-1" value="">
+            </div>
+            <div id="mce-responses">
+              <div id="mce-error-response" style="display:none;"></div>
+              <div id="mce-success-response" style="display:none;"></div>
+            </div>
+            <input type="submit" value="Subscribe →" name="subscribe" id="mc-embedded-subscribe">
+          </form>
         </div>
       </div>
       <div>
@@ -179,6 +219,10 @@ permalink: /get_involved/
       </div>
     </div>
   </section>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+  <script>(function($){window.fnames=new Array();window.ftypes=new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj=jQuery.noConflict(true);</script>
 
   <!-- START THE CONVERSATION -->
   <section class="conversation">
