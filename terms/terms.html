@@ -63,8 +63,39 @@ permalink: /terms/
       margin-bottom: 1rem;
     }
 
+    .terms-body h3 {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 2rem; margin-bottom: 0.75rem;
+    }
+
+    .terms-body ul {
+      list-style: none; padding: 0; margin-bottom: 1rem;
+    }
+    .terms-body ul li {
+      font-size: 0.95rem; line-height: 1.85;
+      color: var(--muted);
+      padding-left: 1.25rem; margin-bottom: 0.5rem;
+      position: relative;
+    }
+    .terms-body ul li::before {
+      content: '—'; position: absolute; left: 0;
+      color: var(--sun); font-size: 0.8rem;
+    }
+
+    .terms-body strong { color: var(--white); font-weight: 500; }
     .terms-body a { color: var(--accent); text-decoration: none; }
     .terms-body a:hover { color: var(--sun); }
+
+    .terms-body .contact-block {
+      margin-top: 1rem;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      font-size: 0.9rem; line-height: 1.9;
+      color: var(--muted);
+    }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
@@ -162,7 +193,7 @@ applicable privacy and data protection laws.</p>
 <p>3.5 California and Other Privacy Rights. Depending on your place of residence and as further
 described in our Privacy Policy, you may have certain rights with respect to your personal
 information under applicable law (including, without limitation, certain rights under California law).
-The procedures for exercising such rights, if available, are described in the Privacy Policy.
+The procedures for exercising such rights, if available, are described in the Privacy Policy.</p>
 
   <h2>4. Nature of Content; No Professional Advice</h2>
 <p>4.1 Educational and Informational Purpose Only. The Site, including without limitation all
@@ -580,10 +611,12 @@ be deemed to be followed by the words &quot;without limitation.&quot;</p>
 <p>18.1 Organization Contact Details. If you have any questions, comments, or concerns regarding
 these Terms, the Site, or the Content, or if you need to contact us for any other reason, you may
 contact us at:</p>
-  <p>SolarWAVE Action</p>
-<p>2222 East Cliff Drive, Suite 220</p>
-<p>Santa Cruz, CA 95062</p>
-<p>Email: hello@solarwaveaction.org</p>
+  <div class="contact-block">
+    <strong>SolarWAVE Action</strong><br>
+    2222 East Cliff Drive, Suite 220<br>
+    Santa Cruz, CA 95062<br>
+    Email: <a href="mailto:hello@solarwaveaction.org">hello@solarwaveaction.org</a>
+  </div>
 <p>18.2 Electronic Communications. When you contact us by email or through the Site, or when you
 visit or use the Site, you may be communicating with us electronically. You consent to receive
 communications from us electronically and agree that we may communicate with you by email, by
