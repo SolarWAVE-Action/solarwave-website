@@ -203,7 +203,7 @@ permalink: /our_work/
 
     /* ─── NAV CARDS ─── */
     .nav-cards {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
       max-width: 1200px; margin: 0 auto;
       padding: 4rem 3rem 0;
     }
@@ -245,7 +245,7 @@ permalink: /our_work/
     @media (max-width: 900px) {
       .page-hero { padding: 8rem 1.5rem 4rem; }
       .page-hero::after { left: 1.5rem; right: 1.5rem; }
-      .nav-cards { grid-template-columns: 1fr; padding: 2rem 1.5rem 0; }
+      .nav-cards { grid-template-columns: 1fr; padding: 2rem 1.5rem 0; gap: 1rem; }
       .research { padding: 4rem 1.5rem; }
       .pub-grid { grid-template-columns: 1fr; }
       .transparency { padding: 4rem 1.5rem; }
@@ -282,6 +282,12 @@ permalink: /our_work/
       <h3>Blog</h3>
       <p>Legal and data-driven insights on clean energy policy — from legislative analysis to grid economics.</p>
       <div class="nav-card-arrow">Read posts →</div>
+    </a>
+    <a class="nav-card" href="{{ '/projects/' | relative_url }}">
+      <div class="nav-card-label">04 — Initiatives</div>
+      <h3>Projects</h3>
+      <p>Active research and policy initiatives.</p>
+      <div class="nav-card-arrow">View projects →</div>
     </a>
   </div>
 
