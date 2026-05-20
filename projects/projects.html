@@ -1,0 +1,94 @@
+---
+title: "Projects — SolarWAVE Action"
+layout: default
+permalink: /projects/
+---
+<style>/* ─── PAGE HERO ─── */
+    .page-hero {
+      padding: 10rem 3rem 6rem;
+      max-width: 1200px; margin: 0 auto;
+      position: relative;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute; bottom: 0; left: 3rem; right: 3rem;
+      height: 1px; background: var(--border);
+    }
+
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .eyebrow::before {
+      content: ''; display: inline-block;
+      width: 2rem; height: 1px; background: var(--accent);
+    }
+
+    .page-hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 0.95; letter-spacing: 0.02em;
+      color: var(--white);
+      max-width: 16ch;
+      margin-bottom: 2rem;
+    }
+    .page-hero h1 span { color: var(--sun); }
+
+    .page-hero p {
+      font-size: 1.08rem; line-height: 1.8;
+      color: var(--muted); max-width: 60ch;
+    }
+
+    /* ─── PLACEHOLDER ─── */
+    .placeholder {
+      max-width: 1200px; margin: 0 auto;
+      padding: 6rem 3rem 10rem;
+      display: flex; flex-direction: column; align-items: flex-start; gap: 2rem;
+    }
+
+    .coming-soon-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--sun);
+      background: rgba(245,166,35,0.08);
+      border: 1px solid rgba(245,166,35,0.25);
+      padding: 0.35rem 0.85rem;
+      border-radius: 2px;
+    }
+
+    .placeholder p {
+      font-size: 1rem; line-height: 1.8;
+      color: var(--muted); max-width: 52ch;
+    }
+
+    .back-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--sun); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .page-hero { padding: 8rem 1.5rem 4rem; }
+      .page-hero::after { left: 1.5rem; right: 1.5rem; }
+      .placeholder { padding: 4rem 1.5rem 6rem; }
+    }
+</style>
+
+<div class="page-hero">
+  <div class="eyebrow">Our Work</div>
+  <h1>Our <span>Projects</span></h1>
+  <p>Active research and policy initiatives advancing equitable clean energy access across California.</p>
+</div>
+
+<div class="placeholder">
+  <div class="coming-soon-tag">Coming Soon</div>
+  <p>We're putting together this page. Check back soon for details on our active research and policy initiatives.</p>
+  <a class="back-link" href="{{ '/our_work/' | relative_url }}">← Back to Our Work</a>
+</div>
