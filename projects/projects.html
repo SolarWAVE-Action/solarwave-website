@@ -107,12 +107,12 @@ permalink: /projects/
 
   .coalition-list {
     list-style: none; padding: 0; margin: 0;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem 1.5rem;
+    display: flex; flex-direction: column; gap: 0.4rem;
   }
 
   .coalition-list li {
     font-size: 0.9rem; line-height: 1.6; color: var(--muted);
-    display: flex; align-items: baseline; gap: 0.6rem;
+    display: flex; align-items: baseline; gap: 0.5rem;
   }
 
   .coalition-list li::before {
@@ -122,7 +122,7 @@ permalink: /projects/
     flex-shrink: 0;
   }
 
-  .coalition-list li strong { color: var(--white); }
+  .coalition-list li strong { color: var(--white); margin-right: 0.1rem; }
 
   /* ─── TRACKS BANNER ─── */
   .tracks-banner {
