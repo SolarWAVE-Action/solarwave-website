@@ -105,9 +105,20 @@ permalink: /projects/
     padding-top: 0.2em;
   }
 
+  .coalition-section {
+    border-top: 1px solid var(--border);
+    margin-top: 3rem; padding-top: 2rem;
+  }
+
+  .coalition-section h3 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.25rem;
+  }
+
   .coalition-list {
     list-style: none; padding: 0; margin: 0;
-    display: flex; flex-direction: column; gap: 0.4rem;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem 2rem;
   }
 
   .coalition-list li {
@@ -122,7 +133,7 @@ permalink: /projects/
     flex-shrink: 0;
   }
 
-  .coalition-list li strong { color: var(--white); margin-right: 0.1rem; }
+  .coalition-list li strong { color: var(--white); }
 
   /* ─── TRACKS BANNER ─── */
   .tracks-banner {
@@ -326,17 +337,17 @@ permalink: /projects/
           </li>
         </ul>
       </div>
-      <div class="meta-block">
-        <h3>Why This Coalition Wins</h3>
-        <ul class="coalition-list">
-          <li><strong>Fiscal conservatives</strong> skeptical of IOU monopoly cost-shifting</li>
-          <li><strong>Housing &amp; renters' rights advocates</strong> seeking bill relief</li>
-          <li><strong>TPO providers &amp; financiers</strong> aligned against utility arguments</li>
-          <li><strong>Clean energy, labor &amp; local government</strong> coalitions</li>
-          <li><strong>Tribal &amp; low-income communities</strong> as direct beneficiaries</li>
-        </ul>
-      </div>
     </div>
+  </div>
+  <div class="coalition-section">
+    <h3>Why This Coalition Wins</h3>
+    <ul class="coalition-list">
+      <li><strong>Fiscal conservatives</strong> skeptical of IOU monopoly cost-shifting</li>
+      <li><strong>Housing &amp; renters' rights advocates</strong> seeking bill relief</li>
+      <li><strong>TPO providers &amp; financiers</strong> aligned against utility arguments</li>
+      <li><strong>Clean energy, labor &amp; local government</strong> coalitions</li>
+      <li><strong>Tribal &amp; low-income communities</strong> as direct beneficiaries</li>
+    </ul>
   </div>
 </section>
 
