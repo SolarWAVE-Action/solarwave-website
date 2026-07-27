@@ -107,60 +107,6 @@ permalink: /about/
       color: var(--muted);
     }
 
-    /* ─── HOW WE WORK ─── */
-    .how {
-      background: var(--sky-mid);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 6rem 3rem;
-    }
-
-    .how-inner { max-width: 1200px; margin: 0 auto; }
-
-    .how-inner h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.2rem, 3.5vw, 3rem);
-      letter-spacing: 0.03em; margin-bottom: 3.5rem;
-    }
-    .how-inner h2 span { color: var(--sun); }
-
-    .how-cards {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-    }
-
-    .how-card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      padding: 2.5rem;
-      position: relative; overflow: hidden;
-      transition: border-color 0.3s, transform 0.3s;
-    }
-    .how-card:hover {
-      border-color: rgba(245,166,35,0.3);
-      transform: translateY(-4px);
-    }
-    .how-card::after {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(to right, var(--sun), var(--accent));
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.3s;
-    }
-    .how-card:hover::after { transform: scaleX(1); }
-
-    .card-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem; color: var(--sun);
-      letter-spacing: 0.2em; margin-bottom: 1.5rem;
-    }
-    .how-card h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.5rem; letter-spacing: 0.05em;
-      color: var(--white); margin-bottom: 0.75rem;
-    }
-    .how-card p { font-size: 0.9rem; line-height: 1.7; color: var(--muted); }
-
     /* ─── FOUNDERS ─── */
     .founders {
       padding: 6rem 3rem;
@@ -329,6 +275,60 @@ permalink: /about/
       color: var(--muted);
     }
 
+        /* ─── HOW WE WORK ─── */
+    .how {
+      background: var(--sky-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 6rem 3rem;
+    }
+
+    .how-inner { max-width: 1200px; margin: 0 auto; }
+
+    .how-inner h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 3.5vw, 3rem);
+      letter-spacing: 0.03em; margin-bottom: 3.5rem;
+    }
+    .how-inner h2 span { color: var(--sun); }
+
+    .how-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    }
+
+    .how-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      position: relative; overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .how-card:hover {
+      border-color: rgba(245,166,35,0.3);
+      transform: translateY(-4px);
+    }
+    .how-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--sun), var(--accent));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .how-card:hover::after { transform: scaleX(1); }
+
+    .card-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; color: var(--sun);
+      letter-spacing: 0.2em; margin-bottom: 1.5rem;
+    }
+    .how-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem; letter-spacing: 0.05em;
+      color: var(--white); margin-bottom: 0.75rem;
+    }
+    .how-card p { font-size: 0.9rem; line-height: 1.7; color: var(--muted); }
+
     /* ─── FUNDING MODEL ─── */
     .funding {
       background: var(--sky-mid);
@@ -336,6 +336,9 @@ permalink: /about/
       border-bottom: 1px solid var(--border);
       padding: 6rem 3rem;
     }
+
+    .funding-inner { max-width: 1200px; margin: 0 auto; }
+
     .funding h2 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(2.2rem, 3.5vw, 3rem);
@@ -360,7 +363,7 @@ permalink: /about/
       position: relative; overflow: hidden;
       transition: border-color 0.3s, transform 0.3s;
     }
-    
+
     .funding-card:hover {
       border-color: rgba(245,166,35,0.3);
       transform: translateY(-4px);
