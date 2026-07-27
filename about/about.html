@@ -331,8 +331,10 @@ permalink: /about/
 
     /* ─── FUNDING MODEL ─── */
     .funding {
+      background: var(--sky-mid);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
       padding: 6rem 3rem;
-      max-width: 1200px; margin: 0 auto;
     }
     .funding h2 {
       font-family: 'Bebas Neue', sans-serif;
@@ -352,12 +354,18 @@ permalink: /about/
     }
 
     .funding-card {
-      background: var(--panel); border: 1px solid var(--border);
-      overflow: hidden; display: flex; flex-direction: column;
-      position: relative;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+      position: relative; overflow: hidden;
       transition: border-color 0.3s, transform 0.3s;
     }
-    .funding-card:hover { border-color: rgba(245,166,35,0.3); transform: translateY(-4px); }
+    
+    .funding-card:hover {
+      border-color: rgba(245,166,35,0.3);
+      transform: translateY(-4px);
+     }
+
     .funding-card::after {
       content: '';
       position: absolute; top: 0; left: 0; right: 0; height: 2px;
@@ -753,35 +761,35 @@ permalink: /about/
 
   </section>
 
-  <!-- HOW WE WORK -->
-  <section class="how">
-    <div class="how-inner">
-      <h2>How We <span>Work</span></h2>
-      <div class="how-cards">
-        <div class="how-card">
-          <div class="card-num">01 — Deliver</div>
-          <h3>What We Deliver</h3>
-          <p>Open methodologies, transparent legal and data analysis, and actionable
-            guidance — every assumption, dataset, and line of code published for public
-            scrutiny.</p>
-        </div>
-        <div class="how-card">
-          <div class="card-num">02 — Translate</div>
-          <h3>Policy Translation</h3>
-          <p>We turn complex energy economics and policy into concise briefings for the
-            general public and for the legislators, regulators, agency staff and advocates
-            making evidence accessible to the people who shape policy.</p>
-        </div>
-        <div class="how-card">
-          <div class="card-num">03 — Engage</div>
-          <h3>Public Accountability</h3>
-          <p>We invite scrutiny and constructive debate through open data access —
-            because clean energy policy that doesn't hold up to scrutiny won't hold
-            up in court.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<!--  &lt;!&ndash; HOW WE WORK &ndash;&gt;-->
+<!--  <section class="how">-->
+<!--    <div class="how-inner">-->
+<!--      <h2>How We <span>Work</span></h2>-->
+<!--      <div class="how-cards">-->
+<!--        <div class="how-card">-->
+<!--          <div class="card-num">01 — Research</div>-->
+<!--          <h3>What We Deliver</h3>-->
+<!--          <p>Open source methodologies, transparent legal and data analysis, and actionable-->
+<!--            guidance — every assumption, dataset, and line of code published for public-->
+<!--            scrutiny.</p>-->
+<!--        </div>-->
+<!--        <div class="how-card">-->
+<!--          <div class="card-num">02 — Translate</div>-->
+<!--          <h3>Policy Translation</h3>-->
+<!--          <p>We turn complex energy economics and policy into concise briefings for the-->
+<!--            general public and for the legislators, regulators, agency staff and advocates-->
+<!--            making evidence accessible to the people who shape policy.</p>-->
+<!--        </div>-->
+<!--        <div class="how-card">-->
+<!--          <div class="card-num">03 — Engage</div>-->
+<!--          <h3>Public Accountability</h3>-->
+<!--          <p>We invite scrutiny and constructive debate through open data access —-->
+<!--            because clean energy policy that doesn't hold up to scrutiny won't hold-->
+<!--            up in court.</p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
 
   <!-- FUNDING MODEL -->
   <section class="funding">
