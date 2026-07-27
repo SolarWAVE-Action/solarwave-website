@@ -354,14 +354,18 @@ permalink: /about/
     .funding-card {
       background: var(--panel); border: 1px solid var(--border);
       overflow: hidden; display: flex; flex-direction: column;
+      position: relative;
       transition: border-color 0.3s, transform 0.3s;
     }
     .funding-card:hover { border-color: rgba(245,166,35,0.3); transform: translateY(-4px); }
-
-    .funding-card-bar { height: 3px; }
-    .funding-card-bar.advocacy   { background: var(--accent); }
-    .funding-card-bar.charitable { background: #7EB3FF; }
-    .funding-card-bar.consulting { background: var(--sun); }
+    .funding-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, var(--sun), var(--accent));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .funding-card:hover::after { transform: scaleX(1); }
 
     .funding-card-body {
       padding: 2rem 2rem 1.75rem;
@@ -371,10 +375,8 @@ permalink: /about/
     .funding-card-num {
       font-family: 'DM Mono', monospace;
       font-size: 0.65rem; letter-spacing: 0.2em; margin-bottom: 1.25rem;
+      color: var(--sun);
     }
-    .funding-card-num.advocacy   { color: var(--accent); }
-    .funding-card-num.charitable { color: #7EB3FF; }
-    .funding-card-num.consulting { color: var(--sun); }
 
     .funding-card-title {
       font-family: 'Bebas Neue', sans-serif;
@@ -402,7 +404,7 @@ permalink: /about/
     .funding-arrows {
       display: grid; grid-template-columns: repeat(3, 1fr); padding: 0 1.5rem;
     }
-    .funding-arrow { display: flex; justify-content: center; padding: 1rem 0; color: var(--border); }
+    .funding-arrow { display: flex; justify-content: center; padding: 1rem 0; color: var(--muted); }
 
     .funding-impact {
       background: var(--panel); border: 1px solid var(--border);
@@ -783,15 +785,14 @@ permalink: /about/
 
   <!-- FUNDING MODEL -->
   <section class="funding">
-    <div class="eyebrow">How We're Funded</div>
-    <h2>A Hybrid Business Model, <span>Three complementary revenue channels.</span></h2>
+    <div class="eyebrow">Our Hybrid Business Model</div>
+    <h2>One Mission, <span>Three revenue channels.</span></h2>
 
     <div class="funding-cards">
 
       <div class="funding-card">
-        <div class="funding-card-bar advocacy"></div>
         <div class="funding-card-body">
-          <div class="funding-card-num advocacy">01 — 501(c)(4)</div>
+          <div class="funding-card-num">01 — 501(c)(4)</div>
           <div class="funding-card-title">Advocacy</div>
           <div class="funding-card-sub">Public policy · organizing · coalitions</div>
           <ul class="funding-card-list">
@@ -805,9 +806,8 @@ permalink: /about/
       </div>
 
       <div class="funding-card">
-        <div class="funding-card-bar charitable"></div>
         <div class="funding-card-body">
-          <div class="funding-card-num charitable">02 — 501(c)(3)</div>
+          <div class="funding-card-num">02 — 501(c)(3)</div>
           <div class="funding-card-title">Charitable Work</div>
           <div class="funding-card-sub">Via fiscal sponsorship</div>
           <ul class="funding-card-list">
@@ -821,9 +821,8 @@ permalink: /about/
       </div>
 
       <div class="funding-card">
-        <div class="funding-card-bar consulting"></div>
         <div class="funding-card-body">
-          <div class="funding-card-num consulting">03 — Fee-for-service</div>
+          <div class="funding-card-num">03 — Fee-for-service</div>
           <div class="funding-card-title">Consulting</div>
           <div class="funding-card-sub">Mission-aligned services</div>
           <ul class="funding-card-list">
