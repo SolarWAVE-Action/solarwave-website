@@ -141,14 +141,14 @@ permalink: /blog/
 
     /* ─── POST GRID ─── */
     .post-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem;
+      display: grid; grid-template-columns: 1fr; gap: 1.25rem;
       margin-bottom: 3rem;
     }
 
     .post-card {
       background: var(--card); border: 1px solid var(--border);
       border-radius: 8px; padding: 1.75rem;
-      display: flex; flex-direction: column;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
       transition: border-color 0.2s, transform 0.2s;
       text-decoration: none; color: var(--white);
     }
@@ -205,8 +205,8 @@ permalink: /blog/
       .filters { padding: 1.5rem 1rem 0; }
       .content { padding: 1.5rem 1rem 3rem; }
       .featured-card { grid-template-columns: 1fr; }
+      .post-card { grid-template-columns: 1fr; }
       .chart-placeholder { display: none; }
-      .post-grid { grid-template-columns: 1fr; }
     }
 
     </style>
@@ -297,13 +297,6 @@ permalink: /blog/
 
     </div>
 
-    <!-- PAGINATION -->
-    <div class="pagination">
-      <a href="#" class="page-btn active">1</a>
-      <a href="#" class="page-btn">2</a>
-      <a href="#" class="page-btn">3</a>
-      <a href="#" class="page-btn arrow">→</a>
-    </div>
 
   </div>
 
