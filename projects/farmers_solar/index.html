@@ -1,0 +1,277 @@
+---
+title: "Powering Farmers' Right to Solar — SolarWAVE Action"
+layout: default
+permalink: /projects/farmers_solar/
+---
+<style>
+  /* ─── BREADCRUMB ─── */
+  .breadcrumb-bar {
+    padding: 5rem 3rem 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .breadcrumb-bar a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb-bar a:hover { color: var(--white); }
+  .breadcrumb-bar .sep { color: var(--border); }
+  .breadcrumb-bar .current { color: var(--sun); }
+
+  /* ─── PAGE HERO ─── */
+  .page-hero {
+    padding: 3rem 3rem 6rem;
+    max-width: 1200px; margin: 0 auto;
+    position: relative;
+  }
+  .page-hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 3rem; right: 3rem;
+    height: 1px; background: var(--border);
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .eyebrow::before {
+    content: ''; display: inline-block;
+    width: 2rem; height: 1px; background: var(--accent);
+  }
+
+  .page-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 0.95; letter-spacing: 0.02em;
+    color: var(--white);
+    max-width: 22ch;
+    margin-bottom: 1.5rem;
+  }
+  .page-hero h1 span { color: var(--sun); }
+
+  .page-hero .tagline {
+    font-size: 1.2rem; line-height: 1.75;
+    color: var(--white); max-width: 52ch;
+    font-weight: 500;
+  }
+
+  /* ─── MISSION ─── */
+  .mission {
+    max-width: 1200px; margin: 0 auto;
+    padding: 6rem 3rem;
+    display: grid; grid-template-columns: 3fr 2fr; gap: 5rem;
+    align-items: start;
+  }
+
+  .mission-body p {
+    font-size: 1.05rem; line-height: 1.85;
+    color: var(--muted); margin-bottom: 1.5rem;
+  }
+  .mission-body p strong { color: var(--white); }
+
+  .mission-side h3 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.25rem;
+  }
+
+  .barrier-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 0;
+  }
+
+  .barrier-list li {
+    font-size: 0.92rem; line-height: 1.65; color: var(--muted);
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .barrier-list li:first-child { border-top: 1px solid var(--border); }
+
+  /* ─── IMPACT STRIP ─── */
+  .impact-strip {
+    background: var(--panel);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 3rem;
+  }
+  .impact-strip-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .impact-item {
+    display: flex; flex-direction: column; gap: 0.5rem;
+  }
+  .impact-item .impact-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .impact-item .impact-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem; letter-spacing: 0.05em;
+    color: var(--sun); line-height: 1.1;
+  }
+
+  /* ─── CLOSING STATEMENT ─── */
+  .closing {
+    max-width: 1200px; margin: 0 auto;
+    padding: 6rem 3rem;
+    display: flex; flex-direction: column; gap: 2rem;
+  }
+
+  .closing-quote {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    letter-spacing: 0.03em; line-height: 1.15;
+    color: var(--white); max-width: 28ch;
+  }
+  .closing-quote span { color: var(--sun); }
+
+  .closing-sub {
+    font-size: 1rem; line-height: 1.8;
+    color: var(--muted); max-width: 52ch;
+    border-left: 2px solid var(--border);
+    padding-left: 1.5rem;
+  }
+
+  /* ─── CTA ─── */
+  .cta {
+    padding: 8rem 3rem;
+    text-align: center;
+    position: relative; overflow: hidden;
+    border-top: 1px solid var(--border);
+  }
+  .cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(245,166,35,0.07) 0%, transparent 70%);
+  }
+  .cta-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+  .cta h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 0.95; letter-spacing: 0.02em; margin-bottom: 1.5rem;
+    color: var(--white);
+  }
+  .cta h2 span { color: var(--sun); }
+  .cta p { font-size: 1rem; color: var(--muted); line-height: 1.75; margin-bottom: 0.75rem; }
+  .cta .c4-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.05em;
+    color: var(--muted); margin-bottom: 2.5rem;
+    opacity: 0.7;
+  }
+
+  .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--sun); color: var(--sky);
+    padding: 0.85rem 2rem; border-radius: 2px;
+    font-weight: 700; font-size: 0.85rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .btn-primary:hover { background: var(--sun-light); transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: transparent; color: var(--white);
+    padding: 0.85rem 2rem; border-radius: 2px;
+    font-weight: 500; font-size: 0.85rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; transition: all 0.2s;
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { border-color: var(--white); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .breadcrumb-bar { padding: 5rem 1.5rem 0; }
+    .page-hero { padding: 2rem 1.5rem 4rem; }
+    .page-hero::after { left: 1.5rem; right: 1.5rem; }
+    .mission { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.5rem; }
+    .impact-strip { padding: 2rem 1.5rem; }
+    .impact-strip-inner { grid-template-columns: repeat(2, 1fr); }
+    .closing { padding: 4rem 1.5rem; }
+    .cta { padding: 5rem 1.5rem; }
+  }
+</style>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <a href="{{ '/our_work/' | relative_url }}">Our Work</a>
+  <span class="sep">→</span>
+  <a href="{{ '/projects/' | relative_url }}">Projects</a>
+  <span class="sep">→</span>
+  <span class="current">Powering Farmers' Right to Solar</span>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="eyebrow fade-in">501(c)(4) Advocacy Initiative</div>
+  <h1 class="fade-in delay-1">Powering Farmers' <span>Right</span> to Solar</h1>
+  <p class="tagline fade-in delay-2">Farmers should have the right to power their farms with the sun, and profit from it.</p>
+</div>
+
+<!-- MISSION -->
+<section class="mission">
+  <div class="mission-body">
+    <p>Across rural America, farmers are ready to put solar to work. But outdated interconnection rules, restrictive laws and contracts, and a maze of tax credits and incentives too often stand in their way. <strong>SolarWAVE Action is fighting to change that.</strong></p>
+    <p>We protect farmers' right to install, connect, and profit from solar on their own land — including dual-use systems like agrivoltaics that enable farms to produce both food and clean energy.</p>
+    <p>We're breaking down the barriers that keep farmers from accessing solar, the grid, and the financing and incentives designed to support them.</p>
+  </div>
+  <div class="mission-side">
+    <h3>What We're Fighting</h3>
+    <ul class="barrier-list">
+      <li>Outdated interconnection rules</li>
+      <li>Restrictive laws and contracts</li>
+      <li>Inaccessible tax credits and incentives</li>
+      <li>Barriers to agrivoltaic dual-use systems</li>
+      <li>Grid access obstacles for rural producers</li>
+    </ul>
+  </div>
+</section>
+
+<!-- IMPACT STRIP -->
+<div class="impact-strip">
+  <div class="impact-strip-inner">
+    <div class="impact-item">
+      <div class="impact-label">The result</div>
+      <div class="impact-value">Lower Energy Costs</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-label">The result</div>
+      <div class="impact-value">Stronger Farms</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-label">The result</div>
+      <div class="impact-value">Greater Resilience</div>
+    </div>
+    <div class="impact-item">
+      <div class="impact-label">The result</div>
+      <div class="impact-value">More Independence</div>
+    </div>
+  </div>
+</div>
+
+<!-- CLOSING STATEMENT -->
+<section class="closing">
+  <div class="closing-quote">The Sun Shines on Every Farm. Farmers Should Have the <span>Right to Put It to Work.</span></div>
+  <p class="closing-sub">Solar energy belongs to the people who work the land it falls on. SolarWAVE Action is fighting to make sure the law agrees.</p>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <div class="eyebrow" style="justify-content: center; margin-bottom: 1.25rem;">Get Involved</div>
+    <h2>Stand With<br><span>Farmers.</span></h2>
+    <p>Support our advocacy for farmers' right to solar — or get in touch to learn how your organization can partner with us.</p>
+    <p class="c4-note">This is a 501(c)(4) advocacy initiative. Contributions are not tax-deductible as charitable donations.</p>
+    <div class="cta-actions">
+      <a href="{{ '/donate/' | relative_url }}" class="btn-primary">Support This Work</a>
+      <a href="{{ '/contact/' | relative_url }}" class="btn-secondary">Get in Touch</a>
+    </div>
+  </div>
+</section>
