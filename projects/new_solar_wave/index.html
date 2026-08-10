@@ -1,0 +1,447 @@
+---
+title: "The New Solar Wave — SolarWAVE Action"
+layout: default
+permalink: /projects/new_solar_wave/
+---
+<style>
+  /* ─── BREADCRUMB ─── */
+  .breadcrumb-bar {
+    padding: 5rem 3rem 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .breadcrumb-bar a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb-bar a:hover { color: var(--white); }
+  .breadcrumb-bar .sep { color: var(--border); }
+  .breadcrumb-bar .current { color: var(--sun); }
+
+  /* ─── PAGE HERO ─── */
+  .page-hero {
+    padding: 3rem 3rem 6rem;
+    max-width: 1200px; margin: 0 auto;
+    position: relative;
+  }
+  .page-hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 3rem; right: 3rem;
+    height: 1px; background: var(--border);
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .eyebrow::before {
+    content: ''; display: inline-block;
+    width: 2rem; height: 1px; background: var(--accent);
+  }
+
+  .page-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 0.95; letter-spacing: 0.02em;
+    color: var(--white);
+    max-width: 22ch;
+    margin-bottom: 1.25rem;
+  }
+  .page-hero h1 span { color: var(--sun); }
+
+  .page-hero .hero-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--sun); margin-bottom: 1.25rem;
+  }
+
+  .page-hero .tagline {
+    font-size: 1.08rem; line-height: 1.8;
+    color: var(--muted); max-width: 60ch;
+    font-style: italic;
+  }
+
+  /* ─── WHY NOW ─── */
+  .opportunity {
+    max-width: 1200px; margin: 0 auto;
+    padding: 6rem 3rem 4rem;
+  }
+
+  .section-heading {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.2rem, 3.5vw, 3rem);
+    letter-spacing: 0.03em; color: var(--white);
+    margin-bottom: 2rem;
+  }
+  .section-heading span { color: var(--sun); }
+
+  .opportunity-body {
+    display: grid; grid-template-columns: 3fr 2fr; gap: 5rem;
+    align-items: start;
+  }
+
+  .opportunity-body p {
+    font-size: 1.05rem; line-height: 1.85;
+    color: var(--muted); margin-bottom: 1.25rem;
+  }
+  .opportunity-body p strong { color: var(--white); }
+  .opportunity-body p .highlight { color: var(--sun); font-weight: 600; }
+
+  /* ─── META GRID (approach + audience) ─── */
+  .meta-grid {
+    display: flex; flex-direction: column; gap: 2.5rem;
+  }
+
+  .meta-block h3 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1rem;
+  }
+
+  .approach-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+
+  .approach-list li {
+    display: flex; gap: 1rem; align-items: flex-start;
+    font-size: 0.92rem; line-height: 1.7; color: var(--muted);
+  }
+
+  .approach-list li .num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.1em;
+    color: var(--sun); white-space: nowrap;
+    padding-top: 0.2em;
+  }
+
+  .audience-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 0.85rem;
+  }
+
+  .audience-list li {
+    font-size: 0.92rem; line-height: 1.65; color: var(--muted);
+    padding-left: 1.25rem; position: relative;
+  }
+  .audience-list li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--sun); font-weight: 700;
+  }
+  .audience-list li strong { color: var(--white); }
+
+  /* ─── TRACKS BANNER ─── */
+  .tracks-banner {
+    background: var(--panel);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 3rem;
+  }
+  .tracks-banner-inner {
+    max-width: 1200px; margin: 0 auto;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem; letter-spacing: 0.12em;
+    color: var(--white);
+  }
+  .tracks-banner-inner strong { color: var(--sun); }
+
+  /* ─── TWO TRACKS ─── */
+  .tracks {
+    max-width: 1200px; margin: 0 auto;
+    padding: 5rem 3rem 7rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    align-items: start;
+  }
+
+  .track-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 2.75rem;
+    display: flex; flex-direction: column; gap: 1.5rem;
+    position: relative; overflow: hidden;
+  }
+  .track-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(to right, var(--sun), var(--accent));
+  }
+
+  .track-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .track-card h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.6rem, 2.5vw, 2rem);
+    letter-spacing: 0.04em; color: var(--white);
+    line-height: 1.1;
+  }
+
+  .report-title {
+    font-size: 0.92rem; font-style: italic;
+    color: var(--sun); line-height: 1.5;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem; margin-bottom: 0.25rem;
+  }
+
+  .track-card > p {
+    font-size: 0.9rem; line-height: 1.75; color: var(--muted);
+  }
+
+  .deliverables {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 0.75rem;
+  }
+
+  .deliverables li {
+    font-size: 0.875rem; line-height: 1.65; color: var(--muted);
+    padding-left: 1.25rem; position: relative;
+  }
+  .deliverables li::before {
+    content: '·';
+    position: absolute; left: 0;
+    color: var(--sun); font-weight: 700;
+  }
+
+  /* ─── EDUCATION ITEMS ─── */
+  .policy-items {
+    display: flex; flex-direction: column; gap: 1.75rem;
+  }
+
+  .policy-item {
+    border: 1px solid var(--border);
+    padding: 1.75rem;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .policy-item-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 0.5rem;
+  }
+
+  .policy-item h3 {
+    font-size: 1rem; font-weight: 700;
+    color: var(--white); margin-bottom: 0.3rem;
+  }
+
+  .policy-item .role {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.1em;
+    color: var(--sun); font-style: italic;
+    margin-bottom: 0.85rem;
+  }
+
+  .policy-item p {
+    font-size: 0.875rem; line-height: 1.7; color: var(--muted);
+  }
+
+  /* ─── TAX NOTE ─── */
+  .tax-note {
+    border-left: 2px solid var(--border);
+    padding: 1rem 1.25rem;
+    font-size: 0.82rem; line-height: 1.7; color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ─── CTA ─── */
+  .cta {
+    padding: 8rem 3rem;
+    text-align: center;
+    position: relative; overflow: hidden;
+    border-top: 1px solid var(--border);
+  }
+  .cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(245,166,35,0.07) 0%, transparent 70%);
+  }
+  .cta-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+  .cta h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 0.95; letter-spacing: 0.02em; margin-bottom: 1.5rem;
+    color: var(--white);
+  }
+  .cta h2 span { color: var(--sun); }
+  .cta p { font-size: 1rem; color: var(--muted); line-height: 1.75; margin-bottom: 2.5rem; }
+
+  .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--sun); color: var(--sky);
+    padding: 0.85rem 2rem; border-radius: 2px;
+    font-weight: 700; font-size: 0.85rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .btn-primary:hover { background: var(--sun-light); transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: transparent; color: var(--white);
+    padding: 0.85rem 2rem; border-radius: 2px;
+    font-weight: 500; font-size: 0.85rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; transition: all 0.2s;
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { border-color: var(--white); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .breadcrumb-bar { padding: 5rem 1.5rem 0; }
+    .page-hero { padding: 2rem 1.5rem 4rem; }
+    .page-hero::after { left: 1.5rem; right: 1.5rem; }
+    .opportunity { padding: 4rem 1.5rem 2rem; }
+    .opportunity-body { grid-template-columns: 1fr; gap: 2.5rem; }
+    .tracks-banner { padding: 1.25rem 1.5rem; }
+    .tracks { grid-template-columns: 1fr; padding: 3rem 1.5rem 5rem; }
+    .cta { padding: 5rem 1.5rem; }
+  }
+</style>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <a href="{{ '/our_work/' | relative_url }}">Our Work</a>
+  <span class="sep">→</span>
+  <a href="{{ '/projects/' | relative_url }}">Projects</a>
+  <span class="sep">→</span>
+  <span class="current">The New Solar Wave</span>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="eyebrow fade-in">Research &amp; Public Education Initiative</div>
+  <div class="hero-meta fade-in">Fiscally Sponsored by ASES, a 501(c)(3)</div>
+  <h1 class="fade-in delay-1">The New <span>Solar</span> Wave</h1>
+  <p class="tagline fade-in delay-2">Solar Was Popular. Then the Utilities' PR Machine Went to Work. It's Time to Set the Record Straight.</p>
+</div>
+
+<!-- WHY NOW -->
+<section class="opportunity">
+  <h2 class="section-heading">Why <span>Now?</span></h2>
+  <div class="opportunity-body">
+    <div>
+      <p><strong>In the early 2000s, solar was hailed as a viable fossil fuel alternative
+        and deployment increased at a record pace in the US.</strong> That began to change
+        after a 2013 report commissioned by the Edison Electric Institute — the
+        investor-owned utilities' own trade association — framed distributed solar as a
+        competitive threat to utility revenue rather than a grid asset.</p>
+      <p>The "cost shift" narrative born in that report — that wealthy solar owners shift
+        costs onto everyone else — has since been repeated in utility-funded studies,
+        regulatory filings, and media placements nationwide, shaping outcomes ever since,
+        most visibly in California's NEM 3.0 decision.</p>
+      <p><span class="highlight">The evidence tells a different story.</span> Solar is one
+        of the cheapest sources of new electricity generation, and it can be deployed faster
+        than almost any other clean energy resource. Rigorous analysis of the "cost shift"
+        shows it is far smaller — and far more contested — than utilities claim. The New
+        Solar Wave exists to perform research and make evidence accessible to journalists,
+        regulators, educators, and the public.</p>
+    </div>
+    <div class="meta-grid">
+      <div class="meta-block">
+        <h3>Our Approach</h3>
+        <ul class="approach-list">
+          <li>
+            <span class="num">01</span>
+            <span>Produce rigorous, citable research that documents solar's real economics
+              and rebuilds the evidentiary record utilities have shaped for a decade.</span>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <span>Translate that research into plain-language public education —
+              explainers, media partnerships, and community outreach — that restores
+              public understanding of solar's value.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="meta-block">
+        <h3>Who This Reaches</h3>
+        <ul class="audience-list">
+          <li><strong>Journalists &amp; editorial boards</strong> seeking transparent, non-partisan analysis.</li>
+          <li><strong>Regulators &amp; legislative staff</strong> needing a counterweight to utility filings.</li>
+          <li><strong>Homeowners &amp; renters</strong> weighing whether solar is worth it.</li>
+          <li><strong>Funders</strong> who value independent, open-source research.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACKS BANNER -->
+<div class="tracks-banner">
+  <div class="tracks-banner-inner">
+    <strong>Two tracks. One timeline.</strong> Research and Education tracks launch simultaneously and run in parallel 2026–2027.
+  </div>
+</div>
+
+<!-- TWO TRACKS -->
+<div class="tracks">
+
+  <!-- TRACK 1 -->
+  <div class="track-card">
+    <div class="track-label">01 Track &nbsp;·&nbsp; Research &amp; Analysis</div>
+    <h2>"Solar, By the Numbers"</h2>
+    <p class="report-title">A Myth-vs-Evidence Report on Rooftop Solar Economics</p>
+    <p>This research builds the citable, open-source evidentiary base that journalists,
+      regulators, and educators can draw on directly. It:</p>
+    <ul class="deliverables">
+      <li>Traces the "cost shift" narrative to its 2013 utility trade association origin</li>
+      <li>Reconstructs the cost-shift methodology, and adds corrected analyses that
+        reverse utility claims</li>
+      <li>Documents NEM 3.0's measured effect on California rooftop solar deployment
+        and compensation</li>
+      <li>Draws on Berkeley Lab's national solar-adopter income and demographic data to
+        counter the "wealthy solar owner" framing</li>
+      <li>Separates legitimate grid-cost questions from unsupported claims in the public
+        debate</li>
+      <li>Releases all data, models, and code open-source for independent verification</li>
+    </ul>
+  </div>
+
+  <!-- TRACK 2 -->
+  <div class="track-card">
+    <div class="track-label">02 Track &nbsp;·&nbsp; Public Education</div>
+    <h2>Public Education</h2>
+    <div class="policy-items">
+      <div class="policy-item">
+        <div class="policy-item-tag">Track Item 1</div>
+        <h3>Explainer &amp; Media Series</h3>
+        <div class="role">Primary vehicle — SolarWAVE Action leads production.</div>
+        <p>Plain-language explainers, data visualizations, and social content that
+          translate the research for a general audience — paired with media partnerships
+          and op-ed placements at outlets with large reader bases.</p>
+      </div>
+      <div class="policy-item">
+        <div class="policy-item-tag">Track Item 2</div>
+        <h3>Community Outreach</h3>
+        <div class="role">Supporting role — delivered via webinars and partner organizations.</div>
+        <p>A speaker series and webinars for community groups, students, and local
+          officials who want to understand solar economics without the spin.</p>
+      </div>
+    </div>
+    <div class="tax-note">
+      All gifts to The New Solar Wave support research and education activities and are
+      tax-deductible through SolarWAVE Action's fiscal sponsorship with the American
+      Solar Energy Society (ASES), a 501(c)(3) organization.
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <div class="eyebrow" style="justify-content: center; margin-bottom: 1.25rem;">Get Involved</div>
+    <h2>Fund the Research.<br><span>Set the Record Straight.</span></h2>
+    <p>Support independent solar research, partner on education, or request a briefing — there's a place for you in restoring the public record on solar's value.</p>
+    <div class="cta-actions">
+      <a href="{{ '/donate/' | relative_url }}" class="btn-primary">Fund the Research</a>
+      <a href="{{ '/contact/' | relative_url }}" class="btn-secondary">Request a Briefing</a>
+    </div>
+  </div>
+</section>
