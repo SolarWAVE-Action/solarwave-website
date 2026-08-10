@@ -97,19 +97,25 @@ permalink: /projects/farmers_solar/
   }
   .impact-strip-inner {
     max-width: 1200px; margin: 0 auto;
+  }
+
+  .impact-heading {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .impact-heading::before {
+    content: ''; display: inline-block;
+    width: 2rem; height: 1px; background: var(--accent);
+  }
+
+  .impact-values {
     display: grid; grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
   }
 
-  .impact-item {
-    display: flex; flex-direction: column; gap: 0.5rem;
-  }
-  .impact-item .impact-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--muted);
-  }
-  .impact-item .impact-value {
+  .impact-value {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.4rem; letter-spacing: 0.05em;
     color: var(--sun); line-height: 1.1;
@@ -193,7 +199,7 @@ permalink: /projects/farmers_solar/
     .page-hero::after { left: 1.5rem; right: 1.5rem; }
     .mission { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 1.5rem; }
     .impact-strip { padding: 2rem 1.5rem; }
-    .impact-strip-inner { grid-template-columns: repeat(2, 1fr); }
+    .impact-values { grid-template-columns: repeat(2, 1fr); }
     .closing { padding: 4rem 1.5rem; }
     .cta { padding: 5rem 1.5rem; }
   }
@@ -237,20 +243,11 @@ permalink: /projects/farmers_solar/
 <!-- IMPACT STRIP -->
 <div class="impact-strip">
   <div class="impact-strip-inner">
-    <div class="impact-item">
-      <div class="impact-label">The result</div>
+    <div class="impact-heading">The Result</div>
+    <div class="impact-values">
       <div class="impact-value">Lower Energy Costs</div>
-    </div>
-    <div class="impact-item">
-      <div class="impact-label">The result</div>
       <div class="impact-value">Stronger Farms</div>
-    </div>
-    <div class="impact-item">
-      <div class="impact-label">The result</div>
       <div class="impact-value">Greater Resilience</div>
-    </div>
-    <div class="impact-item">
-      <div class="impact-label">The result</div>
       <div class="impact-value">More Independence</div>
     </div>
   </div>
