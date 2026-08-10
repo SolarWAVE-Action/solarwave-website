@@ -1,0 +1,461 @@
+---
+title: "California Clean Energy Ownership Initiative — SolarWAVE Action"
+layout: default
+permalink: /projects/clean_energy_initiative/
+---
+<style>
+  /* ─── BREADCRUMB ─── */
+  .breadcrumb-bar {
+    padding: 5rem 3rem 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .breadcrumb-bar a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .breadcrumb-bar a:hover { color: var(--white); }
+  .breadcrumb-bar .sep { color: var(--border); }
+  .breadcrumb-bar .current { color: var(--sun); }
+
+  /* ─── PAGE HERO ─── */
+  .page-hero {
+    padding: 3rem 3rem 6rem;
+    max-width: 1200px; margin: 0 auto;
+    position: relative;
+  }
+  .page-hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 3rem; right: 3rem;
+    height: 1px; background: var(--border);
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .eyebrow::before {
+    content: ''; display: inline-block;
+    width: 2rem; height: 1px; background: var(--accent);
+  }
+
+  .page-hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 0.95; letter-spacing: 0.02em;
+    color: var(--white);
+    max-width: 22ch;
+    margin-bottom: 2rem;
+  }
+  .page-hero h1 span { color: var(--sun); }
+
+  .page-hero .hero-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--sun); margin-bottom: 1.25rem;
+  }
+
+  .page-hero p {
+    font-size: 1.08rem; line-height: 1.8;
+    color: var(--muted); max-width: 60ch;
+  }
+
+  /* ─── STRATEGIC OPPORTUNITY ─── */
+  .opportunity {
+    max-width: 1200px; margin: 0 auto;
+    padding: 6rem 3rem 4rem;
+  }
+
+  .section-heading {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.2rem, 3.5vw, 3rem);
+    letter-spacing: 0.03em; color: var(--white);
+    margin-bottom: 2rem;
+  }
+  .section-heading span { color: var(--sun); }
+
+  .opportunity-body {
+    display: grid; grid-template-columns: 3fr 2fr; gap: 5rem;
+    align-items: start;
+  }
+
+  .opportunity-body p {
+    font-size: 1.05rem; line-height: 1.85;
+    color: var(--muted); margin-bottom: 1.25rem;
+  }
+
+  .opportunity-body p strong {
+    color: var(--white);
+  }
+
+  /* ─── APPROACH + COALITION ─── */
+  .meta-grid {
+    display: flex; flex-direction: column; gap: 2.5rem;
+  }
+
+  .meta-block h3 {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1rem;
+  }
+
+  .approach-list {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+
+  .approach-list li {
+    display: flex; gap: 1rem; align-items: flex-start;
+    font-size: 0.92rem; line-height: 1.7; color: var(--muted);
+  }
+
+  .approach-list li .num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.1em;
+    color: var(--sun); white-space: nowrap;
+    padding-top: 0.2em;
+  }
+
+  .coalition-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 0.88rem; line-height: 1.6;
+  }
+
+  .coalition-table td {
+    padding: 0.35rem 0;
+    vertical-align: baseline;
+    color: var(--muted);
+  }
+
+  .coalition-table td:first-child {
+    color: var(--white);
+    font-weight: 600;
+    white-space: nowrap;
+    padding-right: 1rem;
+    width: 1%;
+  }
+
+  /* ─── TRACKS BANNER ─── */
+  .tracks-banner {
+    background: var(--panel);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 3rem;
+  }
+  .tracks-banner-inner {
+    max-width: 1200px; margin: 0 auto;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem; letter-spacing: 0.12em;
+    color: var(--white);
+  }
+  .tracks-banner-inner strong { color: var(--sun); }
+
+  /* ─── TWO TRACKS ─── */
+  .tracks {
+    max-width: 1200px; margin: 0 auto;
+    padding: 5rem 3rem 7rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    align-items: start;
+  }
+
+  .track-card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    padding: 2.75rem;
+    display: flex; flex-direction: column; gap: 1.5rem;
+    position: relative; overflow: hidden;
+  }
+  .track-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(to right, var(--sun), var(--accent));
+  }
+
+  .track-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .track-card h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.6rem, 2.5vw, 2rem);
+    letter-spacing: 0.04em; color: var(--white);
+    line-height: 1.1;
+  }
+
+  .track-timeline {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted);
+    border-left: 2px solid var(--border);
+    padding-left: 0.85rem;
+  }
+
+  .report-title {
+    font-size: 0.92rem; font-style: italic;
+    color: var(--sun); line-height: 1.5;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem; margin-bottom: 0.25rem;
+  }
+
+  .track-card > p {
+    font-size: 0.9rem; line-height: 1.75; color: var(--muted);
+  }
+
+  .deliverables {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 0.75rem;
+  }
+
+  .deliverables li {
+    font-size: 0.875rem; line-height: 1.65; color: var(--muted);
+    padding-left: 1.25rem; position: relative;
+  }
+  .deliverables li::before {
+    content: '·';
+    position: absolute; left: 0;
+    color: var(--sun); font-weight: 700;
+  }
+
+  /* ─── POLICY ITEMS ─── */
+  .policy-items {
+    display: flex; flex-direction: column; gap: 1.75rem;
+  }
+
+  .policy-item {
+    border: 1px solid var(--border);
+    padding: 1.75rem;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .policy-item-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 0.5rem;
+  }
+
+  .policy-item h3 {
+    font-size: 1rem; font-weight: 700;
+    color: var(--white); margin-bottom: 0.3rem;
+  }
+
+  .policy-item .role {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.1em;
+    color: var(--sun); font-style: italic;
+    margin-bottom: 0.85rem;
+  }
+
+  .policy-item p {
+    font-size: 0.875rem; line-height: 1.7; color: var(--muted);
+  }
+
+  /* ─── CTA ─── */
+  .cta {
+    padding: 8rem 3rem;
+    text-align: center;
+    position: relative; overflow: hidden;
+    border-top: 1px solid var(--border);
+  }
+  .cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(245,166,35,0.07) 0%, transparent 70%);
+  }
+  .cta-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+  .cta h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 0.95; letter-spacing: 0.02em; margin-bottom: 1.5rem;
+    color: var(--white);
+  }
+  .cta h2 span { color: var(--sun); }
+  .cta p { font-size: 1rem; color: var(--muted); line-height: 1.75; margin-bottom: 2.5rem; }
+
+  .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: var(--sun); color: var(--sky);
+    padding: 0.85rem 2rem; border-radius: 2px;
+    font-weight: 700; font-size: 0.85rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .btn-primary:hover { background: var(--sun-light); transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: transparent; color: var(--white);
+    padding: 0.85rem 2rem; border-radius: 2px;
+    font-weight: 500; font-size: 0.85rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    text-decoration: none; transition: all 0.2s;
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover { border-color: var(--white); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .breadcrumb-bar { padding: 5rem 1.5rem 0; }
+    .page-hero { padding: 2rem 1.5rem 4rem; }
+    .page-hero::after { left: 1.5rem; right: 1.5rem; }
+    .opportunity { padding: 4rem 1.5rem 2rem; }
+    .opportunity-body { grid-template-columns: 1fr; gap: 2.5rem; }
+    .tracks-banner { padding: 1.25rem 1.5rem; }
+    .tracks { grid-template-columns: 1fr; padding: 3rem 1.5rem 5rem; }
+    .cta { padding: 5rem 1.5rem; }
+  }
+</style>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <a href="{{ '/our_work/' | relative_url }}">Our Work</a>
+  <span class="sep">→</span>
+  <a href="{{ '/projects/' | relative_url }}">Projects</a>
+  <span class="sep">→</span>
+  <span class="current">California Clean Energy Ownership Initiative</span>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="eyebrow fade-in">Current Initiative</div>
+  <div class="hero-meta fade-in">2026–2027 Work Plan</div>
+  <h1 class="fade-in delay-1">California <span>Clean Energy</span> Ownership Initiative</h1>
+  <p class="fade-in delay-2">Data Centers Are Straining the Grid. Distributed Solar Ownership Can Protect Ratepayers.</p>
+</div>
+
+<!-- STRATEGIC OPPORTUNITY -->
+<section class="opportunity">
+  <h2 class="section-heading">The Strategic <span>Opportunity</span></h2>
+  <div class="opportunity-body">
+    <div>
+      <p><strong>California's energy affordability crisis is colliding with a wave of new
+        data-center demand— creating public backlash but also a rare policy
+        opening.</strong> By requiring data centers to pay their fair share of grid costs,
+        we can redirect capital to community solar, reducing rates and protecting
+        ratepayers from the cost-allocation logic utilities have wielded against
+        solar ownership.</p>
+      <p><strong>Our goal is a genuinely clean grid — not a fossil-fueled one built
+        to meet AI's timeline.</strong> Data centers are already locking in high-emission
+        power to move fast. Distributed solar is the affordability hedge we control
+        today — it's the clean energy resource we can deploy at the speed and scale
+        this moment demands. </p>
+    </div>
+    <div class="meta-grid">
+      <div class="meta-block">
+        <h3>Our Approach</h3>
+        <ul class="approach-list">
+          <li>
+            <span class="num">01</span>
+            <span>Develop rigorous legal and data analysis on how clean-energy
+              ownership can help solve the energy affordability crisis — building
+              the evidentiary foundation for legislation.</span>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <span>Develop targeted policy advocacy — simultaneously advancing the
+              DEPP Act and building the coalition to scale distributed ownership
+              statewide.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="meta-block">
+        <h3>Why This Coalition Wins</h3>
+        <table class="coalition-table">
+          <tr><td>Fiscal conservatives</td><td>skeptical of IOU monopoly cost-shifting</td></tr>
+          <tr><td>Housing &amp; renters' rights advocates</td><td>seeking bill relief</td></tr>
+          <tr><td>TPO providers &amp; financiers</td><td>aligned against utility arguments</td></tr>
+          <tr><td>Clean energy, labor &amp; local government</td><td> as coalitions</td></tr>
+          <tr><td>Tribal &amp; low-income communities</td><td>as direct beneficiaries</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACKS BANNER -->
+<div class="tracks-banner">
+  <div class="tracks-banner-inner">
+    <strong>Two tracks. One timeline.</strong> Track 1 and Track 2 launch simultaneously and run in parallel 2026-2027.
+  </div>
+</div>
+
+<!-- TWO TRACKS -->
+<div class="tracks">
+
+  <!-- TRACK 1 -->
+  <div class="track-card">
+    <div class="track-label">01 Track</div>
+    <h2>Data &amp; Legal Foundation</h2>
+    <p class="report-title">"Make AI Data Centers Pay Their Fair Share — and Solar
+      and Ratepayers Win Too" A Legal and Data Analysis of Utility Cost Allocation
+      & the Path to Affordable Clean Energy</p>
+    <p>This report builds the evidentiary foundation and answers the legal and
+      economic questions regulators, legislators, and opponents will raise. It:</p>
+    <ul class="deliverables">
+      <li>Quantifies California data-center load growth and the associated grid
+        costs (transmission, distribution, and generation) and how those costs
+        are socialized to ratepayers through volumetric rate design</li>
+      <li>Deconstructs the cost-shift argument by isolating the real drivers of
+        California rate increases: IOU capital expenditures, wildfire mitigation,
+        authorized return on equity, and holding-company profit margins</li>
+      <li>Surveys state and federal laws requiring large energy users to offset
+        demand with distributed or renewable generation</li>
+      <li>Maps underutilized distribution capacity between substations and end users,
+        cross-referenced with CAISO interconnection queue signals, to identify
+        optimal sites for distributed solar deployment</li>
+      <li>Provides a 25-year cost model comparing solar-owning and non-solar
+        households, incorporating rate trajectories, equipment costs, and
+        available financing structures</li>
+      <li>Releases all data, models, and code open-source for independent
+        verification</li>
+    </ul>
+  </div>
+
+  <!-- TRACK 2 -->
+  <div class="track-card">
+    <div class="track-label">02 Track</div>
+    <h2>Policy Action</h2>
+    <div class="policy-items">
+      <div class="policy-item">
+        <div class="policy-item-tag">Policy Item 1</div>
+        <h3>Distributed Energy Participation Program (DEPP) Act</h3>
+        <div class="role">Primary legislation — SolarWAVE Action takes the lead.</div>
+        <p>The DEPP Act creates a voluntary, market-driven program that solves
+          California's energy affordability crisis by channeling data-center
+          capital directly into community solar — with no new taxes or utility
+          rate increases.</p>
+        <br>
+        <p>The program connects data centers needing fast, reliable energy supply
+          with communities needing affordable solar. It works through private
+          contracts and public-private partnerships, and creates tangible benefits
+          for data centers, host sites, community members, and local energy
+          agencies alike.</p>
+        <br>
+        <p><a href="{{ '/contact/' | relative_url }}" style="color:var(--accent); text-decoration:none;">Contact us →</a> to learn how the DEPP Act works and how your organization can participate.</p>
+      </div>
+      <div class="policy-item">
+        <div class="policy-item-tag">Policy Item 2</div>
+        <h3>Data-Center Feed-In Tariff Bill</h3>
+        <div class="role">Supporting role — parallel legislative vehicle.</div>
+        <p>Support third-party effort routing data-center load onto clean energy
+          through a Feed-In Tariff legislative approach.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <div class="eyebrow" style="justify-content: center; margin-bottom: 1.25rem;">Get Involved</div>
+    <h2>Fund the Research.<br><span>Join the Coalition.</span></h2>
+    <p>Whether you want to support our research, join the coalition, request a briefing, or partner with us — there's a place for you in California's clean energy future.</p>
+    <div class="cta-actions">
+      <a href="{{ '/donate/' | relative_url }}" class="btn-primary">Fund the Research</a>
+      <a href="{{ '/contact/' | relative_url }}" class="btn-secondary">Request a Briefing</a>
+    </div>
+  </div>
+</section>
