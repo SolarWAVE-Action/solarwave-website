@@ -1,0 +1,320 @@
+---
+title: "Donate to Policy & Advocacy | SolarWAVE Action"
+layout: default
+permalink: /donate/advocacy/
+---
+<style>/* ─── LAYOUT ─── */
+    .page-wrap {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 72px;
+    }
+
+    /* ─── LEFT PANEL ─── */
+    .left-panel {
+      background: var(--sky-mid);
+      border-right: 1px solid var(--border);
+      padding: 10rem 3rem 6rem;
+      display: flex; flex-direction: column; justify-content: flex-start;
+      position: relative; overflow: hidden;
+    }
+    .left-panel::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--sun), #f07d1a);
+    }
+    .left-panel::after {
+      content: '';
+      position: absolute; bottom: -80px; right: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,166,35,0.06) 0%, transparent 70%);
+    }
+
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .eyebrow::before { content: ''; display: inline-block; width: 2rem; height: 1px; background: var(--accent); }
+
+
+    .back-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-bottom: 3rem;
+      transition: color 0.2s;
+    }
+    .back-link::before { content: '←'; }
+    .back-link:hover { color: var(--white); }
+
+    .entity-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--sun);
+      background: rgba(245,166,35,0.1);
+      border: 1px solid rgba(245,166,35,0.25);
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      border-radius: 2px;
+      margin-bottom: 1.75rem;
+    }
+
+    .left-panel h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      line-height: 0.95; letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .left-panel h1 span { color: var(--sun); }
+
+    .entity-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .left-panel p {
+      font-size: 0.95rem; line-height: 1.8;
+      color: var(--muted);
+      max-width: 46ch;
+      margin-bottom: 1rem;
+    }
+
+    .tax-note {
+      margin-top: 2rem;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid rgba(245,166,35,0.25);
+      border-radius: 2px;
+      background: rgba(245,166,35,0.04);
+    }
+    .left-divider {
+      width: 3rem; height: 2px;
+      background: linear-gradient(to right, var(--sun), transparent);
+      margin: 1.75rem 0;
+    }
+
+    .support-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .support-items { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem; }
+
+    .support-item { display: flex; gap: 1rem; align-items: flex-start; }
+
+    .support-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; color: var(--sun);
+      letter-spacing: 0.15em; padding-top: 0.2rem; flex-shrink: 0;
+    }
+
+    .support-item p { margin: 0; font-size: 0.9rem; line-height: 1.7; color: var(--muted); }
+
+    .tax-note-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--sun);
+      margin-bottom: 0.5rem;
+    }
+    .tax-note p {
+      font-size: 0.82rem; line-height: 1.65;
+      color: var(--muted);
+      margin: 0;
+    }
+    .tax-note a { color: var(--accent); }
+    .tax-note a:hover { color: var(--sun); }
+
+    /* ─── RIGHT PANEL (FORM) ─── */
+    .right-panel {
+      padding: 5rem 4rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+
+    .form-section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .amount-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .amount-btn {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem; font-weight: 500;
+      padding: 0.85rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .amount-btn:hover { border-color: rgba(245,166,35,0.5); background: rgba(245,166,35,0.06); }
+    .amount-btn.selected { border-color: var(--sun); background: rgba(245,166,35,0.1); color: var(--sun); }
+
+    .amount-btn--wide {
+      grid-column: 1 / -1;
+      font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .amount-btn--wide.selected { color: var(--sun); }
+
+    .field-group { margin-bottom: 1.25rem; }
+    .field-group label {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .field-group input {
+      width: 100%;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 0.75rem 1rem;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .field-group input::placeholder { color: var(--muted); }
+    .field-group input:focus { border-color: rgba(245,166,35,0.5); }
+
+    .donate-btn {
+      display: block; width: 100%;
+      background: var(--sun); color: var(--sky);
+      padding: 1rem; border-radius: 2px;
+      font-weight: 700; font-size: 0.95rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      text-decoration: none; text-align: center;
+      transition: background 0.2s;
+      margin-bottom: 1rem;
+    }
+    .donate-btn:hover { background: var(--sun-light); }
+
+    .submit-note {
+      font-size: 0.78rem; color: var(--muted); line-height: 1.6; text-align: center;
+    }
+
+    .form-divider {
+      border: none; border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .page-wrap { grid-template-columns: 1fr; }
+      .left-panel, .right-panel { padding: 4rem 1.5rem; }
+      .left-panel { justify-content: flex-start; }
+    }
+
+    </style>
+
+<div class="page-wrap">
+
+    <!-- LEFT: Context -->
+    <div class="left-panel">
+      <div>
+        <a href="{{ '/donate/' | relative_url }}" class="back-link">All giving options</a>
+        <div class="eyebrow fade-in">Donate</div>
+        <h1>Power Better <span>Policy</span></h1>
+  <!--      <div class="entity-name">SolarWAVE Action</div>-->
+        <p>We build the tools, standards, and coalitions that make distributed clean energy ownership the default, not the exception.</p>
+        <div class="left-divider"></div>
+        <div class="support-label">How Your Support Helps</div>
+        <div class="support-items">
+          <div class="support-item">
+            <span class="support-num">01</span>
+            <p>Funding data-driven policy analysis that legislators and regulators actually use</p>
+          </div>
+          <div class="support-item">
+            <span class="support-num">02</span>
+            <p>Building legal and technical arguments for clean energy legislation</p>
+          </div>
+          <div class="support-item">
+            <span class="support-num">03</span>
+            <p>Supporting coalitions that amplify the voice of the clean energy community</p>
+          </div>
+        </div>
+        <p>Every dollar moves clean energy policy forward. </p>
+        <p><strong>Your support matters.</strong></p>
+        <div class="tax-note">
+          <div class="tax-note-label">Donor Disclosures</div>
+          <p>SolarWAVE Action is a tax-exempt social welfare organization under IRC § 501(c)(4). Donations or
+            gifts to SolarWAVE Action are <strong>not tax deductible</strong> as charitable donations for federal income tax
+purposes and are not deductible for California state income tax purposes. Your donation supports
+our research, education, advocacy, and lobbying activities. Read full <a href="{{ '/donors/' | relative_url }}" class="btn-primary">donor disclosures.</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Form -->
+    <div class="right-panel">
+      <div class="form-section-label">Select Amount</div>
+
+      <div class="amount-grid">
+        <button class="amount-btn" data-amount="50">$50</button>
+        <button class="amount-btn selected" data-amount="100">$100</button>
+        <button class="amount-btn" data-amount="250">$250</button>
+        <button class="amount-btn" data-amount="500">$500</button>
+        <button class="amount-btn" data-amount="1000">$1,000</button>
+        <button class="amount-btn" data-amount="1500">$1,500</button>
+      </div>
+
+      <button class="amount-btn amount-btn--wide" data-amount="custom">Custom Amount</button>
+
+      <a href="https://buy.stripe.com/dRm4gBejafbkfmaaOcbwk02"
+         id="donate-btn" class="donate-btn" target="_blank" rel="noopener">
+        Donate $100 →
+      </a>
+      <p class="submit-note">You'll be taken to Stripe's secure checkout to complete your gift.</p>
+    </div>
+
+  </div>
+
+  <script>
+
+    const STRIPE_LINKS = {
+      50:     'https://donate.stripe.com/14AcN76QI2oy4Hw9K8bwk03',
+      100:    'https://buy.stripe.com/dRm4gBejafbkfmaaOcbwk02',
+      250:    'https://donate.stripe.com/6oUfZj6QIgfofma7C0bwk04',
+      500:    'https://donate.stripe.com/8x27sNb6Ygfoc9Y5tSbwk05',
+      1000:   'https://donate.stripe.com/eVq3cx5ME6EO2zoaOcbwk06',
+      1500:   'https://donate.stripe.com/28E28t1wofbk3Ds4pObwk07',
+      custom: 'https://donate.stripe.com/aFa9AVa2U6EO4Hw6xWbwk00'
+    };
+
+    const amountBtns = document.querySelectorAll('.amount-btn');
+    const donateBtn  = document.getElementById('donate-btn');
+
+    amountBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        amountBtns.forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        const amount = btn.dataset.amount;
+        const key = STRIPE_LINKS[parseInt(amount)] ? parseInt(amount) : 'custom';
+        donateBtn.href = STRIPE_LINKS[key];
+        donateBtn.textContent = key === 'custom'
+          ? 'Custom Amount →'
+          : 'Donate $' + Number(amount).toLocaleString() + ' →';
+      });
+    });
+  </script>
