@@ -115,9 +115,10 @@ permalink: /blog/ab-1104-analysis/
       margin: 1.75rem 0;
     }
 
-    .chart-placeholder .plotly-graph-div {
+    .chart-placeholder .plotly-graph-div,
+    .figure-block .plotly-graph-div {
       width: 100% !important;
-      height: 220px !important;
+      height: 360px !important;
     }
     .figure-label {
       font-family: 'DM Mono', monospace;
@@ -239,6 +240,8 @@ permalink: /blog/ab-1104-analysis/
       .post-header { margin: 1rem; padding: 2rem; }
       .post-body { grid-template-columns: 1fr; padding: 0 1rem 3rem; }
       .sidebar { order: -1; }
+      .chart-placeholder .plotly-graph-div,
+      .figure-block .plotly-graph-div { height: 280px !important; }
     }
 
     </style>
