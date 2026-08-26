@@ -113,9 +113,13 @@ permalink: /blog/
       border-radius: 8px;
       padding: 0.75rem;
     }
+    .chart-placeholder .fig-title {
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--white); margin-top: 0.6rem; padding: 0 0.25rem; line-height: 1.3;
+    }
     .chart-placeholder .fig-caption {
       font-size: 0.75rem; color: var(--muted); font-style: italic;
-      line-height: 1.5; margin-top: 0.6rem; padding: 0 0.25rem;
+      line-height: 1.5; margin-top: 0.35rem; padding: 0 0.25rem;
     }
     .chart-placeholder .plotly-graph-div {
       width: 100% !important;
@@ -180,6 +184,7 @@ permalink: /blog/
             width="100%" height="510"
             frameborder="0" scrolling="no">
         </iframe>
+        <p class="fig-title" id="blog-fig1-title"></p>
         <p class="fig-caption" id="blog-fig1-caption"></p>
       </div><!-- close chart-placeholder -->
     </div><!-- close featured-card -->
@@ -243,8 +248,10 @@ permalink: /blog/
       .then(r => r.text())
       .then(html => {
         const doc = new DOMParser().parseFromString(html, 'text/html');
+        const title = doc.querySelector('meta[name="title"]')?.getAttribute('content');
         const caption = doc.querySelector('meta[name="description"]')?.getAttribute('content');
-        if (caption) document.getElementById('blog-fig1-caption').textContent = caption;
+        if (title) document.getElementById('blog-fig1-title').textContent = title;
+        if (caption) document.getElementById('blog-fig1-caption').innerHTML = caption.replace('Data Source:', '<br>Data Source:');
       })
       .catch(() => {});
   </script>
