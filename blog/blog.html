@@ -121,10 +121,6 @@ permalink: /blog/
       font-size: 0.75rem; color: var(--muted); font-style: italic;
       line-height: 1.5; margin-top: 0.35rem; padding: 0 0.25rem;
     }
-    .chart-placeholder .plotly-graph-div {
-      width: 100% !important;
-      height: 340px !important;
-    }
 <!--    /* Placeholder chart SVG */-->
 <!--    .chart-placeholder {-->
 <!--      background: rgba(255,255,255,0.03);-->
@@ -180,12 +176,9 @@ permalink: /blog/
         <a href="{{ '/blog/cost_shift_redefinition/' | relative_url }}" class="read-btn">Read post<span>→</span></a>
       </div>
       <div class="chart-placeholder">
-        <p class="fig-title" id="blog-fig1-title"></p>
-        <iframe src="/assets/graphs/cost_shift_bargraph.html"
-            width="100%" height="510"
-            frameborder="0" scrolling="no">
-        </iframe>
-        <p class="fig-caption" id="blog-fig1-caption"></p>
+<!--        <p class="fig-title" id="blog-fig1-title"></p>-->
+        <img src="/assets/graphs/cost_shift_bargraph.png" alt="Cost shift bar chart" style="width:100%;height:auto;display:block;border-radius:4px;">
+<!--        <p class="fig-caption" id="blog-fig1-caption"></p>-->
       </div><!-- close chart-placeholder -->
     </div><!-- close featured-card -->
 
