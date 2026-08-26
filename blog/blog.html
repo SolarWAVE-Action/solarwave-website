@@ -107,11 +107,15 @@ permalink: /blog/
     .chart-placeholder {
       width: 100%;
       max-width: 100%;
-      overflow: hidden;
+      overflow: visible;
       background: rgba(255,255,255,0.03);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 0.75rem;
+    }
+    .chart-placeholder .fig-caption {
+      font-size: 0.75rem; color: var(--muted); font-style: italic;
+      line-height: 1.5; margin-top: 0.6rem; padding: 0 0.25rem;
     }
     .chart-placeholder .plotly-graph-div {
       width: 100% !important;
@@ -176,6 +180,7 @@ permalink: /blog/
             width="100%" height="510"
             frameborder="0" scrolling="no">
         </iframe>
+        <p class="fig-caption" id="blog-fig1-caption"></p>
       </div><!-- close chart-placeholder -->
     </div><!-- close featured-card -->
 
@@ -233,4 +238,13 @@ permalink: /blog/
         });
       });
     });
+
+    fetch('/assets/graphs/cost_shift_bargraph.html')
+      .then(r => r.text())
+      .then(html => {
+        const doc = new DOMParser().parseFromString(html, 'text/html');
+        const caption = doc.querySelector('meta[name="description"]')?.getAttribute('content');
+        if (caption) document.getElementById('blog-fig1-caption').textContent = caption;
+      })
+      .catch(() => {});
   </script>

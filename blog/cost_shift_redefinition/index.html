@@ -558,18 +558,23 @@ permalink: /blog/cost_shift_redefinition/
         While the NBT has halted the growth of the alleged cost shift, the drivers of California's affordability crisis—such as rising wildfire expenditures and surging IOU profits—show no signs of slowing.</p>
 
       <div class="figure-block">
-<!--        <p class="figure-title">Even the corrected $2.5B cost shift is a fraction of what utilities already spend and earn</p>-->
-    <iframe src="/assets/graphs/cost_shift_bargraph.html"
-            width="100%" height="650"
-            frameborder="0" scrolling="no">
-    </iframe>
-
-<!--        <p class="figure-caption">Figure 1. Left: Comparison of different 2024 cost-->
-<!--          shift estimates from PAO, CPUC, Borenstein, SolarWAVE Action and M.Cubed.-->
-<!--          Right: 2024 wildfire spending and 2024-25 net profits in total for the-->
-<!--          three IOUs PG&E, SCE and SDG&E for comparison.-->
-<!--          Sources: PAO, CPUC, Borenstein (2024), M.Cubed (2024), FERC Form 1 filings via PUDL.</p>-->
+        <span class="figure-label">Figure 1</span>
+        <iframe src="/assets/graphs/cost_shift_bargraph.html"
+                width="100%" height="650"
+                frameborder="0" scrolling="no">
+        </iframe>
+        <p class="figure-caption" id="fig1-caption"></p>
       </div>
+      <script>
+        fetch('/assets/graphs/cost_shift_bargraph.html')
+          .then(r => r.text())
+          .then(html => {
+            const doc = new DOMParser().parseFromString(html, 'text/html');
+            const caption = doc.querySelector('meta[name="description"]')?.getAttribute('content');
+            if (caption) document.getElementById('fig1-caption').textContent = caption;
+          })
+          .catch(() => {});
+      </script>
     </section>
 
     <section id="bottom-line">
