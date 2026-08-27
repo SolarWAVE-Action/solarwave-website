@@ -60,6 +60,7 @@ permalink: /blog/
       gap: 3rem; align-items: center;
       margin-bottom: 2rem;
     }
+    .featured-card.img-preview { grid-template-columns: 1.5fr 1fr; }
 
     .featured-card h2 {
       font-size: 1.6rem; font-weight: 700; line-height: 1.25;
@@ -138,6 +139,7 @@ permalink: /blog/
       .content { padding: 1.5rem 1rem 3rem; }
       .featured-card { grid-template-columns: 1fr; }
       .chart-placeholder { display: none; }
+      .chart-placeholder.show-mobile { display: block; }
     }
 
     </style>
@@ -164,7 +166,7 @@ permalink: /blog/
   <!-- MAIN CONTENT -->
   <div class="content">
 
-    <div class="featured-card" data-category="analysis">
+    <div class="featured-card img-preview" data-category="analysis">
       <div>
         <h2>How Two Simple Fixes Reduce the Cost Shift By Two-Thirds</h2>
         <p class="excerpt">California's most-cited solar cost-shift figure rests on a flawed methodology. Correct the equation and update the inputs, and $8.5 billion becomes $2.7 billion — and likely lower.</p>
@@ -175,10 +177,8 @@ permalink: /blog/
         </div>
         <a href="{{ '/blog/cost_shift_redefinition/' | relative_url }}" class="read-btn">Read post<span>→</span></a>
       </div>
-      <div class="chart-placeholder">
-<!--        <p class="fig-title" id="blog-fig1-title"></p>-->
-        <img src="/assets/graphs/cost_shift_bargraph.png" alt="Cost shift bar chart" style="width:50%;height:auto;display:block;border-radius:4px;">
-<!--        <p class="fig-caption" id="blog-fig1-caption"></p>-->
+      <div class="chart-placeholder show-mobile">
+        <img src="/assets/graphs/cost_shift_bargraph.png" alt="Cost shift bar chart" style="width:100%;height:auto;display:block;border-radius:4px;">
       </div><!-- close chart-placeholder -->
     </div><!-- close featured-card -->
 
@@ -237,14 +237,4 @@ permalink: /blog/
       });
     });
 
-    fetch('/assets/graphs/cost_shift_bargraph.html')
-      .then(r => r.text())
-      .then(html => {
-        const doc = new DOMParser().parseFromString(html, 'text/html');
-        const title = doc.querySelector('meta[name="title"]')?.getAttribute('content');
-        const caption = doc.querySelector('meta[name="description"]')?.getAttribute('content');
-        if (title) document.getElementById('blog-fig1-title').textContent = title;
-        if (caption) document.getElementById('blog-fig1-caption').innerHTML = caption.replace('Data Source:', '<br>Data Source:');
-      })
-      .catch(() => {});
   </script>
