@@ -226,12 +226,7 @@ permalink: /about/
     .board-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
     }
-    .board-grid .board-card:first-child {
-      grid-column: 1 / -1;
-      max-width: calc(50% - 1rem);
-      margin: 0 auto;
-      width: 100%;
-    }
+
 
     .board-card {
       background: var(--panel); border: 1px solid var(--border);
@@ -454,7 +449,6 @@ permalink: /about/
       .founders { padding: 4rem 1.5rem; }
       .founder-cards { grid-template-columns: 1fr; }
       .board-grid { grid-template-columns: 1fr; }
-      .board-grid .board-card:first-child { max-width: 100%; }
       .funding { padding: 4rem 1.5rem; }
       .funding-cards { grid-template-columns: 1fr; }
       .funding-tagline span { display: block; margin: 0.4rem 0; }
@@ -558,7 +552,7 @@ permalink: /about/
 
         <div class="board-card">
           <img class="board-photo"
-            src="{{ '/assets/images/AL.jpg' | relative_url }}"
+            src="{{ '/assets/images/AngelaLipanovich.jpg' | relative_url }}"
             alt="Angela Lipanovich" />
           <div class="board-body">
             <div class="board-role">Chair</div>
@@ -579,10 +573,69 @@ permalink: /about/
 
         <div class="board-card">
           <img class="board-photo"
-            src="{{ '/assets/images/PS.jpg' | relative_url }}"
-            alt="Pete Scudder" />
+            src="{{ '/assets/images/SarahCraft.jpg' | relative_url }}"
+            alt="Sarah Craft" />
           <div class="board-body">
             <div class="board-role">Treasurer</div>
+            <div class="board-name">Sarah Craft</div>
+            <p class="board-bio">Sarah Craft is a finance and business leader with 19 years of
+              experience spanning financial management, strategic planning, operations,
+              business analytics, and organizational growth. She currently serves as Vice
+              President of Finance at SPK and Associates, a technology and engineering consulting
+              firm, where she leads the company’s finance and accounting functions and supports
+              strategic decision-making and long-term growth. In addition to her financial
+              leadership experience, she has developed expertise in data analytics and
+              business intelligence, using data to better understand organizational
+              performance and support informed decision-making.</p>
+            <p class="board-bio">An entrepreneur as well as a finance executive, Sarah was
+              a co-founder and Chief Financial Officer of Santa Cruz Waves, a
+              community-focused media company in Santa Cruz, California. Her experience
+              building and managing organizations has given her a practical perspective on
+              financial stewardship, sustainable growth, governance, and the challenges
+              faced by mission-driven organizations.</p>
+            <p class="board-bio">Sarah holds a Bachelor of Science in Health Sciences from
+              the University of California, Santa Cruz and an MBA from the McCombs School
+              of Business at The University of Texas at Austin. At McCombs, she was
+              inducted into the Beta Gamma Sigma Honor Society, received the Dean’s Award
+              for Academic Excellence, and was selected as a McCombs+ Leadership Fellow.
+              She also holds a postgraduate credential in Data Science and Business
+              Analytics from The University of Texas at Austin.</p>
+            <p class="board-bio">Sarah is passionate about renewable energy and
+              particularly interested in the increasing affordability and accessibility
+              of solar power. She believes clean, affordable energy can create meaningful
+              benefits for individuals and communities while helping build a more
+              sustainable energy system for future generations. She is excited to
+              bring her financial, analytical, entrepreneurial, and business experience
+              to SolarWAVE Action and support its mission.</p>
+          </div>
+        </div>
+
+        <div class="board-card">
+          <img class="board-photo"
+            src="{{ '/assets/images/JennyFolkesson.jpg' | relative_url }}"
+            alt="Jenny Folkesson" />
+          <div class="board-body">
+            <div class="board-role">Secretary</div>
+            <div class="board-name">Jenny Folkesson</div>
+            <p class="founder-bio">Jenny Folkesson is the Executive Director and co-founder
+              of SolarWAVE Action.</p>
+            <p class="founder-bio">She holds a Ph.D. in Computer Science from the University
+              of Copenhagen and has almost two decades of experience in data science, machine
+              learning, and software engineering — notably at the Chan Zuckerberg Biohub,
+              where she led image analysis initiatives.</p>
+            <p class="founder-bio">Driven by a passion for using technology to make the world
+              better, she transitioned her expertise toward climate action, contributing
+              data science work to Save Our Shores and Reef Check before she and Angela
+              co-founded SolarWAVE Action.</p>
+          </div>
+        </div>
+
+        div class="board-card">
+          <img class="board-photo"
+            src="{{ '/assets/images/PeteScudder.jpg' | relative_url }}"
+            alt="Pete Scudder" />
+          <div class="board-body">
+            <div class="board-role">Director</div>
             <div class="board-name">Pete Scudder</div>
             <p class="board-bio">Pete, along with his wife Karen, founded Scudder Roofing out
               of his garage on the Monterey Peninsula in 1982. Today, the award winning,
@@ -604,27 +657,7 @@ permalink: /about/
 
         <div class="board-card">
           <img class="board-photo"
-            src="{{ '/assets/images/JF.jpg' | relative_url }}"
-            alt="Jenny Folkesson" />
-          <div class="board-body">
-            <div class="board-role">Secretary</div>
-            <div class="board-name">Jenny Folkesson</div>
-            <p class="founder-bio">Jenny Folkesson is the Executive Director and co-founder
-              of SolarWAVE Action.</p>
-            <p class="founder-bio">She holds a Ph.D. in Computer Science from the University
-              of Copenhagen and has almost two decades of experience in data science, machine
-              learning, and software engineering — notably at the Chan Zuckerberg Biohub,
-              where she led image analysis initiatives.</p>
-            <p class="founder-bio">Driven by a passion for using technology to make the world
-              better, she transitioned her expertise toward climate action, contributing
-              data science work to Save Our Shores and Reef Check before she and Angela
-              co-founded SolarWAVE Action.</p>
-          </div>
-        </div>
-
-        <div class="board-card">
-          <img class="board-photo"
-            src="{{ '/assets/images/JanF.jpg' | relative_url }}"
+            src="{{ '/assets/images/JanFreiwald.jpg' | relative_url }}"
             alt="Jan Freiwald" />
           <div class="board-body">
             <div class="board-role">Director</div>
@@ -649,7 +682,7 @@ permalink: /about/
 
         <div class="board-card">
           <img class="board-photo"
-            src="{{ '/assets/images/KB.jpg' | relative_url }}"
+            src="{{ '/assets/images/KristenBrown.jpg' | relative_url }}"
             alt="Kristen Brown" />
           <div class="board-body">
             <div class="board-role">Director</div>
@@ -688,7 +721,7 @@ permalink: /about/
 
         <div class="board-card">
           <img class="board-photo"
-            src="{{ '/assets/images/KS.jpg' | relative_url }}"
+            src="{{ '/assets/images/KathleenStauffer.jpg' | relative_url }}"
             alt="Kathleen Stauffer" />
           <div class="board-body">
             <div class="board-role">Advisor</div>
@@ -708,7 +741,39 @@ permalink: /about/
 
         <div class="board-card">
           <img class="board-photo"
-            src="{{ '/assets/images/GH.jpg' | relative_url }}"
+            src="{{ '/assets/images/DeanFlorez.jpg' | relative_url }}"
+            alt="Dean Florez" />
+          <div class="board-body">
+            <div class="board-role">Advisor</div>
+            <div class="board-name">Dean Florez</div>
+            <p class="board-bio">Dean Florez (Retired California Senator) and currently
+              the founder and CEO of Balance Public Relations, a full service strategic
+              consulting firm that supports private and public clients where innovation
+              and regulation intersect.</p>
+            <p class="board-bio">Dean is a seasoned government relations professional.
+              With over three decades of experience and prior service in the California
+              Legislature, he is an expert at guiding established and start up tech
+              companies through regulatory processes and spaces. Over the years, he has
+              demonstrated industry-specific expertise in risk management and policy
+              strategy for marketplace startups in the sharing, gig, on-demand,
+              peer-to-peer and collaborative economy. Dean is a trusted advisor to key i
+              nternal and external stakeholder groups ranging from executive teams and
+              management, to C-suite, board of directors, investors, and policymakers.</p>
+            <p class="board-bio">Dean is also one of the most politically connected players
+              in California advising Governors, U.S. Senators, and Mayors. He serves as a
+              Member of the state’s climate change agency, the California Air Resources
+              Board.</p>
+            <p class="board-bio">Dean is the former California Senate Majority Leader and
+              also served in the State Assembly. He is a graduate of Harvard Business
+              School and started politics early as the past UCLA Student Body President.
+              Dean also serves on various early venture funded corporate boards that are
+              impact driven.</p>
+          </div>
+        </div>
+
+        <div class="board-card">
+          <img class="board-photo"
+            src="{{ '/assets/images/GalinaHale.jpg' | relative_url }}"
             alt="Galina Hale" />
           <div class="board-body">
             <div class="board-role">Advisor</div>
@@ -733,7 +798,7 @@ permalink: /about/
 
         <div class="board-card">
           <img class="board-photo"
-            src="{{ '/assets/images/BC.jpg' | relative_url }}"
+            src="{{ '/assets/images/BarryCinnamon.jpg' | relative_url }}"
             alt="Barry Cinnamon" />
           <div class="board-body">
             <div class="board-role">Advisor</div>
