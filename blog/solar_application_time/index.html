@@ -1,0 +1,433 @@
+---
+title: "California Needs Clean Power Fast. Commercial Solar Is Ready, If Utilities Let It Connect."
+layout: default
+permalink: /blog/solar_application_time/
+---
+<style>/* ─── BREADCRUMB ─── */
+    .breadcrumb-bar {
+      padding: 5rem 3rem 0;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .breadcrumb-bar a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb-bar a:hover { color: var(--white); }
+    .breadcrumb-bar .sep { color: var(--border); }
+    .breadcrumb-bar .current { color: var(--sun); }
+
+    /* ─── POST HEADER ─── */
+    .post-header {
+      margin: 1.25rem 2rem;
+      background: var(--sky-mid);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3rem;
+    }
+
+    .post-meta-top {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.5rem; flex-wrap: wrap;
+    }
+
+    .tag-pill {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem; font-weight: 600;
+      padding: 0.25rem 0.8rem; border-radius: 999px;
+      border: 1px solid;
+    }
+    .tag-pill.analysis { border-color: rgba(61,214,163,0.4); color: var(--accent); }
+    .tag-pill.policy   { border-color: rgba(245,166,35,0.4); color: var(--sun); }
+    .tag-pill.data     { border-color: rgba(100,160,255,0.4); color: #7EB3FF; }
+
+    .meta-text {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em;
+    }
+
+    .post-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700; line-height: 1.15;
+      color: var(--white); margin-bottom: 1rem;
+    }
+
+    .post-header .subtitle {
+      font-size: 1rem; line-height: 1.7;
+      color: var(--muted); max-width: 64ch; margin-bottom: 2rem;
+    }
+
+    .author-row {
+      display: flex; align-items: center; gap: 0.85rem;
+    }
+    .author-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--sky-mid));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Mono', monospace; font-size: 0.7rem;
+      font-weight: 700; color: var(--sky); flex-shrink: 0;
+    }
+    .author-name { font-size: 0.9rem; font-weight: 600; color: var(--white); }
+    .author-role { font-size: 0.8rem; color: var(--muted); }
+
+    /* ─── POST BODY ─── */
+    .post-body {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 2rem auto;
+      padding: 0 2rem 4rem;
+      align-items: start;
+    }
+
+    /* ─── ARTICLE ─── */
+    article {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.5rem;
+    }
+
+    article h2 {
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--white); margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    article p {
+      font-size: 0.95rem; line-height: 1.8;
+      color: rgba(247,244,238,0.8);
+      margin-bottom: 1.25rem;
+    }
+
+    article section { margin-bottom: 2.5rem; }
+    article section:last-child { margin-bottom: 0; }
+
+    article a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
+    article a:hover { color: var(--sun); }
+
+    /* Figure */
+    .figure-block {
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+      margin: 1.75rem 0;
+    }
+    .figure-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 0.5rem;
+    }
+    .figure-caption {
+      font-size: 0.82rem; color: var(--muted); font-style: italic;
+      line-height: 1.6; margin-top: 0.75rem;
+    }
+
+    /* Policy recommendation list */
+    .rec-list {
+      list-style: none; padding: 0; margin: 1.25rem 0;
+      display: flex; flex-direction: column; gap: 1.25rem;
+    }
+    .rec-list li {
+      padding-left: 1.5rem; position: relative;
+      font-size: 0.95rem; line-height: 1.8;
+      color: rgba(247,244,238,0.8);
+    }
+    .rec-list li::before {
+      content: '·';
+      position: absolute; left: 0;
+      color: var(--sun); font-weight: 700; font-size: 1.1rem;
+    }
+    .rec-list li strong { color: var(--white); }
+
+    /* ─── SIDEBAR ─── */
+    .sidebar { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .sidebar-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .sidebar-card h4 {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 1rem;
+    }
+
+    .toc-list { list-style: none; }
+    .toc-list li {
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.875rem;
+    }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .toc-list a:hover { color: var(--white); }
+    .toc-list li.active a { color: var(--sun); }
+
+    .sidebar-card p {
+      font-size: 0.85rem; line-height: 1.65; color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .sidebar-link {
+      display: block; font-size: 0.82rem; color: var(--accent);
+      text-decoration: none; transition: color 0.2s; margin-bottom: 0.4rem;
+    }
+    .sidebar-link:hover { color: var(--sun); }
+
+    .related-list { list-style: none; }
+    .related-list li { margin-bottom: 0.5rem; }
+    .related-list a { font-size: 0.85rem; color: var(--accent); text-decoration: none; transition: color 0.2s; line-height: 1.4; display: block; }
+    .related-list a:hover { color: var(--sun); }
+
+    .topics { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .topic-pill {
+      font-size: 0.75rem; color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.7rem; border-radius: 999px;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .breadcrumb-bar { padding: 4.5rem 1.5rem 0; }
+      .post-header { margin: 1rem; padding: 2rem; }
+      .post-body { grid-template-columns: 1fr; padding: 0 1rem 3rem; }
+      .sidebar { order: -1; }
+    }
+</style>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <a href="{{ '/our_work/' | relative_url }}">Our Work</a>
+  <span class="sep">→</span>
+  <a href="{{ '/blog/' | relative_url }}">Blog</a>
+  <span class="sep">→</span>
+  <span class="current">Solar Application Time</span>
+</div>
+
+<!-- POST HEADER -->
+<div class="post-header">
+  <div class="post-meta-top">
+    <span class="tag-pill data">Data</span>
+    <span class="tag-pill policy">Policy</span>
+    <span class="meta-text">Sep 23, 2026 &nbsp;·&nbsp; 7 min read</span>
+  </div>
+  <h1>California Needs Clean Power Fast. Commercial Solar Is Ready, If Utilities Let It Connect.</h1>
+  <p class="subtitle">Distributed solar on commercial, industrial, public, and nonprofit sites is one of the fastest clean energy options available. Its biggest obstacle is utility interconnection delays that regulators have the power to fix.</p>
+  <div class="author-row">
+    <div class="author-avatar">JF</div>
+    <div>
+      <div class="author-name">Jenny Folkesson</div>
+      <div class="author-role">SolarWAVE Action</div>
+    </div>
+  </div>
+</div>
+
+<!-- POST BODY -->
+<div class="post-body">
+
+  <article>
+
+    <section id="opportunity">
+      <p>California's electricity demand is rising, driven by electric vehicles,
+        building electrification, and large loads like data centers. How the state
+        meets that demand will shape both its climate progress and household energy
+        bills for decades. One of the fastest and cleanest options could be sitting
+        on the state's rooftops, warehouses, and parking lots: distributed solar on
+        commercial, industrial, public, and nonprofit sites. Its biggest obstacle
+        isn't technology. It's utility interconnection delays that regulators have
+        the power to fix.</p>
+
+      <p>Grid decarbonization is one of the highest-leverage climate strategies,
+        because so much else — transportation, buildings, and much of industry —
+        reach net zero primarily by electrification. Every clean kilowatt-hour
+        added to the grid helps meet demand and cuts emissions across the economy.</p>
+    </section>
+
+    <section id="demand">
+      <h2>Demand Is Growing, and So Is the Bill</h2>
+
+      <p>After years of flat demand, the California Energy Commission's (CEC's)
+        <a href="https://www.energy.ca.gov/publications/2026/2025-integrated-energy-policy-report" target="_blank" rel="noopener">2025 Integrated Energy Policy Report</a> projects that statewide electricity
+        consumption will grow from about 281,000 GWh in 2024 to more than 417,000
+        GWh by 2045 — an increase of nearly 50% — and to more than 450,000 GWh in
+        its high scenario. The growth comes from electric vehicles (EVs), building
+        electrification, and data centers. Data centers alone account for roughly
+        a quarter of the increase in the CEC's planning forecast: the maximum demand
+        on the California Independent System Operator (CAISO) grid is projected to
+        rise from about 1 GW in 2024 to 5.8 GW by 2040 (8.4 GW in the high case).
+        And unlike EV charging, which can be shifted to off-peak hours, data centers
+        run around the clock, so most of that load is still there when the grid is
+        under the most strain.</p>
+
+      <p>Serving that growth is expensive. The CEC forecasts CAISO's peak demand
+        reaching 66 GW by 2045 (high case: 75 GW), roughly 40–60% above today's
+        level. CAISO's approved transmission plan includes <a href="https://www.caiso.com/about/news/news-releases/iso-board-of-governors-approves-2025-2026-transmission-plan" target="_blank" rel="noopener">38 projects costing
+        $6.7 billion</a>, with more than half of that cost driven by forecasted load
+        growth. Transmission costs are generally recovered from all ratepayers,
+        which makes the question of who pays for growth central to affordability.</p>
+
+      <p>Rooftop solar customers have spent years being accused of shifting costs
+        onto their neighbors. Large new loads raise the same question at a far
+        greater scale. On September 21, 2026, Governor Newsom <a href="https://www.gov.ca.gov/2026/09/21/governor-newsom-signs-most-comprehensive-data-center-laws-in-the-nation-providing-communities-more-control-on-water-electricity-and-land-use/" target="_blank" rel="noopener">signed seven data
+        center laws</a> intended to make data centers pay for the grid upgrades they
+        require and bring new clean energy supply onto the grid. The CPUC must now
+        turn those principles into rules, and that implementation will determine
+        whether ratepayers are actually protected.</p>
+    </section>
+
+    <section id="solar-case">
+      <h2>What California Needs: Clean, Affordable, and Fast</h2>
+
+      <p>Meeting this demand without locking in decades of fossil fuel dependence
+        or driving up bills requires new supply that is clean, affordable, and quick
+        to build. Solar is <a href="https://ourworldindata.org/cheap-renewables-growth" target="_blank" rel="noopener">among the cheapest sources of new electricity</a> in the
+        world. Distributed solar costs more per kilowatt-hour to generate than
+        large solar farms: Lazard's 2026 analysis puts <a href="https://pv-magazine-usa.com/2026/07/13/u-s-solar-lcoe-on-the-rise-lazard-says/" target="_blank" rel="noopener">community, commercial and
+        industrial solar at $88 to $197 per MWh</a>, compared with $40 to $98 for
+        utility-scale solar. But that comparison leaves out the cost of delivering
+        the power. Generation built where electricity is used can reduce the need
+        for new transmission lines like those in CAISO's $6.7 billion plan, and it
+        comes online in increments, one site at a time, rather than waiting for a
+        single large project to finish.</p>
+
+      <p>Speed is where distributed solar should shine. A large new gas turbine now
+        takes <a href="https://www.utilitydive.com/news/5-year-waits-and-rising-costs-how-demand-is-redefining-the-gas-turbine-mar/813385/" target="_blank" rel="noopener">more than five years from order to delivery</a>, meaning units ordered
+        today won't operate until around 2031. A solar array on a warehouse roof
+        or parking canopy can be built in months. In practice, though, how fast
+        solar actually connects to the grid depends on who the customer is and
+        which utility serves them.</p>
+    </section>
+
+    <section id="bottleneck">
+      <h2>The Bottleneck: Utility Interconnection</h2>
+
+      <p><a href="https://solarwaveaction.org/assets/notebooks/Solar_application_time.html" target="_blank" rel="noopener">SolarWAVE Action's analysis of CPUC interconnection data</a> shows the gap.
+        For residential solar, the median time from interconnection application to
+        permission to operate for a project completed today is under a month. For
+        non-residential projects approved so far in 2026, it is roughly two and a
+        half to three years. It wasn't always this way: in 2021, the median
+        commercial project took about five months, while projects approved today
+        took more than six times as long. These figures describe projects that
+        have made it through the process. The public data doesn't show how many
+        are still waiting, or for how long. For full analysis details and interactive
+        graphs, please visit the Jupyter notebook linked in this post.</p>
+
+      <div class="figure-block">
+        <span class="figure-label">Figure 1</span>
+        <img src="{{ '/assets/graphs/customer_sector_application_time.png' | relative_url }}"
+             alt="Median interconnection time by sector and approval year"
+             style="width:100%;height:auto;display:block;border-radius:4px;">
+        <p class="figure-caption">Median days from interconnection application to permission to operate, by customer sector and year of approval, for PG&amp;E, SCE, and SDG&amp;E (2026 data through May 31). Residential solar (circle area is proportional to application volume) has stayed near or under a month except during the 2023 application rush ahead of the Net Billing Tariff, while non-residential sectors have seen median times rise several-fold since 2022.
+        <br>Data Source: SolarWAVE Action analysis of CPUC DGStats data.</p>
+      </div>
+
+      <p>The evidence points to administrative bottlenecks rather than technical limits. In 2020 the CPUC set a standard that utilities meet Rule 21 interconnection timelines 95 percent of the time. A <a href="https://static1.squarespace.com/static/54c1a3f9e4b04884b35cfef6/t/68b0c68868cf970c354a9696/1756415624195/Intx+Formal+Complaint+final.pdf" target="_blank" rel="noopener">formal complaint filed by the California Solar &amp; Storage Association (CALSSA)</a> shows PG&amp;E and SCE falling far short: since 2023, PG&amp;E has completed supplemental reviews on time for only 32 percent of projects, and SCE for only 25 percent. SDG&amp;E, by contrast, has consistently met its timelines, which shows that timely interconnection is achievable. <a href="https://a30.asmdc.org/press-releases/20251125-addis-urges-cpuc-protect-ratepayers-solar-storage-interconnection-delays" target="_blank" rel="noopener">Eighteen legislators</a> have since urged the CPUC to enforce its rules, and in March 2026 the Joint Legislative Audit Committee <a href="https://calssa.org/press-releases/2026/3/25/legislators-overwhelmingly-approve-state-audit-of-the-cpucs-oversight-of-utility-delays" target="_blank" rel="noopener">voted 13–0</a> to approve <a href="https://www.auditor.ca.gov/reports-coming-soon/2026-126/" target="_blank" rel="noopener">State Audit 2026-126</a>, which will examine how the CPUC oversees utility compliance with interconnection timelines.</p>
+    </section>
+
+    <section id="recommendations">
+      <h2>What Regulators Should Do</h2>
+
+      <p>Closing this gap doesn't require new technology, only enforcement and smart
+        implementation of rules California already has. The CPUC should:</p>
+
+      <ul class="rec-list">
+        <li><strong>Enforce interconnection timelines.</strong> Utilities that
+          routinely miss Rule 21 deadlines should face meaningful penalties, as
+          CALSSA's complaint requests.</li>
+        <li><strong>Let large loads bring their own clean power.</strong> As it
+          implements the new data center laws, the CPUC should allow and encourage
+          large loads to meet their clean energy obligations by co-locating with a
+          clean energy source or funding distributed solar and storage that can come
+          online quickly, without adding to other customers' bills.</li>
+        <li><strong>Make the backlog visible.</strong> The CPUC's <a href="https://www.californiadgstats.ca.gov/downloads/" target="_blank" rel="noopener">public
+          interconnection data</a> reports interconnection times only for projects that
+          have already been approved. Applications still waiting in the queue are
+          left out, so the published numbers understate the problem: the
+          longest-stuck projects don't show up until they finally connect.
+          The CPUC should require utilities to publish pending applications,
+          including how long each has been waiting, so the full backlog is visible.</li>
+      </ul>
+    </section>
+
+    <section id="bottom-line">
+      <h2>The Bottom Line</h2>
+
+      <p>California doesn't have to choose between keeping up with demand, keeping
+        bills affordable, and meeting its climate goals. To reliably meet surging
+        electricity demand while keeping bills affordable for ratepayers, the state
+        should tap into its underutilized distributed solar potential. Harnessing
+        rooftop, warehouse, and parking lot space offers a fast, clean path
+        forward — provided regulators hold utilities accountable and strictly
+        enforce non-residential interconnection timelines to eliminate costly delays.</p>
+    </section>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-card">
+      <h4>In this post</h4>
+      <ul class="toc-list">
+        <li class="active"><a href="#opportunity">The Opportunity</a></li>
+        <li><a href="#demand">Demand and Cost</a></li>
+        <li><a href="#solar-case">Why Distributed Solar</a></li>
+        <li><a href="#bottleneck">The Bottleneck</a></li>
+        <li><a href="#recommendations">What Regulators Should Do</a></li>
+        <li><a href="#bottom-line">The Bottom Line</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-card">
+      <h4>Code and Notebook</h4>
+      <p>All source code is published openly. Analysis details can be found in the Jupyter Notebook.</p>
+      <a class="sidebar-link" href="{{ '/assets/notebooks/Solar_application_time.html' | relative_url }}">See Jupyter Notebook →</a>
+      <a class="sidebar-link" href="https://github.com/SolarWAVE-Action/solarwave-analysis" target="_blank" rel="noopener">View on GitHub →</a>
+    </div>
+
+    <div class="sidebar-card">
+      <h4>Related</h4>
+      <ul class="related-list">
+        <li><a href="{{ '/projects/clean_energy_initiative/' | relative_url }}">California Local Energy Investment Framework</a></li>
+        <li><a href="{{ '/blog/ab-1104-analysis/' | relative_url }}">AB 1104: Removing Legislative Hurdles That Stifle Commercial Solar Adoption</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-card">
+      <h4>Topics</h4>
+      <div class="topics">
+        <span class="topic-pill">Interconnection</span>
+        <span class="topic-pill">Distributed Solar</span>
+        <span class="topic-pill">Data Centers</span>
+        <span class="topic-pill">CPUC</span>
+        <span class="topic-pill">Grid Policy</span>
+      </div>
+    </div>
+
+  </aside>
+
+</div>
+
+<script>
+  const sections = document.querySelectorAll('article section[id]');
+  const tocLinks = document.querySelectorAll('.toc-list li');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(li => li.classList.remove('active'));
+        const active = document.querySelector(`.toc-list a[href="#${entry.target.id}"]`);
+        if (active) active.parentElement.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
