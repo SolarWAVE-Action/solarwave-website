@@ -208,6 +208,15 @@ permalink: /blog/solar_application_time/
     }
     @media (max-width: 600px) {
       #fig1-frame { height: 660px; }
+      .figure-block {
+        margin-left: -2.5rem;
+        margin-right: -2.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-left: none;
+        border-right: none;
+        border-radius: 0;
+      }
     }
 </style>
 
@@ -343,7 +352,7 @@ permalink: /blog/solar_application_time/
         (function () {
           var frame = document.getElementById('fig1-frame');
 
-          frame.addEventListener('load', function () {
+          function injectStyles() {
             try {
               var style = frame.contentDocument.createElement('style');
               style.textContent =
@@ -353,13 +362,19 @@ permalink: /blog/solar_application_time/
                 '.swc .swc-src { border-top-color: rgba(255,255,255,0.08) !important; }';
               frame.contentDocument.head.appendChild(style);
             } catch (e) {}
-          });
+          }
+
+          if (frame.contentDocument && frame.contentDocument.readyState === 'complete') {
+            injectStyles();
+          } else {
+            frame.addEventListener('load', injectStyles);
+          }
 
           fetch('{{ "/assets/graphs/customer_sector_application_time_embed.html" | relative_url }}')
             .then(function (r) { return r.text(); })
             .then(function (html) {
               var doc = new DOMParser().parseFromString(html, 'text/html');
-              var caption = doc.querySelector('.swc-caption');
+              var caption = doc.querySelector('.swc-caption') || doc.querySelector('.swc-sub');
               var source = doc.querySelector('.swc-src');
               if (caption) document.getElementById('fig1-caption').innerHTML = caption.innerHTML;
               if (source) document.getElementById('fig1-source').innerHTML = source.innerHTML;
