@@ -326,28 +326,42 @@ permalink: /blog/solar_application_time/
         commercial project took about five months, while projects approved today
         took more than six times as long. These figures describe projects that
         have made it through the process. The public data doesn't show how many
-        are still waiting, or for how long. For full analysis details and interactive
-        graphs, please visit the <a href="https://solarwaveaction.org/assets/notebooks/Solar_application_time.html" target="_blank" rel="noopener">Jupyter Notebook</a> for this post.</p>
+        are still waiting, or for how long. For full analysis details please visit the <a href="https://solarwaveaction.org/assets/notebooks/Solar_application_time.html" target="_blank" rel="noopener">Jupyter Notebook</a> for this post.</p>
 
       <div class="figure-block">
         <span class="figure-label">Figure 1</span>
         <iframe src="{{ '/assets/graphs/customer_sector_application_time_embed.html' | relative_url }}"
-                id="fig1-frame" width="100%" height="720" frameborder="0" scrolling="no"
+                id="fig1-frame" width="100%" height="800" frameborder="0" scrolling="no"
                 style="display:block;border-radius:4px;"></iframe>
         <p class="figure-caption" id="fig1-caption"></p>
         <p class="figure-source" id="fig1-source"></p>
       </div>
       <script>
-        fetch('{{ "/assets/graphs/customer_sector_application_time_embed.html" | relative_url }}')
-          .then(r => r.text())
-          .then(html => {
-            const doc = new DOMParser().parseFromString(html, 'text/html');
-            const caption = doc.querySelector('.swc-caption');
-            const source = doc.querySelector('.swc-src');
-            if (caption) document.getElementById('fig1-caption').innerHTML = caption.innerHTML;
-            if (source) document.getElementById('fig1-source').innerHTML = source.innerHTML;
-          })
-          .catch(() => {});
+        (function () {
+          var frame = document.getElementById('fig1-frame');
+
+          frame.addEventListener('load', function () {
+            try {
+              var style = frame.contentDocument.createElement('style');
+              style.textContent =
+                'body { background: #0A1628; }' +
+                '.swc-title { color: #F7F4EE !important; }' +
+                '.swc .swc-sub, .swc .swc-note { color: #A0B0C8 !important; }';
+              frame.contentDocument.head.appendChild(style);
+            } catch (e) {}
+          });
+
+          fetch('{{ "/assets/graphs/customer_sector_application_time_embed.html" | relative_url }}')
+            .then(function (r) { return r.text(); })
+            .then(function (html) {
+              var doc = new DOMParser().parseFromString(html, 'text/html');
+              var caption = doc.querySelector('.swc-caption');
+              var source = doc.querySelector('.swc-src');
+              if (caption) document.getElementById('fig1-caption').innerHTML = caption.innerHTML;
+              if (source) document.getElementById('fig1-source').innerHTML = source.innerHTML;
+            })
+            .catch(function () {});
+        })();
       </script>
 
       <p>The evidence points to administrative bottlenecks rather than technical limits. In 2020 the CPUC set a standard that utilities meet Rule 21 interconnection timelines 95 percent of the time. A <a href="https://static1.squarespace.com/static/54c1a3f9e4b04884b35cfef6/t/68b0c68868cf970c354a9696/1756415624195/Intx+Formal+Complaint+final.pdf" target="_blank" rel="noopener">formal complaint filed by the California Solar &amp; Storage Association (CALSSA)</a> shows PG&amp;E and SCE falling far short: since 2023, PG&amp;E has completed supplemental reviews on time for only 32 percent of projects, and SCE for only 25 percent. SDG&amp;E, by contrast, has consistently met its timelines, which shows that timely interconnection is achievable. <a href="https://a30.asmdc.org/press-releases/20251125-addis-urges-cpuc-protect-ratepayers-solar-storage-interconnection-delays" target="_blank" rel="noopener">Eighteen legislators</a> have since urged the CPUC to enforce its rules, and in March 2026 the Joint Legislative Audit Committee <a href="https://calssa.org/press-releases/2026/3/25/legislators-overwhelmingly-approve-state-audit-of-the-cpucs-oversight-of-utility-delays" target="_blank" rel="noopener">voted 13–0</a> to approve <a href="https://www.auditor.ca.gov/reports-coming-soon/2026-126/" target="_blank" rel="noopener">State Audit 2026-126</a>, which will examine how the CPUC oversees utility compliance with interconnection timelines.</p>
