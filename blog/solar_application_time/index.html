@@ -374,7 +374,7 @@ permalink: /blog/solar_application_time/
             .then(function (r) { return r.text(); })
             .then(function (html) {
               var doc = new DOMParser().parseFromString(html, 'text/html');
-              var caption = doc.querySelector('.swc-caption') || doc.querySelector('.swc-sub');
+              var caption = doc.querySelector('.swc-caption');
               var source = doc.querySelector('.swc-src');
               if (caption) document.getElementById('fig1-caption').innerHTML = caption.innerHTML;
               if (source) document.getElementById('fig1-source').innerHTML = source.innerHTML;
