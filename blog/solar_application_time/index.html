@@ -352,24 +352,6 @@ permalink: /blog/solar_application_time/
         (function () {
           var frame = document.getElementById('fig1-frame');
 
-          function injectStyles() {
-            try {
-              var style = frame.contentDocument.createElement('style');
-              style.textContent =
-                'body { background: #0A1628; }' +
-                '.swc-title { color: #F7F4EE !important; }' +
-                '.swc .swc-sub, .swc .swc-note, .swc .swc-caption, .swc .swc-src { color: #A0B0C8 !important; }' +
-                '.swc .swc-src { border-top-color: rgba(255,255,255,0.08) !important; }';
-              frame.contentDocument.head.appendChild(style);
-            } catch (e) {}
-          }
-
-          if (frame.contentDocument && frame.contentDocument.readyState === 'complete') {
-            injectStyles();
-          } else {
-            frame.addEventListener('load', injectStyles);
-          }
-
           fetch('{{ "/assets/graphs/customer_sector_application_time_embed.html" | relative_url }}')
             .then(function (r) { return r.text(); })
             .then(function (html) {
