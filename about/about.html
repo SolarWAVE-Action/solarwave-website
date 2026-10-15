@@ -120,40 +120,42 @@ permalink: /about/
     }
     .founders h2 span { color: var(--sun); }
 
-    .founder-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    /* ─── PEOPLE GRID ─── */
+    .people-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+    }
 
-    .founder-card {
+    .person-card {
       background: var(--panel); border: 1px solid var(--border);
       overflow: hidden;
     }
 
-    .founder-photo {
+    .person-photo {
       width: 100%; aspect-ratio: 1/1;
       object-fit: cover; object-position: top;
-      display: block;
-      filter: grayscale(20%);
+      display: block; filter: grayscale(20%);
     }
 
-    .founder-body { padding: 2rem; }
+    .person-body { padding: 1.25rem; }
 
-    .founder-role {
+    .person-title {
       font-family: 'DM Mono', monospace;
-      font-size: 0.65rem; color: var(--sun);
-      letter-spacing: 0.2em; text-transform: uppercase;
-      margin-bottom: 0.6rem;
+      font-size: 0.6rem; color: var(--sun);
+      letter-spacing: 0.18em; text-transform: uppercase;
+      margin-bottom: 0.4rem;
     }
 
-    .founder-name {
+    .person-name {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.75rem; letter-spacing: 0.05em;
-      color: var(--white); margin-bottom: 1.25rem;
+      font-size: 1.35rem; letter-spacing: 0.05em;
+      color: var(--white); margin-bottom: 0.85rem;
     }
 
-    .founder-bio {
-      font-size: 0.9rem; line-height: 1.75;
+    .person-bio {
+      font-size: 0.82rem; line-height: 1.7;
       color: var(--muted);
     }
-    .founder-bio + .founder-bio { margin-top: 0.85rem; }
+    .person-bio + .person-bio { margin-top: 0.65rem; }
 
     /* ─── CTA ─── */
     .cta {
@@ -195,80 +197,6 @@ permalink: /about/
       border: 1px solid var(--border);
     }
     .btn-secondary:hover { border-color: var(--white); }
-
-    /* ─── TEAM TABS ─── */
-    .team-tabs {
-      display: flex; gap: 0; margin-bottom: 3rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .team-tab {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem; letter-spacing: 0.15em;
-      text-transform: uppercase; color: var(--muted);
-      background: none; border: none;
-      padding: 0.85rem 1.75rem 0.85rem 0;
-      cursor: pointer; position: relative;
-      transition: color 0.2s;
-      margin-right: 2rem;
-    }
-    .team-tab::after {
-      content: '';
-      position: absolute; bottom: -1px; left: 0; right: 0;
-      height: 2px; background: var(--sun);
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.25s;
-    }
-    .team-tab:hover { color: var(--white); }
-    .team-tab.active { color: var(--white); }
-    .team-tab.active::after { transform: scaleX(1); }
-
-    /* ─── BOARD CARDS ─── */
-    .board-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
-    }
-
-
-    .board-card {
-      background: var(--panel); border: 1px solid var(--border);
-      overflow: hidden;
-    }
-
-    .board-photo {
-      width: 100%; aspect-ratio: 1/1;
-      object-fit: cover; object-position: top;
-      display: block;
-      filter: grayscale(20%);
-    }
-
-    .board-photo-placeholder {
-      width: 100%; aspect-ratio: 4/3;
-      background: linear-gradient(135deg, var(--sky-mid) 0%, rgba(61,214,163,0.08) 100%);
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 3rem; letter-spacing: 0.12em;
-      color: var(--sun); opacity: 0.6;
-    }
-
-    .board-body { padding: 1.75rem; }
-
-    .board-role {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem; color: var(--sun);
-      letter-spacing: 0.2em; text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-
-    .board-name {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.65rem; letter-spacing: 0.05em;
-      color: var(--white); margin-bottom: 1rem;
-    }
-
-    .board-bio {
-      font-size: 0.88rem; line-height: 1.75;
-      color: var(--muted);
-    }
 
         /* ─── HOW WE WORK ─── */
     .how {
@@ -447,12 +375,15 @@ permalink: /about/
       .how { padding: 4rem 1.5rem; }
       .how-cards { grid-template-columns: 1fr; }
       .founders { padding: 4rem 1.5rem; }
-      .founder-cards { grid-template-columns: 1fr; }
-      .board-grid { grid-template-columns: 1fr; }
+      .people-grid { grid-template-columns: 1fr 1fr; }
       .funding { padding: 4rem 1.5rem; }
       .funding-cards { grid-template-columns: 1fr; }
       .funding-tagline span { display: block; margin: 0.4rem 0; }
       .cta { padding: 5rem 1.5rem; }
+    }
+
+    @media (max-width: 500px) {
+      .people-grid { grid-template-columns: 1fr; }
     }
 
     </style>
@@ -484,346 +415,162 @@ permalink: /about/
     </div>
   </section>
 
-  <!-- FOUNDERS / GOVERNANCE -->
-  <section class="founders">
+  <!-- PEOPLE -->
+  <section class=”founders”>
     <h2>Our <span>People</span></h2>
+    <p style=”font-size:1.05rem; line-height:1.8; color:var(--muted); max-width:72ch; margin-bottom:3rem;”>In 2025, Angela Lipanovich partnered with Jenny Folkesson to support the passage of California Assembly Bill 1104, a commercial solar energy bill successfully signed into law in October that year. That collaboration became the foundation for SolarWAVE Action — built on the conviction that rigorous data analysis and sharp legal strategy are the most powerful tools for accelerating the clean energy transition.</p>
 
-    <div class="team-tabs">
-      <button class="team-tab active" data-tab="founders">Founders</button>
-      <button class="team-tab" data-tab="board">Governance</button>
-      <button class="team-tab" data-tab="advisors">Advisors</button>
-    </div>
+    <div class=”people-grid”>
 
-    <!-- ── Founders tab ── -->
-    <div id="tab-founders" class="tab-content">
-      <p style="font-size:1.05rem; line-height:1.8; color:var(--muted); max-width:72ch; margin-bottom:3rem;">In 2025, Angela Lipanovich partnered with Jenny Folkesson to support the passage of California Assembly Bill 1104, a commercial solar energy bill successfully signed into law in October that year. That collaboration became the foundation for SolarWAVE Action — built on the conviction that rigorous data analysis and sharp legal strategy are the most powerful tools for accelerating the clean energy transition.</p>
-      <div class="founder-cards">
-
-        <div class="founder-card">
-          <img class="founder-photo"
-            src="{{ '/assets/images/JennyFolkesson.jpg' | relative_url }}"
-            alt="Jenny Folkesson" />
-          <div class="founder-body">
-            <div class="founder-role">Executive Director &amp; Co-Founder</div>
-            <div class="founder-name">Jenny Folkesson</div>
-            <p class="founder-bio">Jenny Folkesson is the Executive Director and co-founder
-              of SolarWAVE Action.</p>
-            <p class="founder-bio">She holds a Ph.D. in Computer Science from the University
-              of Copenhagen and has almost two decades of experience in data science, machine
-              learning, and software engineering across academia, startups, and nonprofits.
-              She spent most of that career in biotech, most recently at the Chan Zuckerberg
-              Biohub, where she led image analysis initiatives.</p>
-            <p class="founder-bio">Driven by a passion for using technology to make the world better,
-              she brought those skills over to climate action, contributing data science work to
-              Save Our Shores and Reef Check before she and Angela co-founded SolarWAVE Action.</p>
-          </div>
+      <div class=”person-card”>
+        <img class=”person-photo” src=”{{ ‘/assets/images/AngelaLipanovich.jpg’ | relative_url }}” alt=”Angela Lipanovich” />
+        <div class=”person-body”>
+          <div class=”person-title”>Co-Founder &amp; Board Chair</div>
+          <div class=”person-name”>Angela Lipanovich</div>
+          <p class=”person-bio”>Angela Lipanovich is co-founder of SolarWAVE Action and founder and principal attorney of Estriatus Law, where she serves both as outside general counsel and project-specific advisor to entities and system owners across the cleantech and renewable energy spectrum — from early-stage startups and established public enterprises to private individuals and businesses.</p>
+          <p class=”person-bio”>She founded Estriatus Law not just to practice law, but to support the people and companies building a cleaner, smarter, more sustainable future. With every client, every project, and every partnership, she brings mission-driven legal guidance designed to clear obstacles and create momentum — because she believes the future depends on it.</p>
         </div>
-
-        <div class="founder-card">
-          <img class="founder-photo"
-            src="{{ '/assets/images/AngelaLipanovich.jpg' | relative_url }}"
-            alt="Angela Lipanovich" />
-          <div class="founder-body">
-            <div class="founder-role">Board Chair &amp; Co-Founder</div>
-            <div class="founder-name">Angela Lipanovich</div>
-            <p class="founder-bio">Angela Lipanovich is co-founder of SolarWAVE Action and
-              founder and principal attorney of Estriatus Law, where she serves both as
-              outside general counsel and project-specific advisor to entities and system
-              owners across the cleantech and renewable energy spectrum — from early-stage
-              startups and established public enterprises to private individuals and
-              businesses.</p>
-            <p class="founder-bio">She founded Estriatus Law not just to practice law, but to
-              support the people and companies building a cleaner, smarter, more sustainable
-              future. With every client, every project, and every partnership, she brings
-              mission-driven legal guidance designed to clear obstacles and create momentum —
-              because she believes the future depends on it.</p>
-          </div>
-        </div>
-
       </div>
-    </div>
 
-    <!-- ── Governance tab ── -->
-    <div id="tab-board" class="tab-content" hidden>
-      <p style="font-size:1.05rem; line-height:1.8; color:var(--muted); max-width:72ch; margin-bottom:3rem;">SolarWAVE Action is governed by a five-member Board of Directors who provide strategic oversight and ensure the organization remains accountable to its mission of advancing equitable clean energy policy in California.</p>
-
-      <!-- Chair centered at top, then other four — all in one grid -->
-      <div class="board-grid">
-
-        <div class="board-card">
-          <img class="board-photo"
-            src="{{ '/assets/images/AngelaLipanovich.jpg' | relative_url }}"
-            alt="Angela Lipanovich" />
-          <div class="board-body">
-            <div class="board-role">Chair</div>
-            <div class="board-name">Angela Lipanovich</div>
-            <p class="board-bio">Angela Lipanovich is co-founder of SolarWAVE Action and
-              founder and principal attorney of Estriatus Law, where she serves both as
-              outside general counsel and project-specific advisor to entities and system
-              owners across the cleantech and renewable energy spectrum — from early-stage
-              startups and established public enterprises to private individuals and
-              businesses.</p>
-            <p class="board-bio">She founded Estriatus Law not just to practice law, but to
-              support the people and companies building a cleaner, smarter, more sustainable
-              future. With every client, every project, and every partnership, she brings
-              mission-driven legal guidance designed to clear obstacles and create momentum —
-              because she believes the future depends on it.</p>
-          </div>
+      <div class=”person-card”>
+        <img class=”person-photo” src=”{{ ‘/assets/images/JennyFolkesson.jpg’ | relative_url }}” alt=”Jenny Folkesson” />
+        <div class=”person-body”>
+          <div class=”person-title”>Executive Director &amp; Co-Founder</div>
+          <div class=”person-name”>Jenny Folkesson</div>
+          <p class=”person-bio”>Jenny Folkesson is the Executive Director and co-founder of SolarWAVE Action.</p>
+          <p class=”person-bio”>She holds a Ph.D. in Computer Science from the University of Copenhagen and has almost two decades of experience in data science, machine learning, and software engineering across academia, startups, and nonprofits. She spent most of that career in biotech, most recently at the Chan Zuckerberg Biohub, where she led image analysis initiatives.</p>
+          <p class=”person-bio”>Driven by a passion for using technology to make the world better, she brought those skills over to climate action, contributing data science work to Save Our Shores and Reef Check before she and Angela co-founded SolarWAVE Action.</p>
         </div>
-
-        <div class="board-card">
-          <img class="board-photo"
-            src="{{ '/assets/images/SarahCraft.jpg' | relative_url }}"
-            alt="Sarah Craft" />
-          <div class="board-body">
-            <div class="board-role">Treasurer</div>
-            <div class="board-name">Sarah Craft</div>
-            <p class="board-bio">Sarah Craft is a finance and business leader with 19 years of
-              experience spanning financial management, strategic planning, operations,
-              business analytics, and organizational growth. She currently serves as Vice
-              President of Finance at SPK and Associates, a technology and engineering consulting
-              firm, where she leads the company’s finance and accounting functions and supports
-              strategic decision-making and long-term growth.</p>
-            <p class="board-bio">An entrepreneur as well as a finance executive, Sarah was
-              a co-founder and Chief Financial Officer of Santa Cruz Waves, a
-              community-focused media company in Santa Cruz, California. Her experience
-              building and managing organizations has given her a practical perspective on
-              financial stewardship, sustainable growth, governance, and the challenges
-              faced by mission-driven organizations.</p>
-            <p class="board-bio">Sarah holds a Bachelor of Science in Health Sciences from
-              the University of California, Santa Cruz and an MBA from the McCombs School
-              of Business at The University of Texas at Austin. At McCombs, she was
-              inducted into the Beta Gamma Sigma Honor Society, received the Dean’s Award
-              for Academic Excellence, and was selected as a McCombs+ Leadership Fellow.
-              She also holds a postgraduate credential in Data Science and Business
-              Analytics from The University of Texas at Austin.</p>
-            <p class="board-bio">Sarah is passionate about renewable energy and
-              particularly interested in the increasing affordability and accessibility
-              of solar power. She believes clean, affordable energy can create meaningful
-              benefits for individuals and communities while helping build a more
-              sustainable energy system for future generations. She is excited to
-              bring her financial, analytical, entrepreneurial, and business experience
-              to SolarWAVE Action and support its mission.</p>
-          </div>
-        </div>
-
-        <div class="board-card">
-          <img class="board-photo"
-            src="{{ '/assets/images/JennyFolkesson.jpg' | relative_url }}"
-            alt="Jenny Folkesson" />
-          <div class="board-body">
-            <div class="board-role">Secretary</div>
-            <div class="board-name">Jenny Folkesson</div>
-            <p class="board-bio">Jenny Folkesson is the Executive Director and co-founder
-              of SolarWAVE Action.</p>
-            <p class="board-bio">She holds a Ph.D. in Computer Science from the University
-              of Copenhagen and has almost two decades of experience in data science, machine
-              learning, and software engineering across academia, startups, and nonprofits.
-              She spent most of that career in biotech, most recently at the Chan Zuckerberg
-              Biohub, where she led image analysis initiatives.</p>
-            <p class="board-bio">Driven by a passion for using technology to make the world better,
-              she brought those skills over to climate action, contributing data science work to
-              Save Our Shores and Reef Check before she and Angela co-founded SolarWAVE Action.</p>
-          </div>
-        </div>
-
-        <div class="board-card">
-          <img class="board-photo"
-            src="{{ '/assets/images/PeteScudder.jpg' | relative_url }}"
-            alt="Pete Scudder" />
-          <div class="board-body">
-            <div class="board-role">Director</div>
-            <div class="board-name">Pete Scudder</div>
-            <p class="board-bio">Pete, along with his wife Karen, founded Scudder Roofing out
-              of his garage on the Monterey Peninsula in 1982. Today, the award winning,
-              multi-million dollar residential and commercial roofing company represents the
-              highest standards in the industry. With more than 23,000 roofs installed from
-              Big Sur to Carmel and beyond, Pete’s family-owned firm has become the area’s
-              premiere roofing contractor by merging traditional values and craftsmanship with
-              leading-edge methods, products and technology.</p>
-            <p class="board-bio">In 2007, Pete founded sister company, Scudder Solar
-                Electrical Energy Systems -- one of the leading solar energy companies in
-                the state of California – solidifying his place in the construction sector
-                as an innovative business leader and an important industry voice.</p>
-            <p class="board-bio">When he's not working on roofs, you will usually find
-              Pete Scudder volunteering his time to organizations like the Boy Scouts or
-              CASA for Monterey County and spending quality time with his close-knit family
-              and friends.</p>
-          </div>
-        </div>
-
-        <div class="board-card">
-          <img class="board-photo"
-            src="{{ '/assets/images/JanFreiwald.jpg' | relative_url }}"
-            alt="Jan Freiwald" />
-          <div class="board-body">
-            <div class="board-role">Director</div>
-            <div class="board-name">Jan Freiwald</div>
-            <p class="board-bio">Jan Freiwald is the Executive Director of the Reef Check
-              Foundation. Jan has deep expertise in reef community ecology, marine
-              management, citizen science and marine conservation. Prior to becoming
-              Executive Director, Jan led the Reef Check California program for eight
-              years. He has grown this program into a statewide marine protected area
-              monitoring network of citizen scientists. Jan is responsible for implementing
-              a climate change research project for the Reef Check California program,
-              which is studying the effects of ocean acidification and hypoxic zones on the
-              reefs and kelp forests along the California coast.</p>
-            <p class="board-bio">He studied biology in Germany before receiving a Bachelor
-              of Science in Marine Biology from the University of California Santa Cruz. Prior
-              to joining Reef Check, Jan obtained a PhD in Ecology and Evolutionary Biology
-              from the University of California Santa Cruz where he used approaches ranging
-              from acoustic telemetry, to community surveys to genetic analyses to investigate
-              kelp forest community ecology and marine protected area design.</p>
-          </div>
-        </div>
-
-        <div class="board-card">
-          <img class="board-photo"
-            src="{{ '/assets/images/KristenBrown.jpg' | relative_url }}"
-            alt="Kristen Brown" />
-          <div class="board-body">
-            <div class="board-role">Director</div>
-            <div class="board-name">Kristen Brown</div>
-            <p class="board-bio">Kristen Brown is the Executive Director of the Santa Cruz
-              Area Chamber of Commerce. She has 14+ years of experience working to serve
-              the Santa Cruz County community through her work as a congressional aide,
-              government relations specialist, council member, mayor, non-profit board
-              member, and community volunteer.</p>
-            <p class="board-bio">Having served for eight years on the Capitola City Council,
-              including two terms as Mayor, Kristen also previously held roles as Chair of
-              the Regional Transportation Commission and METRO Transit District, President
-              of the Board for the Association of Monterey Bay Area Governments,
-              representative to the Capitola Wharf and Village Business Improvement
-              Association, and member of the League of California Cities' Transportation,
-              Communication, and Public Works Policy Committee. In 2018, Kristen was
-              awarded the Santa Cruz County Women’s Commission’s Trailblazer Award for her
-              work promoting economic and political participation among women, and in 2024,
-              was named one of Silicon Valley Business Journal’s “40 Under 40.”</p>
-            <p class="board-bio">Kristen earned her Bachelor’s Degree from California State
-              University, Monterey Bay, where she studied Political Communication and
-              received distinction in her major. She also holds a Master of Public
-              Administration Degree with an emphasis in Public Sector Management and
-              Leadership from California State University, Northridge.</p>
-          </div>
-        </div>
-
       </div>
-    </div>
 
-    <!-- ── Advisors tab ── -->
-    <div id="tab-advisors" class="tab-content" hidden>
-      <p style="font-size:1.05rem; line-height:1.8; color:var(--muted); max-width:72ch; margin-bottom:3rem;">Our advisors bring deep expertise across clean energy policy, law, and technology, providing strategic guidance as we advance equitable distributed clean energy ownership.</p>
-
-      <div class="board-grid">
-
-        <div class="board-card">
-          <img class="board-photo"
-            src="{{ '/assets/images/KathleenStauffer.jpg' | relative_url }}"
-            alt="Kathleen Stauffer" />
-          <div class="board-body">
-            <div class="board-role">Advisor</div>
-            <div class="board-name">Kathleen Stauffer</div>
-            <p class="board-bio">Kathleen Stauffer is a strategic, results-driven professional
-              with deep expertise in executive leadership and mergers/acquisitions. An expert
-              on high-performance team building, organizational transformation and
-              leveraging mergers for large-scale social change, she’s enjoyed success
-              as a CEO, president, division chief, and media group publisher. Under
-              her leadership, The Arc Eastern Connecticut grew from a struggling $5
-              million nonprofit organization supporting people living with intellectual
-              and developmental disabilities to an enterprising, $26+ million hybrid.</p>
-            <p class="board-bio">Kathleen serves on nonprofit and for profit national and regional
-              Boards. She is a recognized leader, writer, and presenter.</p>
-          </div>
+      <div class=”person-card”>
+        <img class=”person-photo” src=”{{ ‘/assets/images/SarahCraft.jpg’ | relative_url }}” alt=”Sarah Craft” />
+        <div class=”person-body”>
+          <div class=”person-title”>Board Treasurer</div>
+          <div class=”person-name”>Sarah Craft</div>
+          <p class=”person-bio”>Sarah Craft is a finance and business leader with 19 years of experience spanning financial management, strategic planning, operations, business analytics, and organizational growth. She currently serves as Vice President of Finance at SPK and Associates, a technology and engineering consulting firm.</p>
+          <p class=”person-bio”>An entrepreneur as well as a finance executive, Sarah was a co-founder and CFO of Santa Cruz Waves, a community-focused media company. She holds a B.S. in Health Sciences from UC Santa Cruz and an MBA from the McCombs School of Business at UT Austin, where she was inducted into the Beta Gamma Sigma Honor Society and selected as a McCombs+ Leadership Fellow.</p>
         </div>
-
-        <div class="board-card">
-          <img class="board-photo"
-            src="{{ '/assets/images/DeanFlorez.jpg' | relative_url }}"
-            alt="Dean Florez" />
-          <div class="board-body">
-            <div class="board-role">Advisor</div>
-            <div class="board-name">Dean Florez</div>
-            <p class="board-bio">Dean Florez is a retired California Senator and currently
-              the founder and CEO of Balance Public Relations, a full service strategic
-              consulting firm that supports private and public clients where innovation
-              and regulation intersect.</p>
-            <p class="board-bio">Dean is a seasoned government relations professional.
-              With over three decades of experience and prior service in the California
-              Legislature, he is an expert at guiding established and start up tech
-              companies through regulatory processes and spaces. Over the years, he has
-              demonstrated industry-specific expertise in risk management and policy
-              strategy for marketplace startups in the sharing, gig, on-demand,
-              peer-to-peer and collaborative economy. Dean is a trusted advisor to key
-              internal and external stakeholder groups ranging from executive teams and
-              management, to C-suite, board of directors, investors, and policymakers.</p>
-            <p class="board-bio">Dean is also one of the most politically connected players
-              in California advising Governors, U.S. Senators, and Mayors. He serves as a
-              Member of the state’s climate change agency, the California Air Resources
-              Board.</p>
-            <p class="board-bio">Dean is the former California Senate Majority Leader and
-              also served in the State Assembly. He is a graduate of Harvard Business
-              School and started politics early as the past UCLA Student Body President.
-              Dean also serves on various early venture funded corporate boards that are
-              impact driven.</p>
-          </div>
-        </div>
-
-        <div class="board-card">
-          <img class="board-photo"
-            src="{{ '/assets/images/GalinaHale.jpg' | relative_url }}"
-            alt="Galina Hale" />
-          <div class="board-body">
-            <div class="board-role">Advisor</div>
-            <div class="board-name">Galina Hale</div>
-            <p class="board-bio">Galina Hale is a Professor of Economics and Coastal Science and
-              Policy,  Faculty Director of the Institute for Social Transformation, and
-              Co-Director of the Center for Analytical Finance at UC Santa Cruz.  She is a
-              Research Associate at the NBER, a Research Fellow at the CEPR, and a Director
-              of CEBRA's IFM program.  Previously, she served as a Research Advisor at the
-              Federal Reserve Bank of San Francisco and as an assistant professor of
-              economics at Yale University. Galina’s research interests focus on attracting
-              mainstream finance to climate solutions, the sustainability of the global
-              food system, and international financial stability, especially with respect
-              to climate risks. Galina also worked extensively on international capital
-              flows and financial crises.</p>
-            <p class="board-bio">Galina has published in leading economics and finance
-              peer-reviewed journals.
-              She serves on the editorial boards of a number of Economics journals. Galina
-              regularly presents her work at scholarly and policy meetings worldwide.</p>
-          </div>
-        </div>
-
-        <div class="board-card">
-          <img class="board-photo"
-            src="{{ '/assets/images/BarryCinnamon.jpg' | relative_url }}"
-            alt="Barry Cinnamon" />
-          <div class="board-body">
-            <div class="board-role">Advisor</div>
-            <div class="board-name">Barry Cinnamon</div>
-            <p class="board-bio">Barry Cinnamon is a long-time advocate of renewable energy and
-              is a widely recognized solar power and battery system expert. He overseas Cinnamon
-              Energy Systems, a leading residential and commercial contractor based in Silicon Valley.
-              He is the host of the weekly Energy Show in both radio and podcast media.</p>
-            <p class="board-bio">His pioneering work on reducing costs of rooftop solar power systems
-              led to over 30 issued and applied for patents, including a number of products that
-              transformed the solar industry -- including Andalay, the first solar panel with integrated
-              racking, grounding and wiring; the first UL listed AC solar panel; the first fully
-              “plug and play” AC solar panel; and the Spice Solar Built-In Racking System.</p>
-            <p class="board-bio">Mr. Cinnamon started his career in the late 1970’s as a researcher
-              into new flat plate and concentrating collector designs, and developed the first residential
-              energy audit program for utilities. He went on to design and install active solar, passive
-              solar and ground coupled heat pump systems.</p>
-            <p class="board-bio">In 2001 he founded Akeena Solar – which he took public in 2006 and grew
-              to become the largest national residential solar installer by the middle of the decade. He
-              partnered with Westinghouse to create Westinghouse Solar in 2010, and merged the company with
-              CBD Energy in 2012. He founded Cinnamon Energy Systems in 2012 to continue serving the solar,
-              energy storage and maintenance needs of customers in Silicon Valley.</p>
-          </div>
-        </div>
-
       </div>
-    </div>
 
+      <div class=”person-card”>
+        <img class=”person-photo” src=”{{ ‘/assets/images/RebeccaKaufman.jpg’ | relative_url }}” alt=”Rebecca Kaufman” />
+        <div class=”person-body”>
+          <div class=”person-title”>Board Director</div>
+          <div class=”person-name”>Rebecca Kaufman</div>
+          <p class=”person-bio”>Rebecca Kaufman is the founder and executive director of 5 Calls Civic Action, a national non-profit dedicated to making civic advocacy accessible to everyone. Since its launch in late 2016, 5 Calls has helped millions of people take direct action and make their voices heard by their elected officials.</p>
+          <p class=”person-bio”>Before turning to advocacy, Rebecca spent nearly two decades as a biomedical research scientist in academic and industry settings, where she developed a deep commitment to rigorous, evidence-based thinking.</p>
+        </div>
+      </div>
+
+      <div class=”person-card”>
+        <img class=”person-photo” src=”{{ ‘/assets/images/PeteScudder.jpg’ | relative_url }}” alt=”Pete Scudder” />
+        <div class=”person-body”>
+          <div class=”person-title”>Board Director</div>
+          <div class=”person-name”>Pete Scudder</div>
+          <p class=”person-bio”>Pete, along with his wife Karen, founded Scudder Roofing out of his garage on the Monterey Peninsula in 1982. Today, the award-winning, multi-million dollar residential and commercial roofing company represents the highest standards in the industry, with more than 23,000 roofs installed.</p>
+          <p class=”person-bio”>In 2007, Pete founded sister company Scudder Solar Electrical Energy Systems — one of the leading solar energy companies in California — solidifying his place as an innovative business leader and important industry voice.</p>
+        </div>
+      </div>
+
+      <div class=”person-card”>
+        <img class=”person-photo” src=”{{ ‘/assets/images/JanFreiwald.jpg’ | relative_url }}” alt=”Jan Freiwald” />
+        <div class=”person-body”>
+          <div class=”person-title”>Board Director</div>
+          <div class=”person-name”>Jan Freiwald</div>
+          <p class=”person-bio”>Jan Freiwald is the Executive Director of the Reef Check Foundation. Jan has deep expertise in reef community ecology, marine management, citizen science, and marine conservation. Prior to becoming Executive Director, Jan led the Reef Check California program for eight years, growing it into a statewide marine protected area monitoring network of citizen scientists.</p>
+          <p class=”person-bio”>He studied biology in Germany before receiving a B.S. in Marine Biology from UC Santa Cruz and a Ph.D. in Ecology and Evolutionary Biology from UC Santa Cruz.</p>
+        </div>
+      </div>
+
+      <div class=”person-card”>
+        <img class=”person-photo” src=”{{ ‘/assets/images/KristenBrown.jpg’ | relative_url }}” alt=”Kristen Brown” />
+        <div class=”person-body”>
+          <div class=”person-title”>Board Director</div>
+          <div class=”person-name”>Kristen Brown</div>
+          <p class=”person-bio”>Kristen Brown is the Executive Director of the Santa Cruz Area Chamber of Commerce. She has 14+ years of experience serving the Santa Cruz County community as a congressional aide, government relations specialist, council member, mayor, and non-profit board member.</p>
+          <p class=”person-bio”>Having served eight years on the Capitola City Council including two terms as Mayor, Kristen was awarded the 2018 Santa Cruz County Women’s Commission Trailblazer Award and named one of Silicon Valley Business Journal’s “40 Under 40” in 2024.</p>
+        </div>
+      </div>
+
+      <div class=”person-card”>
+        <img class=”person-photo” src=”{{ ‘/assets/images/DeanFlorez.jpg’ | relative_url }}” alt=”Dean Florez” />
+        <div class=”person-body”>
+          <div class=”person-title”>Advisor</div>
+          <div class=”person-name”>Dean Florez</div>
+          <p class=”person-bio”>Dean Florez is a retired California Senator and currently the founder and CEO of Balance Public Relations, a full-service strategic consulting firm. With over three decades of experience and prior service in the California Legislature, he guides companies through regulatory processes and serves as a Member of the California Air Resources Board.</p>
+          <p class=”person-bio”>Dean is the former California Senate Majority Leader and also served in the State Assembly. He is a graduate of Harvard Business School and past UCLA Student Body President.</p>
+        </div>
+      </div>
+
+      <div class=”person-card”>
+        <img class=”person-photo” src=”{{ ‘/assets/images/GalinaHale.jpg’ | relative_url }}” alt=”Galina Hale” />
+        <div class=”person-body”>
+          <div class=”person-title”>Advisor</div>
+          <div class=”person-name”>Galina Hale</div>
+          <p class=”person-bio”>Galina Hale is a Professor of Economics and Coastal Science and Policy, Faculty Director of the Institute for Social Transformation, and Co-Director of the Center for Analytical Finance at UC Santa Cruz. She is a Research Associate at the NBER and a Research Fellow at the CEPR.</p>
+          <p class=”person-bio”>Previously, she served as a Research Advisor at the Federal Reserve Bank of San Francisco and as an assistant professor of economics at Yale University. Her research focuses on attracting mainstream finance to climate solutions and international financial stability.</p>
+        </div>
+      </div>
+
+      <div class=”person-card”>
+        <img class=”person-photo” src=”{{ ‘/assets/images/GregLarson.jpg’ | relative_url }}” alt=”Greg Larson” />
+        <div class=”person-body”>
+          <div class=”person-title”>Advisor</div>
+          <div class=”person-name”>Greg Larson</div>
+          <p class=”person-bio”>Greg Larson is currently Vice President of the Santa Cruz County Board of Education, a City of Santa Cruz Historic Preservation Commissioner, and Boardmember of BAYMEC. Most of Greg’s career was as a city manager (Los Gatos, Cupertino, and Milpitas), planning director (Scottsdale, Santa Cruz, and Gilroy), and San Jose Deputy City Manager and first Director of Environmental Services.</p>
+          <p class=”person-bio”>He was also President of United Way Silicon Valley, California Chief Deputy Controller, and Chair of the Coastal Watershed Council. Greg graduated from Stanford after being elected student body co-president.</p>
+        </div>
+      </div>
+
+      <div class=”person-card”>
+        <img class=”person-photo” src=”{{ ‘/assets/images/KathleenStauffer.jpg’ | relative_url }}” alt=”Kathleen Stauffer” />
+        <div class=”person-body”>
+          <div class=”person-title”>Advisor</div>
+          <div class=”person-name”>Kathleen Stauffer</div>
+          <p class=”person-bio”>Kathleen Stauffer is a strategic, results-driven professional with deep expertise in executive leadership and mergers/acquisitions. An expert on high-performance team building and organizational transformation, she has enjoyed success as a CEO, president, division chief, and media group publisher.</p>
+          <p class=”person-bio”>Under her leadership, The Arc Eastern Connecticut grew from a struggling $5 million nonprofit to an enterprising $26+ million hybrid organization. Kathleen serves on nonprofit and for-profit national and regional boards and is a recognized leader, writer, and presenter.</p>
+        </div>
+      </div>
+
+      <div class=”person-card”>
+        <img class=”person-photo” src=”{{ ‘/assets/images/BarryCinnamon.jpg’ | relative_url }}” alt=”Barry Cinnamon” />
+        <div class=”person-body”>
+          <div class=”person-title”>Advisor</div>
+          <div class=”person-name”>Barry Cinnamon</div>
+          <p class=”person-bio”>Barry Cinnamon is a long-time advocate of renewable energy and a widely recognized solar power and battery system expert. He oversees Cinnamon Energy Systems, a leading residential and commercial contractor in Silicon Valley, and hosts the weekly Energy Show podcast.</p>
+          <p class=”person-bio”>His pioneering work on reducing costs of rooftop solar systems led to over 30 patents. In 2001 he founded Akeena Solar, which he took public in 2006 and grew to become the largest national residential solar installer by mid-decade.</p>
+        </div>
+      </div>
+
+      <div class=”person-card”>
+        <img class=”person-photo” src=”{{ ‘/assets/images/BarbaraAlderete.jpg’ | relative_url }}” alt=”Barbara Alderete” />
+        <div class=”person-body”>
+          <div class=”person-title”>Volunteer Executive Strategist</div>
+          <div class=”person-name”>Barbara Alderete</div>
+          <p class=”person-bio”>Barbara Alderete is an accomplished C-suite Executive Business Partner
+            with more than 20 years of experience bringing operational clarity, strategic alignment,
+            and leadership continuity to public, global, and high-growth organizations. As
+            Volunteer Executive Strategist for SolarWAVE Action, she draws on her extensive
+            corporate experience and longstanding connection to the solar industry to support
+            the organization's mission of advancing equitable clean energy solutions.</p>
+            <p class=”person-bio”>Throughout her career, Barbara has served as a trusted
+              partner to CEOs, CFOs, CIOs, and General Counsels across clean technology,
+              oil and gas, biopharmaceuticals, semiconductors, and advanced manufacturing.
+              Her experience includes executive leadership operations, board and investor
+              engagement, organizational transformation, and cross-functional coordination
+              during periods of growth and change. Her earlier work with Akeena/Westinghouse
+              Solar provided firsthand exposure to the opportunities and challenges of bringing
+              renewable energy technologies to a rapidly evolving market.</p>
+            <p class=”person-bio”>As a Certified Administrative Professional (CAP), Barbara
+              combines strategic thinking, sound judgment, and a relationship-centered
+              approach to helping leaders and organizations move forward. She believes
+              that meaningful progress is built through collaboration, shared purpose,
+              and the ability to turn ambitious ideas into coordinated action.</p>
+        </div>
+      </div>
+
+    </div>
   </section>
 
 <!--  &lt;!&ndash; HOW WE WORK &ndash;&gt;-->
@@ -949,13 +696,3 @@ permalink: /about/
     </div>
   </section>
 
-  <script>
-    document.querySelectorAll('.team-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.team-tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(c => { c.hidden = true; });
-        tab.classList.add('active');
-        document.getElementById('tab-' + tab.dataset.tab).hidden = false;
-      });
-    });
-  </script>
