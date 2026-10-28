@@ -256,7 +256,7 @@ permalink: /blog/tpo_ownership_rate/
             var doc = new DOMParser().parseFromString(html, 'text/html');
             var caption = doc.querySelector('.swc-caption');
             var source = doc.querySelector('.swc-src');
-            if (caption) document.getElementById('fig1-caption').innerHTML = caption.innerHTML;
+            if (caption) document.getElementById('fig1-caption').innerHTML = caption.innerHTML.replace(/<br\s*\/?>/gi, ' ');
             if (source) document.getElementById('fig1-source').innerHTML = source.innerHTML;
           })
           .catch(function () {});
