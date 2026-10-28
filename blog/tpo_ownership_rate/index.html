@@ -1,0 +1,370 @@
+---
+title: "Owning Solar in California Got Harder Twice. Now Half of New Systems Are Third-Party Owned."
+layout: default
+permalink: /blog/tpo_ownership_rate/
+---
+<style>/* ─── BREADCRUMB ─── */
+    .breadcrumb-bar {
+      padding: 5rem 3rem 0;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .breadcrumb-bar a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb-bar a:hover { color: var(--white); }
+    .breadcrumb-bar .sep { color: var(--border); }
+    .breadcrumb-bar .current { color: var(--sun); }
+
+    /* ─── POST HEADER ─── */
+    .post-header {
+      margin: 1.25rem 2rem;
+      background: var(--sky-mid);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 3rem;
+    }
+
+    .post-meta-top {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.5rem; flex-wrap: wrap;
+    }
+
+    .tag-pill {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem; font-weight: 600;
+      padding: 0.25rem 0.8rem; border-radius: 999px;
+      border: 1px solid;
+    }
+    .tag-pill.analysis { border-color: rgba(61,214,163,0.4); color: var(--accent); }
+    .tag-pill.policy   { border-color: rgba(245,166,35,0.4); color: var(--sun); }
+    .tag-pill.data     { border-color: rgba(100,160,255,0.4); color: #7EB3FF; }
+
+    .meta-text {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em;
+    }
+
+    .post-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700; line-height: 1.15;
+      color: var(--white); margin-bottom: 1rem;
+    }
+
+    .post-header .subtitle {
+      font-size: 1rem; line-height: 1.7;
+      color: var(--muted); max-width: 64ch; margin-bottom: 2rem;
+    }
+
+    .author-row {
+      display: flex; align-items: center; gap: 0.85rem;
+    }
+    .author-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--sky-mid));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Mono', monospace; font-size: 0.7rem;
+      font-weight: 700; color: var(--sky); flex-shrink: 0;
+    }
+    .author-name { font-size: 0.9rem; font-weight: 600; color: var(--white); }
+    .author-role { font-size: 0.8rem; color: var(--muted); }
+
+    /* ─── POST BODY ─── */
+    .post-body {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 2rem;
+      max-width: 1400px;
+      margin: 2rem auto;
+      padding: 0 2rem 4rem;
+      align-items: start;
+    }
+
+    /* ─── ARTICLE ─── */
+    article {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.5rem;
+    }
+
+    article h2 {
+      font-size: 1.3rem; font-weight: 700;
+      color: var(--white); margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    article p {
+      font-size: 0.95rem; line-height: 1.8;
+      color: rgba(247,244,238,0.8);
+      margin-bottom: 1.25rem;
+    }
+
+    article section { margin-bottom: 2.5rem; }
+    article section:last-child { margin-bottom: 0; }
+
+    article a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
+    article a:hover { color: var(--sun); }
+
+    /* Figure */
+    .figure-block {
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem;
+      margin: 1.75rem 0;
+    }
+    .figure-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 0.5rem;
+    }
+    .figure-placeholder {
+      height: 300px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.02);
+      border-radius: 4px;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+    }
+    .figure-caption {
+      font-size: 0.82rem; color: var(--muted); font-style: italic;
+      line-height: 1.6; margin-top: 0.75rem;
+    }
+    .figure-source {
+      font-size: 0.78rem; color: var(--muted); font-style: italic;
+      line-height: 1.5; margin-top: 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ─── SIDEBAR ─── */
+    .sidebar { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .sidebar-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .sidebar-card h4 {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 1rem;
+    }
+
+    .toc-list { list-style: none; }
+    .toc-list li {
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.875rem;
+    }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .toc-list a:hover { color: var(--white); }
+    .toc-list li.active a { color: var(--sun); }
+
+    .sidebar-card p {
+      font-size: 0.85rem; line-height: 1.65; color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .sidebar-link {
+      display: block; font-size: 0.82rem; color: var(--accent);
+      text-decoration: none; transition: color 0.2s; margin-bottom: 0.4rem;
+    }
+    .sidebar-link:hover { color: var(--sun); }
+
+    .related-list { list-style: none; }
+    .related-list li { margin-bottom: 0.5rem; }
+    .related-list a { font-size: 0.85rem; color: var(--accent); text-decoration: none; transition: color 0.2s; line-height: 1.4; display: block; }
+    .related-list a:hover { color: var(--sun); }
+
+    .topics { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .topic-pill {
+      font-size: 0.75rem; color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.7rem; border-radius: 999px;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .breadcrumb-bar { padding: 4.5rem 1.5rem 0; }
+      .post-header { margin: 1rem; padding: 2rem; }
+      .post-body { grid-template-columns: 1fr; padding: 0 1rem 3rem; }
+      .sidebar { order: -1; }
+    }
+</style>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <a href="{{ '/our_work/' | relative_url }}">Our Work</a>
+  <span class="sep">&#x2192;</span>
+  <a href="{{ '/blog/' | relative_url }}">Blog</a>
+  <span class="sep">&#x2192;</span>
+  <span class="current">TPO Ownership Shift</span>
+</div>
+
+<!-- POST HEADER -->
+<div class="post-header">
+  <div class="post-meta-top">
+    <span class="tag-pill data">Data</span>
+    <span class="tag-pill analysis">Analysis</span>
+    <span class="tag-pill policy">Policy</span>
+    <span class="meta-text">Oct 28, 2026 &nbsp;&middot;&nbsp; 9 min read</span>
+  </div>
+  <h1>Owning Solar in California Got Harder Twice. Now Half of New Systems Are Third-Party Owned.</h1>
+  <p class="subtitle">Since mid-2023, a growing share of California&#x2019;s residential solar has shifted from homeowner-owned to third-party-owned &#x2014; leased or under a power purchase agreement. That shift wasn&#x2019;t a market choice. It was the result of two consecutive policy shocks.</p>
+  <div class="author-row">
+    <div class="author-avatar">JF</div>
+    <div>
+      <div class="author-name">Jenny Folkesson</div>
+      <div class="author-role">SolarWAVE Action</div>
+    </div>
+  </div>
+</div>
+
+<!-- POST BODY -->
+<div class="post-body">
+
+  <article>
+
+    <section id="overview">
+      <p>Since mid-2023, a growing share of residential solar installations in California have been leased or sold through a power purchase agreement (PPA), instead of owned by the household whose property they sit on. These third-party owned (TPO) systems made up 50% of residential applications in 2024, up from 25% in the first quarter of 2023. That shift didn&#x2019;t happen because TPO products like leases or PPAs got better. It happened because owning solar in California got harder and more expensive.</p>
+
+      <p>First, the Net Billing Tariff (NBT) sharply cut the credit customers receive for the power they export to the grid, which increased storage attachment rates from 14% to 74% from 2023&#x2013;2025 and raised the cost of going solar. Then, the 30% residential solar tax credit that homeowners and the industry had relied on for two decades ended. And the federal credit that TPO companies now depend on is set to end for most new projects after 2027.</p>
+    </section>
+
+    <div class="figure-block">
+      <span class="figure-label">Figure 1</span>
+        <iframe src="{{ '/assets/graphs/residential_applications_tpo_share_embed.html' | relative_url }}"
+                id="fig1-frame" width="100%" height="800" frameborder="0" scrolling="no"
+                style="display:block;border-radius:4px;"></iframe>
+        <p class="figure-caption" id="fig1-caption"></p>
+        <p class="figure-source" id="fig1-source"></p>
+    </div>
+
+    <section id="shock-one">
+      <h2>Shock One: The End of NEM 2.0</h2>
+
+      <p>In December 2022, the California Public Utilities Commission replaced Net Energy Metering (NEM) 2.0 with the NBT for any system applying after April 14, 2023. Installers and homeowners rushed to lock in the old rules: monthly applications peaked at over 100,600 in March 2023, nearly five times the 2022 monthly average. Then the floor dropped out. In 2024, applications averaged about 10,500 a month &#x2014; half the 2022 pace and below 2020&#x2019;s roughly 12,000. Over the same period, the TPO share doubled, from 25% to 50%.</p>
+
+      <p>Under NBT, solar exports earn far less, so a system pays for itself more slowly. It also means that solar works best paired with a battery, which raises the overall system cost. Solar financing through loans may also have been less favorable than TPO agreements during this period due to high interest rates.</p>
+    </section>
+
+    <section id="shock-two">
+      <h2>Shock Two: The End of the Homeowner Tax Credit</h2>
+
+      <p>The second shock came from Washington. The One Big Beautiful Bill Act, signed July 4, 2025, ended the 30% Residential Clean Energy Credit (Section 25D) for systems installed after December 31, 2025. It left in place the business credit (Section 48E) that TPO companies claim on the systems they own.</p>
+
+      <p>The effect is smaller than the NBT shock, partly because the market had already shrunk. Once the bill was signed, homeowners raced to buy and install before the deadline. During the second half of 2025, owned-system applications averaged about 7,200 a month &#x2014; a third more than in the first half of the year &#x2014; and the TPO share dipped to under 40% at the end of the year. After the deadline passed, the TPO share climbed back from its late-2025 dip to about 51% by spring 2026, the same level as before the bill passed.</p>
+
+      <p>Early data from the summer of 2026 hints that the shift may go further: TPO systems made up 57% of June applications. But directly owned systems take longer to get through approval (a median of 27 days in 2025, compared with 17 for TPO systems), so the most recent months overstate the leased share. Current data from <a href="https://www.californiadgstats.ca.gov/downloads/" target="_blank" rel="noopener">DGStats</a>, which we use for this analysis, runs through August 2026.</p>
+
+      <p>The size of the market shrank after 25D ended; both owned and TPO applications fell by roughly a quarter in March&#x2013;May 2026 compared with a year earlier, though the drop may partly be demand pulled forward into the late 2025 rush. Some of what remains of the market isn&#x2019;t a market choice at all. Since 2020, California&#x2019;s Title 24 building code has required solar on most new homes; roughly 16% of residential installations came from new construction in 2020&#x2013;2024. Thus household-driven adoption is even smaller than the totals suggest.</p>
+    </section>
+
+    <section id="tpo-implications">
+      <h2>What Third-Party Ownership Means</h2>
+
+      <p>Third-party ownership is a valuable clean energy option; a well-priced lease or PPA can lower a household&#x2019;s utility bill from the first month, require no upfront cash, and require no federal tax liability. TPO solar projects have also helped bring solar to households that couldn&#x2019;t otherwise afford it; there is an inverse relationship between TPO rate and median income group in California.</p>
+
+      <p>But when TPO companies are the only path to a federal subsidy for rooftop solar, it changes who captures the value:</p>
+
+      <ul style="list-style: none; padding: 0; margin: 1.25rem 0; display: flex; flex-direction: column; gap: 0.85rem;">
+        <li style="padding-left: 1.5rem; position: relative; font-size: 0.95rem; line-height: 1.8; color: rgba(247,244,238,0.8);"><span style="position: absolute; left: 0; color: var(--sun); font-weight: 700;">&#x00B7;</span>The subsidy flows to the financing company, which decides how much of it reaches the household.</li>
+        <li style="padding-left: 1.5rem; position: relative; font-size: 0.95rem; line-height: 1.8; color: rgba(247,244,238,0.8);"><span style="position: absolute; left: 0; color: var(--sun); font-weight: 700;">&#x00B7;</span>The property owner gives up the asset. Contracts run 20&#x2013;25 years, sometimes with annual price escalators, and can complicate selling the house.</li>
+        <li style="padding-left: 1.5rem; position: relative; font-size: 0.95rem; line-height: 1.8; color: rgba(247,244,238,0.8);"><span style="position: absolute; left: 0; color: var(--sun); font-weight: 700;">&#x00B7;</span>Ownership concentrates among a handful of large firms that have the tax appetite to use the credit, rather than the local installers that built California&#x2019;s solar industry. Sunrun alone owns over 60% of new TPO systems applied for in 2026 (through August).</li>
+      </ul>
+
+      <p>Ownership increasingly favors households that can pay cash or secure affordable financing, while the families who would gain the most from decades of low-cost power increasingly have only one realistic option: a 20&#x2013;25-year contract.</p>
+    </section>
+
+    <section id="shock-three">
+      <h2>Shock Three Is Coming</h2>
+
+      <p>Under the One Big Beautiful Bill Act, leased and PPA solar projects that began construction after July 4, 2026 must be in service by the end of 2027 to claim the 48E credit. New foreign entity of concern (FEOC) restrictions already apply to those systems. Battery storage keeps its credit longer, which may push TPO providers further toward storage &#x2014; though those projects face similarly strict FEOC supply chain rules.</p>
+
+      <p>This shock isn&#x2019;t measurable yet, but the pattern of the first two suggests what to watch for: a rush to beat the deadline, then a drop. After 2027, neither owning nor leasing rooftop solar in California will carry a federal tax credit for most new projects.</p>
+
+      <p>The same deadline reaches beyond homes: schools, nonprofits, local governments, and tribes lose the elective-pay option that lets them own solar and receive the credit as a direct payment, and businesses lose the commercial credit for most new solar projects. For commercial solar, the clock is tight; commercial applications completed in 2026 took a median of 990 days &#x2014; nearly three years &#x2014; from application to interconnection (see our <a href="{{ '/blog/solar_application_time/' | relative_url }}">analysis of application times</a>), so many projects that haven&#x2019;t already started construction are unlikely to be in service by the end of 2027. And because of that same lag, the impact won&#x2019;t show up in interconnection data until long after the deadline has passed.</p>
+    </section>
+
+    <section id="policy">
+      <h2>California Needs to Decide if Ownership Matters</h2>
+
+      <p>Between a state tariff that cut the value of rooftop exports and a federal law that ended the residential solar tax credit, households who want to own the panels on their roof are increasingly on their own. Washington has made its choice, but that doesn&#x2019;t mean California has to follow.</p>
+
+      <p>The State needs clean generation. The <a href="https://www.energy.ca.gov/publications/2026/2025-integrated-energy-policy-report" target="_blank" rel="noopener">California Energy Commission&#x2019;s 2025 Integrated Energy Policy Report</a> projects that total electricity consumption will increase by nearly 50% by 2045, the same year California has committed to achieve 100% clean energy. Rooftop solar is generation that needs no new transmission lines, and California has barely tapped its potential: existing buildings have the technical potential to host nearly 130 GW of solar, against nearly 20 GW installed today.</p>
+
+      <p>California has the rooftops, and it needs clean power. What it doesn&#x2019;t yet have is a policy that treats household ownership as worth protecting. With Washington stepping back, it&#x2019;s up to Sacramento to bring back a thriving rooftop solar market. Policy proposals should be judged by a simple test: do they leave Californians a real choice to own the panels on their roof and keep the savings? A healthy solar market needs both TPO products and direct ownership. Right now, only one of them has federal support, and even that one has an expiration date.</p>
+    </section>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sidebar-card">
+      <h4>In this post</h4>
+      <ul class="toc-list">
+        <li class="active"><a href="#overview">Overview</a></li>
+        <li><a href="#shock-one">Shock One: End of NEM 2.0</a></li>
+        <li><a href="#shock-two">Shock Two: End of 25D</a></li>
+        <li><a href="#tpo-implications">What TPO Ownership Means</a></li>
+        <li><a href="#shock-three">Shock Three Is Coming</a></li>
+        <li><a href="#policy">California&#x2019;s Choice</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-card">
+      <h4>Data</h4>
+      <p>Analysis based on California DGStats interconnection data through August 2026.</p>
+      <a class="sidebar-link" href="https://www.californiadgstats.ca.gov/downloads/" target="_blank" rel="noopener">California DGStats &#x2192;</a>
+    </div>
+
+    <div class="sidebar-card">
+      <h4>Related</h4>
+      <ul class="related-list">
+        <li><a href="{{ '/blog/solar_application_time/' | relative_url }}">California Needs Clean Power Fast. Commercial Solar Is Ready, If Utilities Let It Connect.</a></li>
+        <li><a href="{{ '/blog/cost_shift_redefinition/' | relative_url }}">How Two Simple Fixes Reduce the Cost Shift By Two-Thirds</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-card">
+      <h4>Topics</h4>
+      <div class="topics">
+        <span class="topic-pill">Residential Solar</span>
+        <span class="topic-pill">TPO</span>
+        <span class="topic-pill">Net Billing</span>
+        <span class="topic-pill">Tax Credits</span>
+        <span class="topic-pill">CPUC</span>
+        <span class="topic-pill">Policy</span>
+      </div>
+    </div>
+
+  </aside>
+
+</div>
+
+<script>
+  const sections = document.querySelectorAll('article section[id]');
+  const tocLinks = document.querySelectorAll('.toc-list li');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(li => li.classList.remove('active'));
+        const active = document.querySelector('.toc-list a[href="#' + entry.target.id + '"]');
+        if (active) active.parentElement.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
