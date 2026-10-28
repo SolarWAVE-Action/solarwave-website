@@ -248,6 +248,20 @@ permalink: /blog/tpo_ownership_rate/
         <p class="figure-caption" id="fig1-caption"></p>
         <p class="figure-source" id="fig1-source"></p>
     </div>
+    <script>
+      (function () {
+        fetch('{{ "/assets/graphs/residential_applications_tpo_share_embed.html" | relative_url }}')
+          .then(function (r) { return r.text(); })
+          .then(function (html) {
+            var doc = new DOMParser().parseFromString(html, 'text/html');
+            var caption = doc.querySelector('.swc-caption');
+            var source = doc.querySelector('.swc-src');
+            if (caption) document.getElementById('fig1-caption').innerHTML = caption.innerHTML;
+            if (source) document.getElementById('fig1-source').innerHTML = source.innerHTML;
+          })
+          .catch(function () {});
+      })();
+    </script>
 
     <section id="shock-one">
       <h2>Shock One: The End of NEM 2.0</h2>
