@@ -256,7 +256,8 @@ permalink: /blog/tpo_ownership_rate/
       <span class="figure-label">Figure 1</span>
         <iframe src="{{ '/assets/graphs/residential_applications_tpo_share_embed.html' | relative_url }}"
                 id="fig1-frame" width="100%" height="800" frameborder="0" scrolling="no"
-                style="display:block;border-radius:4px;"></iframe>
+                style="display:block;border-radius:4px;"
+                onload="(function(f){function r(){var h=f.contentDocument.documentElement.scrollHeight;if(h>100)f.style.height=h+'px';}r();if(window.ResizeObserver)new ResizeObserver(r).observe(f.contentDocument.documentElement);})(this)"></iframe>
         <p class="figure-caption" id="fig1-caption"></p>
         <p class="figure-source" id="fig1-source"></p>
     </div>
