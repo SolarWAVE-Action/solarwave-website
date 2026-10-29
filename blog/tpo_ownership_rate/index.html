@@ -255,22 +255,12 @@ permalink: /blog/tpo_ownership_rate/
     <div class="figure-block">
       <span class="figure-label">Figure 1</span>
         <iframe src="{{ '/assets/graphs/residential_applications_tpo_share_embed.html' | relative_url }}"
-                id="fig1-frame" width="100%" height="800" frameborder="0" scrolling="no"
+                id="fig1-frame" width="100%" height="780" frameborder="0" scrolling="no"
                 style="display:block;border-radius:4px;"></iframe>
         <p class="figure-caption" id="fig1-caption"></p>
         <p class="figure-source" id="fig1-source"></p>
     </div>
     <script>
-      (function () {
-        var frame = document.getElementById('fig1-frame');
-        frame.addEventListener('load', function () {
-          setTimeout(function () {
-            var h = frame.contentDocument.documentElement.scrollHeight;
-            if (h > 100 && h < 1200) frame.style.height = h + 'px';
-          }, 600);
-        });
-      })();
-
       (function () {
         fetch('{{ "/assets/graphs/residential_applications_tpo_share_embed.html" | relative_url }}')
           .then(function (r) { return r.text(); })
