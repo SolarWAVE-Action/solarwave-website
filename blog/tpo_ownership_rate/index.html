@@ -264,14 +264,10 @@ permalink: /blog/tpo_ownership_rate/
       (function () {
         var frame = document.getElementById('fig1-frame');
         frame.addEventListener('load', function () {
-          function resize() {
+          setTimeout(function () {
             var h = frame.contentDocument.documentElement.scrollHeight;
-            if (h > 100) frame.style.height = h + 'px';
-          }
-          resize();
-          if (window.ResizeObserver) {
-            new ResizeObserver(resize).observe(frame.contentDocument.documentElement);
-          }
+            if (h > 100 && h < 1200) frame.style.height = h + 'px';
+          }, 600);
         });
       })();
 
