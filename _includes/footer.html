@@ -14,7 +14,7 @@
         <li><a href="{{ '/get_involved/' | relative_url }}">Get Involved</a></li>
         <li><a href="{{ '/work_with_us/' | relative_url }}">Work With Us</a></li>
         <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
-        <li><a href="{{ '/donate/' | relative_url }}">Donate</a></li>
+        <li><a href="{% if page.research %}{{ '/donate/research/' | relative_url }}{% else %}{{ '/donate/' | relative_url }}{% endif %}">Donate</a></li>
       </ul>
     </div>
   </div>
