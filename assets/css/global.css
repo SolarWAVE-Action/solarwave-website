@@ -161,19 +161,3 @@ footer {
   .footer-legal { justify-content: center; }
   .footer-links { flex-wrap: wrap; }
 }
-
-/* ─── RESEARCH & EDUCATION NOTICE (blog posts) ─── */
-.research-notice {
-  margin-top: 1.5rem;
-  padding: 1rem 1.25rem;
-  border-left: 2px solid var(--accent);
-  background: var(--panel);
-  border-radius: 4px;
-  max-width: 70ch;
-}
-.research-notice p { font-size: 0.85rem; line-height: 1.6; color: var(--muted); margin: 0; }
-.research-notice p + p { margin-top: 0.5rem; }
-.research-notice strong { color: var(--white); }
-.research-notice a { color: var(--accent); text-decoration: none; }
-.research-notice a:hover { color: var(--sun); }
-.research-notice-small { font-size: 0.8rem !important; }
