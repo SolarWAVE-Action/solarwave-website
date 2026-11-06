@@ -200,8 +200,10 @@ permalink: /blog/tpo_ownership_rate/
       .post-body { grid-template-columns: 1fr; padding: 0 1rem 3rem; }
       .sidebar { order: -1; }
     }
+    .fig-mobile-img { display: none; width: 100%; height: auto; border-radius: 4px; }
     @media (max-width: 600px) {
-      #fig1-frame { height: 660px; }
+      #fig1-frame { display: none; }
+      .fig-mobile-img { display: block; }
       .figure-block {
         margin-left: -2.5rem;
         margin-right: -2.5rem;
@@ -259,6 +261,7 @@ permalink: /blog/tpo_ownership_rate/
         <iframe src="{{ '/assets/graphs/residential_applications_tpo_share_embed.html' | relative_url }}"
                 id="fig1-frame" width="100%" height="780" frameborder="0" scrolling="no"
                 style="display:block;border-radius:4px;"></iframe>
+        <img class="fig-mobile-img" src="/assets/graphs/residential_applications_tpo_share.png" alt="Residential solar applications by TPO share">
         <p class="figure-caption" id="fig1-caption"></p>
         <p class="figure-source" id="fig1-source"></p>
     </div>
